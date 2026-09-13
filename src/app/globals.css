@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+/*
+  Learnometry design tokens — Design System v1 §40.
+  Neutrals intentionally use Tailwind's built-in `slate` scale: its values are
+  identical to the neutral ramp in §3.3, so no parallel scale is introduced.
+*/
+@theme {
+  --color-primary: #00b4d8;
+  --color-primary-deep: #168b9e;
+  --color-ink: #0f172a;
+  --color-background: #f1f5f9;
+  --color-surface: #ffffff;
+
+  --color-success: #16a34a;
+  --color-warning: #f59e0b;
+  --color-danger: #dc2626;
+  --color-info: #2563eb;
+
+  --color-border-subtle: #cbd5e1;
+
+  /*
+    AA text variants — EXTENSION, pending ratification into Design System v1.1.
+    §26 requires WCAG 2.2 AA, but the locked accents fall short as small text on
+    light surfaces: #168B9E reaches only 4.02:1 on white (3.67:1 on #F1F5F9) and
+    #16A34A only 3.30:1. Both still satisfy the 3:1 bar for icons and large
+    display text, so the locked tokens remain in use there; these darker shades
+    are strictly for text below 24px.
+      --color-primary-text  5.92:1 on white, 5.41:1 on #F1F5F9
+      --color-success-text  5.02:1 on white
+  */
+  --color-primary-text: #0e6e7d;
+  --color-success-text: #15803d;
+
+  --radius-btn: 10px;
+  --radius-input: 10px;
+  --radius-card-sm: 12px;
+  --radius-card: 16px;
+  --radius-card-lg: 20px;
+
+  --shadow-brutal-sm: 0 2px 0 #0f172a;
+  --shadow-brutal: 0 4px 0 #0f172a;
+  --shadow-brutal-lg: 0 6px 0 #0f172a;
+
+  --text-display-xl: clamp(2.25rem, 5.2vw, 3.5rem);
+  --text-display-xl--line-height: 1.05;
+  --text-display-xl--letter-spacing: -0.02em;
+  --text-display-lg: clamp(1.875rem, 4vw, 2.75rem);
+  --text-display-lg--line-height: 1.1;
+  --text-display-lg--letter-spacing: -0.02em;
+}
+
+/* next/font injects these on <html>, so they must resolve at point of use. */
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-space-grotesk);
+}
+
+@layer base {
+  :root {
+    /* Sticky header height. Sections subtract this so one section = one screen. */
+    --header-h: 4.5rem;
+
+    /*
+      Rendered footer height at `lg` and up. The closing CTA subtracts it so the
+      two share the last screen. Approximate by design — if the footer's content
+      shifts, the CTA simply gains or loses a little breathing room.
+    */
+    --footer-h: 21.5rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Offset anchor targets so the sticky header never covers a section heading. */
+    scroll-padding-top: var(--header-h);
+  }
+
+  @media (min-width: 1024px) {
+    /* Closing CTA claims the screen that is left once the footer has its room. */
+    .final-screen {
+      min-height: calc(100svh - var(--header-h) - var(--footer-h));
+    }
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-ink);
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  /* Single consistent focus treatment across every interactive element. */
+  :focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-primary);
+    color: var(--color-ink);
+  }
+}
+
+@layer utilities {
+  /*
+    Restrained dot-grid field for the hero. Design System §2.3 bans gradient
+    washes and photographic backdrops; a low-contrast grid keeps structure
+    without decoration.
+  */
+  .bg-dot-grid {
+    background-image: radial-gradient(circle, #cbd5e1 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+}
+
+/*
+  Short-viewport compaction. Deliberately UNLAYERED: these override Tailwind
+  utilities (`py-12`, `gap-4`) that would otherwise win, since the utilities
+  layer outranks `base`.
+
+  A 1366×768 laptop — still common for this audience — leaves roughly 650px of
+  viewport. Rather than let the densest sections overflow, the section padding,
+  display scale and heading block all step down together so one section still
+  resolves to one screen.
+*/
+@media (min-width: 1024px) and (max-height: 820px) {
+  :root {
+    --text-display-xl: clamp(2rem, 4vw, 2.75rem);
+    --text-display-lg: clamp(1.625rem, 3vw, 2.125rem);
+  }
+
+  .snap-section {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .section-heading {
+    gap: 0.625rem;
+  }
+
+  .section-heading > p {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  /* The closing card shares its screen with the footer, so it compacts too. */
+  .cta-card {
+    padding: 1.75rem;
+    gap: 1rem;
+  }
+
+  .cta-card > p {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+}
+
+@media (min-width: 1024px) and (max-height: 730px) {
+  .snap-section {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
+/* §26 — motion is an enhancement, never a requirement. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

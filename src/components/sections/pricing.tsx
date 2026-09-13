@@ -1,0 +1,195 @@
+"use client";
+
+import { ArrowRight, Check, Sparkles, Zap } from "lucide-react";
+import Link from "next/link";
+import { buttonClasses } from "@/components/ui/button";
+import { Section, SectionHeading } from "@/components/ui/section";
+import { useWaitlistModal } from "@/components/waitlist-modal";
+
+/* Updated pricing tiers matching product decisions: ₹199, ₹299, ₹349 with daily quotas */
+const plans = [
+  {
+    code: "starter",
+    name: "Starter",
+    price: "₹199",
+    cadence: "per month",
+    validity: "1 month validity",
+    dailyAllowance: "200 credits/tokens / day",
+    dailyResetNotice: "Refreshes every 24 hours at midnight",
+    modelAccess: "1 Model (Your Choice)",
+    summary: "For focused daily concept revision with your chosen AI learning engine.",
+    features: [
+      "1 AI model of your choice (switchable in settings)",
+      "200 credits/tokens refreshed daily",
+      "Diagnostic assessment & gap identification",
+      "Targeted daily practice & adaptive study plan",
+      "Evidence-backed explanation of every mistake",
+      "1 month validity · No lock-in",
+    ],
+    cta: "Reserve Starter Spot",
+    recommended: false,
+  },
+  {
+    code: "plus",
+    name: "Plus",
+    price: "₹299",
+    cadence: "per month",
+    validity: "1 month validity",
+    dailyAllowance: "350 tokens / day",
+    dailyResetNotice: "Refreshes every 24 hours at midnight",
+    modelAccess: "All Models Unlocked",
+    summary: "The balanced daily driver — multi-model reasoning and 75% higher daily quota.",
+    features: [
+      "All AI models unlocked (fast + reasoning)",
+      "350 tokens/credits refreshed daily",
+      "Deep root-cause error diagnostics",
+      "Personalized multi-week plan & scheduled retests",
+      "Complex step-by-step problem breakdowns",
+      "1 month validity · No lock-in",
+    ],
+    cta: "Reserve Plus Spot",
+    recommended: true,
+  },
+  {
+    code: "pro",
+    name: "Pro",
+    price: "₹349",
+    cadence: "per month",
+    validity: "1 month validity",
+    dailyAllowance: "500 tokens / day",
+    dailyResetNotice: "Refreshes every 24 hours at midnight",
+    modelAccess: "All Models + Max Reasoning",
+    summary: "For intensive exam sprinters doing heavy daily practice and deep retests.",
+    features: [
+      "All AI models including deepest reasoning engines",
+      "500 tokens/credits refreshed daily",
+      "High-frequency retesting and rapid adaptation",
+      "Full multi-chapter diagnostic deep-dives",
+      "Priority AI queue for instant generation",
+      "1 month validity · No lock-in",
+    ],
+    cta: "Reserve Pro Spot",
+    recommended: false,
+  },
+];
+
+export function Pricing() {
+  const { openWaitlistModal } = useWaitlistModal();
+
+  return (
+    <Section id="pricing" className="border-b-2 border-ink bg-background">
+      <SectionHeading
+        align="center"
+        eyebrow="Transparent Pricing"
+        title="Predictable daily study allowances. Zero surprise fees."
+        description="Every plan includes a guaranteed daily allowance of AI credits that resets every midnight. Choose between 1 dedicated model or access to all reasoning models."
+      />
+
+      {/* Zero-assumption free trial banner */}
+      <div className="mx-auto mt-6 max-w-2xl rounded-btn border-2 border-ink bg-primary/15 px-4 py-2.5 text-center text-sm font-semibold text-ink shadow-brutal-sm">
+        <span className="inline-flex items-center gap-1.5">
+          <Sparkles className="size-4 text-primary-deep" />
+          <span><strong>Want to try first?</strong> All waitlist students receive a free diagnostic assessment on launch day — no credit card required.</span>
+        </span>
+      </div>
+
+      <div className="mt-8 grid items-stretch gap-5 lg:grid-cols-3">
+        {plans.map((plan) => (
+          <article
+            key={plan.code}
+            className={`flex flex-col justify-between rounded-card-lg border-2 border-ink bg-surface p-5 transition-transform ${
+              plan.recommended
+                ? "shadow-brutal-lg lg:-translate-y-2 ring-2 ring-primary"
+                : "shadow-brutal"
+            }`}
+          >
+            <div>
+              {plan.recommended ? (
+                <div className="-mx-5 -mt-5 mb-4 rounded-t-[14px] border-b-2 border-ink bg-primary px-5 py-2 text-center text-xs font-bold uppercase tracking-wide text-ink">
+                  Most Popular for Students
+                </div>
+              ) : null}
+
+              <div className="flex items-center justify-between gap-3">
+                <h3 className="font-display text-2xl text-ink">{plan.name}</h3>
+                <span className="rounded-full border border-ink bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-ink">
+                  {plan.validity}
+                </span>
+              </div>
+
+              <p className="mt-3 flex items-baseline gap-2">
+                <span className="font-display text-4xl text-ink">{plan.price}</span>
+                <span className="text-sm font-medium text-slate-600">
+                  {plan.cadence}
+                </span>
+              </p>
+
+              {/* Model access badge */}
+              <div className="mt-3 rounded-btn border border-ink/20 bg-slate-50 px-3 py-2">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                  Model Access
+                </p>
+                <p className="text-sm font-bold text-ink flex items-center gap-1.5 mt-0.5">
+                  <Zap className="size-4 text-primary-deep" />
+                  {plan.modelAccess}
+                </p>
+              </div>
+
+              {/* Daily allowance callout */}
+              <div className="mt-2.5 rounded-btn border-2 border-ink bg-primary/10 px-3 py-2">
+                <p className="text-xs font-bold uppercase tracking-wider text-primary-text">
+                  Daily Allowance
+                </p>
+                <p className="text-sm font-extrabold text-ink">
+                  {plan.dailyAllowance}
+                </p>
+                <p className="text-[11px] font-medium text-slate-600">
+                  {plan.dailyResetNotice}
+                </p>
+              </div>
+
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                {plan.summary}
+              </p>
+
+              <ul className="mt-4 flex flex-col gap-2.5 border-t border-border-subtle pt-4">
+                {plan.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-2.5">
+                    <Check
+                      aria-hidden="true"
+                      className="mt-0.5 size-4.5 shrink-0 text-success"
+                    />
+                    <span className="text-sm text-ink">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-6">
+              <button
+                type="button"
+                onClick={openWaitlistModal}
+                className={`${buttonClasses(plan.recommended ? "primary" : "secondary", "md")} w-full cursor-pointer`}
+              >
+                {plan.cta}
+              </button>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div className="mt-8 flex flex-col items-center justify-center gap-2 text-center">
+        <p className="text-sm font-medium text-slate-600">
+          All prices in INR. Valid for 30 days with daily quota resets at 00:00 midnight. No hidden charges.
+        </p>
+        <Link
+          href="/pricing"
+          className="inline-flex items-center gap-1 text-sm font-semibold text-primary-deep underline hover:text-ink transition-colors"
+        >
+          Compare full plan breakdown, daily token details &amp; FAQ
+          <ArrowRight className="size-4" />
+        </Link>
+      </div>
+    </Section>
+  );
+}
