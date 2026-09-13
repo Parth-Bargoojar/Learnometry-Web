@@ -21,6 +21,13 @@ export const metadata: Metadata = {
     title: `${title} | Learnometry`,
     description,
     url: "/refunds",
+    type: "article",
+    images: [OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${title} | Learnometry`,
+    description,
     images: [OG_IMAGE],
   },
 };

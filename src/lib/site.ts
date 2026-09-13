@@ -45,6 +45,7 @@ export const OG_IMAGE = {
   url: "/opengraph-image.png",
   width: 1200,
   height: 630,
+  type: "image/png",
   alt: OG_IMAGE_ALT,
 } as const;
 

@@ -36,6 +36,12 @@ export const metadata: Metadata = {
     type: "website",
     images: [OG_IMAGE],
   },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [OG_IMAGE],
+  },
 };
 
 export default function Home() {

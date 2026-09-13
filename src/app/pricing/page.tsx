@@ -9,9 +9,9 @@ import {
   webPageSchema,
 } from "@/lib/schema";
 
-const title = "Pricing & Plans";
+const title = "Transparent Pricing & Plans";
 const description =
-  "Learnometry pricing for CBSE, JEE & NEET students: ₹199, ₹299 and ₹349 per month with daily credit resets, no lock-in and 30 free credits every month.";
+  "Learnometry pricing for CBSE, JEE & NEET students: plans starting at ₹199/month with daily credit resets, no lock-in, and 30 free monthly credits.";
 
 export const metadata: Metadata = {
   title,
@@ -21,6 +21,13 @@ export const metadata: Metadata = {
     title: `${title} | Learnometry`,
     description,
     url: "/pricing",
+    type: "website",
+    images: [OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${title} | Learnometry`,
+    description,
     images: [OG_IMAGE],
   },
 };

@@ -4,9 +4,9 @@ import { JsonLd } from "@/components/json-ld";
 import { OG_IMAGE } from "@/lib/site";
 import { breadcrumbSchema, graph, webPageSchema } from "@/lib/schema";
 
-const title = "Contact & Support";
+const title = "Contact & Student Support";
 const description =
-  "Contact the Learnometry team about diagnostic assessments, study plans, guardian questions, billing or refunds. Every email is answered within 24 business hours.";
+  "Have questions about diagnostic assessments, study plans, or billing? Contact the Learnometry team. Every inquiry is answered within 24 business hours.";
 
 export const metadata: Metadata = {
   title,
@@ -16,6 +16,13 @@ export const metadata: Metadata = {
     title: `${title} | Learnometry`,
     description,
     url: "/contact",
+    type: "website",
+    images: [OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${title} | Learnometry`,
+    description,
     images: [OG_IMAGE],
   },
 };
