@@ -1,4 +1,4 @@
-import { WEB3FORMS_ACCESS_KEY } from "./constants";
+import { OFFICIAL_EMAIL, WEB3FORMS_ACCESS_KEY } from "./constants";
 
 export interface WaitlistSubmissionParams {
   email: string;
@@ -36,6 +36,21 @@ export async function submitWaitlist({
     return {
       success: true,
       message: "Thank you for joining the waitlist!",
+    };
+  }
+
+  /*
+    Misconfigured deploy: NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY was never set. Fail here with
+    a message the visitor can act on, rather than POSTing an empty key and surfacing
+    whatever generic rejection the API returns.
+  */
+  if (!WEB3FORMS_ACCESS_KEY) {
+    console.error(
+      "NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY is not set — waitlist submissions are disabled."
+    );
+    return {
+      success: false,
+      message: `Signups are temporarily unavailable. Please email us at ${OFFICIAL_EMAIL} and we'll add you manually.`,
     };
   }
 

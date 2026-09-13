@@ -1,6 +1,8 @@
+import type { CSSProperties } from "react";
 import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import { ScrollToTop } from "@/components/scroll-to-top";
+import { BackToTop } from "@/components/back-to-top";
 import { WaitlistProvider } from "@/components/waitlist-modal";
 import { EmailSupportProvider } from "@/components/email-support-modal";
 import { JsonLd } from "@/components/json-ld";
@@ -118,6 +120,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en-IN"
       className={`${inter.variable} ${spaceGrotesk.variable} h-full antialiased`}
+      /* Consumed by the print stylesheet, which spells out the destination of
+         every internal link. CSS `content` needs it pre-quoted as a string. */
+      style={{ "--print-origin": JSON.stringify(SITE_URL.replace(/^https?:\/\//, "").replace(/\/$/, "")) } as CSSProperties}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
@@ -127,6 +132,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <WaitlistProvider>
           <EmailSupportProvider>{children}</EmailSupportProvider>
         </WaitlistProvider>
+        <BackToTop />
       </body>
     </html>
   );

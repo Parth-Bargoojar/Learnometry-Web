@@ -28,6 +28,11 @@ const POLICIES = [
     blurb: "The 7-day window and how to cancel.",
   },
   {
+    path: "/cookies",
+    label: "Cookie Policy",
+    blurb: "What this site stores on your device — currently nothing.",
+  },
+  {
     path: "/pricing",
     label: "Pricing & Plans",
     blurb: "Monthly plans and daily credit allowances.",

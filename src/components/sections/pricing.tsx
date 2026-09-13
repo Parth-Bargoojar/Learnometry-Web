@@ -82,7 +82,7 @@ export function Pricing() {
         align="center"
         eyebrow="Transparent Pricing"
         title="Predictable daily study allowances. Zero surprise fees."
-        description="Every plan includes a guaranteed daily allowance of AI credits that resets every midnight. Choose between 1 dedicated model or access to all reasoning models."
+        description="Every plan includes a daily allowance of AI credits that resets at midnight. Choose between one dedicated model or access to all reasoning models."
       />
 
       {/* Zero-assumption free trial banner */}
@@ -106,7 +106,7 @@ export function Pricing() {
             <div>
               {plan.recommended ? (
                 <div className="-mx-5 -mt-5 mb-4 rounded-t-[14px] border-b-2 border-ink bg-primary px-5 py-2 text-center text-xs font-bold uppercase tracking-wide text-ink">
-                  Most Popular for Students
+                  Recommended for most students
                 </div>
               ) : null}
 
@@ -184,7 +184,7 @@ export function Pricing() {
         </p>
         <Link
           href="/pricing"
-          className="inline-flex items-center gap-1 text-sm font-semibold text-primary-deep underline hover:text-ink transition-colors"
+          className="inline-flex items-center gap-1 text-sm font-semibold text-primary-text underline hover:text-ink transition-colors touch:min-h-11"
         >
           Compare full plan breakdown, daily token details &amp; FAQ
           <ArrowRight className="size-4" />

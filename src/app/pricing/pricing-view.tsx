@@ -84,12 +84,12 @@ const pricingPlans = [
     summary:
       "Maximum daily horsepower for intensive JEE/NEET pre-exam sprint cycles.",
     features: [
-      "All AI models with maximum reasoning depth",
+      "All AI models at maximum reasoning depth",
       "500 tokens/credits refreshed daily at midnight",
       "High-frequency retesting and rapid plan adaptation",
       "Comprehensive multi-chapter root-cause deep dives",
       "Complex multi-step numerical & derivation breakdowns",
-      "Highest priority VIP AI queue",
+      "Highest priority generation queue",
       "1 month validity · No automatic lock-in",
     ],
     cta: "Reserve Pro Spot",
@@ -123,7 +123,7 @@ const dailyBreakdown = [
     metric: "Scheduled Retests",
     starter: "Included",
     plus: "Included (Higher Frequency)",
-    pro: "Unlimited Daily Retests",
+    pro: "Highest daily retest volume",
     description: "Parallel tests to confirm your concept gap is officially closed.",
   },
 ];
@@ -138,7 +138,7 @@ const comparisonTable = [
   { feature: "Study Plan Prescriptions", starter: "Yes (Weekly)", plus: "Yes (Adaptive)", pro: "Yes (Dynamic daily updates)" },
   { feature: "Targeted Practice & Retests", starter: "Yes", plus: "Yes", pro: "Yes (Priority)" },
   { feature: "Cancellation Policy", starter: "Cancel anytime", plus: "Cancel anytime", pro: "Cancel anytime" },
-  { feature: "7-Day Refund Guarantee", starter: "Yes", plus: "Yes", pro: "Yes" },
+  { feature: "7-Day Refund Window", starter: "Yes", plus: "Yes", pro: "Yes" },
 ];
 
 const pricingFaqs = [
@@ -152,7 +152,7 @@ const pricingFaqs = [
   },
   {
     q: "What extra capabilities do I get with 'All Models' on the ₹299 & ₹349 plans?",
-    a: "On the Plus and Pro plans, Learnometry uses dynamic smart routing. Simple questions and classifications run on fast, efficient models, while challenging multi-step math and science derivations automatically route to top-tier reasoning models for flawless analysis.",
+    a: "On the Plus and Pro plans, Learnometry uses dynamic smart routing. Simple questions and classifications run on fast, efficient models, while challenging multi-step math and science derivations automatically route to deeper reasoning models.",
   },
   {
     q: "Can I try Learnometry before buying a subscription?",
@@ -170,13 +170,13 @@ export function PricingView() {
   return (
     <>
       <SiteHeader />
-      <main className="flex-1 bg-background py-10 sm:py-16">
+      <main id="main" className="flex-1 bg-background py-10 sm:py-16">
         <Container className="max-w-6xl">
           {/* Back link */}
           <Link
             href="/"
             scroll={false}
-            className="inline-flex items-center gap-2 py-1.5 text-sm font-semibold text-primary-text transition-colors hover:text-ink"
+            className="inline-flex items-center gap-2 py-1.5 text-sm font-semibold text-primary-text transition-colors hover:text-ink touch:min-h-11"
           >
             <ArrowLeft className="size-4" />
             Back to Home
@@ -200,7 +200,7 @@ export function PricingView() {
             <div className="mx-auto mt-6 max-w-xl rounded-card border-2 border-ink bg-surface p-3 shadow-brutal-sm text-sm font-semibold text-ink flex items-center justify-center gap-2">
               <ShieldCheck className="size-5 text-success shrink-0" />
               <span>
-                <strong>Zero risk:</strong> Take a free diagnostic first on our early access waitlist. Upgrade only if it earns your trust.
+                <strong>No card needed to start:</strong> take a free diagnostic first on the early access waitlist, and upgrade only if it earns your trust.
               </span>
             </div>
           </div>
@@ -219,7 +219,7 @@ export function PricingView() {
                 <div>
                   {plan.recommended ? (
                     <div className="-mx-6 -mt-6 mb-5 rounded-t-[14px] border-b-2 border-ink bg-primary px-5 py-2 text-center text-xs font-bold uppercase tracking-wide text-ink">
-                      Most Popular for Students
+                      Recommended for most students
                     </div>
                   ) : null}
 
@@ -314,28 +314,40 @@ export function PricingView() {
               What does your daily allowance mean in practice?
             </h2>
             <p className="mt-2 text-sm sm:text-base text-slate-600">
-              We never expect students or parents to calculate raw AI tokens. Here is the exact study power delivered to your account every single day:
+              We never expect students or parents to calculate raw AI tokens. Here is roughly
+              what a daily allowance covers. These are estimates: a long multi-step
+              derivation consumes more than a short concept check, so your own usage will
+              vary.
             </p>
 
-            <div className="mt-6 overflow-x-auto">
+            <div
+              role="region"
+              aria-label="What each daily allowance covers"
+              tabIndex={0}
+              className="mt-6 overflow-x-auto"
+            >
               <table className="w-full text-left border-collapse border-2 border-ink">
+                <caption className="sr-only">
+                  Estimated daily study activity included with the Starter, Plus and Pro
+                  allowances.
+                </caption>
                 <thead>
                   <tr className="bg-slate-100 text-xs font-bold uppercase text-ink border-b-2 border-ink">
-                    <th className="p-3 sm:p-4">Daily Study Activity</th>
-                    <th className="p-3 sm:p-4">Starter (200 / day)</th>
-                    <th className="p-3 sm:p-4 bg-primary/15">Plus (350 / day)</th>
-                    <th className="p-3 sm:p-4">Pro (500 / day)</th>
+                    <th scope="col" className="p-3 sm:p-4">Daily Study Activity</th>
+                    <th scope="col" className="p-3 sm:p-4">Starter (200 / day)</th>
+                    <th scope="col" className="p-3 sm:p-4 bg-primary/15">Plus (350 / day)</th>
+                    <th scope="col" className="p-3 sm:p-4">Pro (500 / day)</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-border-subtle text-sm text-ink">
                   {dailyBreakdown.map((row) => (
                     <tr key={row.metric} className="hover:bg-slate-50/80 transition-colors">
-                      <td className="p-3 sm:p-4 font-semibold">
+                      <th scope="row" className="p-3 sm:p-4 text-left font-semibold">
                         <div>{row.metric}</div>
                         <div className="text-xs font-normal text-slate-500 mt-0.5">
                           {row.description}
                         </div>
-                      </td>
+                      </th>
                       <td className="p-3 sm:p-4 font-medium text-slate-700">
                         {row.starter}
                       </td>
@@ -354,7 +366,7 @@ export function PricingView() {
             <div className="mt-4 rounded-btn border border-ink/20 bg-slate-50 p-3 text-xs text-slate-600 flex items-start gap-2">
               <Clock className="size-4 text-primary-deep shrink-0 mt-0.5" />
               <span>
-                <strong>Nightly Reset Guarantee:</strong> Unused credits from your daily quota expire at 23:59 IST, and your full 200, 350, or 500 quota is re-issued at 00:00 midnight IST. This ensures you always have a fresh daily budget to study consistently.
+                <strong>Nightly reset:</strong> unused credits from your daily quota expire at 23:59 IST, and your full 200, 350 or 500 quota is re-issued at 00:00 midnight IST, so every day starts with a fresh budget.
               </span>
             </div>
           </section>
@@ -405,20 +417,30 @@ export function PricingView() {
               Clear breakdown of features across all 3 tiers.
             </p>
 
-            <div className="mt-6 overflow-x-auto">
+            <div
+              role="region"
+              aria-label="Side-by-side plan comparison"
+              tabIndex={0}
+              className="mt-6 overflow-x-auto"
+            >
               <table className="w-full text-left border-collapse border-2 border-ink">
+                <caption className="sr-only">
+                  Feature comparison across the Starter, Plus and Pro plans.
+                </caption>
                 <thead>
                   <tr className="bg-slate-100 text-xs font-bold uppercase text-ink border-b-2 border-ink">
-                    <th className="p-3 sm:p-4">Feature</th>
-                    <th className="p-3 sm:p-4">Starter (₹199)</th>
-                    <th className="p-3 sm:p-4 bg-primary/15">Plus (₹299)</th>
-                    <th className="p-3 sm:p-4">Pro (₹349)</th>
+                    <th scope="col" className="p-3 sm:p-4">Feature</th>
+                    <th scope="col" className="p-3 sm:p-4">Starter (₹199)</th>
+                    <th scope="col" className="p-3 sm:p-4 bg-primary/15">Plus (₹299)</th>
+                    <th scope="col" className="p-3 sm:p-4">Pro (₹349)</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-border-subtle text-sm text-ink">
                   {comparisonTable.map((row) => (
                     <tr key={row.feature} className="hover:bg-slate-50 transition-colors">
-                      <td className="p-3 sm:p-4 font-semibold text-ink">{row.feature}</td>
+                      <th scope="row" className="p-3 sm:p-4 text-left font-semibold text-ink">
+                        {row.feature}
+                      </th>
                       <td className="p-3 sm:p-4 text-slate-700">{row.starter}</td>
                       <td className="p-3 sm:p-4 font-bold text-ink bg-primary/5">{row.plus}</td>
                       <td className="p-3 sm:p-4 text-slate-700">{row.pro}</td>
@@ -454,17 +476,17 @@ export function PricingView() {
             <div className="flex items-center gap-3">
               <RotateCcw className="size-6 text-primary-deep shrink-0" />
               <div>
-                <h4 className="font-bold text-sm text-ink">
-                  Backed by our 7-Day Refund Policy
-                </h4>
+                <h3 className="font-bold text-sm text-ink">
+                  Backed by our 7-day refund window
+                </h3>
                 <p className="text-xs text-slate-600 mt-0.5">
-                  If Learnometry does not bring clarity to your prep within 7 days, get a full refund if you have used under 20% of your allowance.
+                  Request a full refund within 7 days of your first payment, provided you have used under 20% of the allowance for the cycle.
                 </p>
               </div>
             </div>
             <Link
               href="/refunds"
-              className="inline-block py-1.5 text-xs font-bold text-primary-deep underline hover:text-ink shrink-0"
+              className="inline-block py-1.5 text-xs font-bold text-primary-text underline hover:text-ink shrink-0 touch:inline-flex touch:min-h-11 touch:items-center"
             >
               Read Refund Policy →
             </Link>
@@ -476,7 +498,7 @@ export function PricingView() {
               Start with your free diagnostic today
             </h2>
             <p className="mt-2 text-sm sm:text-base font-medium max-w-xl mx-auto">
-              Join students from across CBSE, JEE, and NEET. Receive your free launch diagnostic test with no credit card required.
+              Join the early access waitlist and receive your free launch diagnostic test, with no credit card required.
             </p>
             <div className="mt-6 flex justify-center">
               <button

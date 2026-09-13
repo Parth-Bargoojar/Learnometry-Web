@@ -7,7 +7,10 @@ import { Container } from "@/components/ui/section";
 import { JsonLd } from "@/components/json-ld";
 import { OG_IMAGE } from "@/lib/site";
 import { RelatedPolicies } from "@/components/related-policies";
+import { BusinessDetails } from "@/components/business-details";
 import { breadcrumbSchema, graph, webPageSchema } from "@/lib/schema";
+import { POLICY_LAST_UPDATED } from "@/lib/legal";
+import { OFFICIAL_EMAIL } from "@/lib/constants";
 
 const title = "Refund & Cancellation Policy";
 const description =
@@ -46,12 +49,12 @@ export default function RefundPolicyPage() {
         ])}
       />
       <SiteHeader />
-      <main className="flex-1 bg-background py-10 sm:py-16">
+      <main id="main" className="flex-1 bg-background py-10 sm:py-16">
         <Container className="max-w-4xl">
           <Link
             href="/"
             scroll={false}
-            className="inline-flex items-center gap-2 py-1.5 text-sm font-semibold text-primary-text transition-colors hover:text-ink"
+            className="inline-flex items-center gap-2 py-1.5 text-sm font-semibold text-primary-text transition-colors hover:text-ink touch:min-h-11"
           >
             <ArrowLeft className="size-4" />
             Back to Home
@@ -64,7 +67,7 @@ export default function RefundPolicyPage() {
                 Fair Billing Guarantee
               </span>
               <span className="text-xs font-medium text-slate-500">
-                Last updated: September 2026
+                Last updated: {POLICY_LAST_UPDATED}
               </span>
             </div>
 
@@ -139,17 +142,54 @@ export default function RefundPolicyPage() {
               </section>
 
               <section>
-                <h2 className="font-display text-xl text-ink">6. Requesting a Refund</h2>
+                <h2 className="font-display text-xl text-ink">6. Automatic Renewal</h2>
                 <p className="mt-2">
-                  To request a refund or raise a billing inquiry, simply write to our support desk with your registered email and payment reference ID:
+                  If a plan is set to renew automatically, we will tell you so clearly before
+                  you pay, and you will receive advance notice of each renewal charge as
+                  required by Reserve Bank of India rules on recurring card and UPI mandates.
+                  You can cancel renewal at any time from your account settings, and
+                  cancelling stops all future charges.
+                </p>
+              </section>
+
+              <section>
+                <h2 className="font-display text-xl text-ink">7. If We Cannot Deliver</h2>
+                <p className="mt-2">
+                  Separately from the 7-day window above, you are entitled to a full refund
+                  — with no usage condition attached — if we charge you in error, if we
+                  withdraw or materially reduce a feature you paid for, or if we close your
+                  account for a reason that is not your fault.
+                </p>
+              </section>
+
+              <section>
+                <h2 className="font-display text-xl text-ink">8. Your Statutory Rights</h2>
+                <p className="mt-2">
+                  This policy sits alongside your rights under the Consumer Protection Act,
+                  2019 and does not replace or reduce them. If we reject a refund request
+                  and you disagree, escalate it to our Grievance Officer using the details
+                  at the foot of this page: we acknowledge every complaint within 48 hours
+                  and aim to resolve it within one month. You may also approach the National
+                  Consumer Helpline on 1915 or the consumer forum with jurisdiction where
+                  you live.
+                </p>
+              </section>
+
+              <section>
+                <h2 className="font-display text-xl text-ink">9. Requesting a Refund</h2>
+                <p className="mt-2">
+                  To request a refund or raise a billing enquiry, write to our support desk
+                  with your registered email and payment reference ID. We acknowledge
+                  billing emails within 48 hours.
                 </p>
                 <p className="mt-1 font-semibold text-ink">
-                  Email: <a href="mailto:learnometry.official@gmail.com" className="text-primary-text underline">learnometry.official@gmail.com</a>
+                  Email: <a href={`mailto:${OFFICIAL_EMAIL}`} className="text-primary-text underline">{OFFICIAL_EMAIL}</a>
                 </p>
               </section>
             </div>
           </article>
 
+          <BusinessDetails />
           <RelatedPolicies currentPath="/refunds" />
         </Container>
       </main>

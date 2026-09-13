@@ -7,7 +7,10 @@ import { Container } from "@/components/ui/section";
 import { JsonLd } from "@/components/json-ld";
 import { OG_IMAGE } from "@/lib/site";
 import { RelatedPolicies } from "@/components/related-policies";
+import { BusinessDetails } from "@/components/business-details";
 import { breadcrumbSchema, graph, webPageSchema } from "@/lib/schema";
+import { POLICY_LAST_UPDATED } from "@/lib/legal";
+import { OFFICIAL_EMAIL } from "@/lib/constants";
 
 const title = "Guardian Consent Policy";
 const description =
@@ -46,12 +49,12 @@ export default function GuardianConsentPage() {
         ])}
       />
       <SiteHeader />
-      <main className="flex-1 bg-background py-10 sm:py-16">
+      <main id="main" className="flex-1 bg-background py-10 sm:py-16">
         <Container className="max-w-4xl">
           <Link
             href="/"
             scroll={false}
-            className="inline-flex items-center gap-2 py-1.5 text-sm font-semibold text-primary-text transition-colors hover:text-ink"
+            className="inline-flex items-center gap-2 py-1.5 text-sm font-semibold text-primary-text transition-colors hover:text-ink touch:min-h-11"
           >
             <ArrowLeft className="size-4" />
             Back to Home
@@ -64,7 +67,7 @@ export default function GuardianConsentPage() {
                 Minor Protection Framework
               </span>
               <span className="text-xs font-medium text-slate-500">
-                DPDP Act 2023 Compliance
+                DPDP Act 2023 · Last updated: {POLICY_LAST_UPDATED}
               </span>
             </div>
 
@@ -111,7 +114,7 @@ export default function GuardianConsentPage() {
                     <span className="flex size-6 shrink-0 items-center justify-center rounded-full border-2 border-ink bg-primary font-display text-xs font-bold text-ink">
                       4
                     </span>
-                    <span><strong>Transparent Access:</strong> Full learning and diagnostic access is enabled with an immutable audit record of consent.</span>
+                    <span><strong>Transparent Access:</strong> Full learning and diagnostic access is enabled, and we keep a dated record of who consented, when, and to what.</span>
                   </li>
                 </ol>
               </section>
@@ -149,17 +152,35 @@ export default function GuardianConsentPage() {
               </section>
 
               <section>
-                <h2 className="font-display text-xl text-ink">5. Contact Our Privacy Officer</h2>
+                <h2 className="font-display text-xl text-ink">5. Withdrawing Consent</h2>
                 <p className="mt-2">
-                  Parents and guardians with questions about consent, student privacy, or account deletion can write directly to our student safety desk at:
+                  Consent can be withdrawn at any time, and withdrawing it must be as easy
+                  as giving it was. A single email from the guardian address on record is
+                  enough — no form, no phone call, no reason required, and no penalty.
+                </p>
+                <ul className="mt-2 list-disc space-y-1.5 pl-5 text-slate-600">
+                  <li>We stop processing the learner&apos;s personal data as soon as the withdrawal is verified.</li>
+                  <li>The learner&apos;s profile and diagnostic history are deleted within 7 business days, unless a law requires us to keep a specific record.</li>
+                  <li>Withdrawal does not undo processing that already, lawfully, took place.</li>
+                </ul>
+              </section>
+
+              <section>
+                <h2 className="font-display text-xl text-ink">6. Contact Our Data Protection Contact</h2>
+                <p className="mt-2">
+                  Parents and guardians with questions about consent, student privacy, or
+                  account deletion can write directly to our student safety desk. Our
+                  Grievance Officer, who handles data protection questions and complaints,
+                  is named at the foot of this page.
                 </p>
                 <p className="mt-1 font-semibold text-ink">
-                  Email: <a href="mailto:learnometry.official@gmail.com" className="text-primary-text underline">learnometry.official@gmail.com</a>
+                  Email: <a href={`mailto:${OFFICIAL_EMAIL}`} className="text-primary-text underline">{OFFICIAL_EMAIL}</a>
                 </p>
               </section>
             </div>
           </article>
 
+          <BusinessDetails />
           <RelatedPolicies currentPath="/guardian-consent" />
         </Container>
       </main>

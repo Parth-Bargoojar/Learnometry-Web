@@ -1,6 +1,7 @@
 "use client";
 
-import { HeartHandshake, Mail, Quote, Sparkles, UserCheck } from "lucide-react";
+import { Check, Copy, HeartHandshake, Mail, Quote, Sparkles, UserCheck } from "lucide-react";
+import { useState } from "react";
 import { Section, SectionHeading } from "@/components/ui/section";
 import { useEmailSupportModal } from "@/components/email-support-modal";
 
@@ -17,18 +18,20 @@ interface Founder {
   avatarInitials: string;
   avatarBg: string;
   quote: string;
+  email: string;
   linkedinUrl?: string;
 }
 
 const founders: Founder[] = [
   {
-    name: "Parth Br.",
+    name: "Parth Bargoojar",
     role: "Co-Founder",
     badge: "Co-Founder",
     avatarInitials: "PB",
-    avatarBg: "bg-primary/20 text-primary-deep",
+    avatarBg: "bg-primary/20 text-primary-text",
     quote:
       "“What a privilege it is to wake up every day and get to chase your Dreams.”",
+    email: "parthbargoojar.official@gmail.com",
     linkedinUrl: "#",
   },
   {
@@ -39,22 +42,42 @@ const founders: Founder[] = [
     avatarBg: "bg-amber-100 text-amber-900",
     quote:
       "“You have One life, There is no second chance. Live it crazy.”",
+    email: "jaishnav.official@gmail.com",
     linkedinUrl: "#",
   },
   {
-    name: "Krishna Gargh",
+    name: "Krishna Garg",
     role: "Co-Founder",
     badge: "Co-Founder",
     avatarInitials: "KG",
     avatarBg: "bg-emerald-100 text-emerald-900",
     quote:
-      "“Discipline and direction beat blind effort every time. We build for the students who refuse to give up on their goals.”",
+      "“Be ready for the future. No one knows what's coming”",
+    email: "krishnagarg8998@gmail.com",
     linkedinUrl: "#",
   },
 ];
 
 export function FoundersNote() {
   const { openEmailModal } = useEmailSupportModal();
+  const [copiedEmail, setCopiedEmail] = useState<string | null>(null);
+
+  const handleCopy = async (email: string) => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopiedEmail(email);
+      setTimeout(() => setCopiedEmail(null), 2500);
+    } catch {
+      const textarea = document.createElement("textarea");
+      textarea.value = email;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+      setCopiedEmail(email);
+      setTimeout(() => setCopiedEmail(null), 2500);
+    }
+  };
 
   return (
     <Section id="founders-note" className="border-b-2 border-ink bg-surface">
@@ -118,18 +141,23 @@ export function FoundersNote() {
 
         {/* The 3 Founders Grid */}
         <div className="mt-9 border-t-2 border-ink/10 pt-7">
-          <div className="mb-4 flex items-center gap-2">
-            <Quote className="size-4 text-primary-deep" />
-            <h3 className="font-display text-base font-bold uppercase tracking-wider text-ink">
-              Signed by the 3 of us
-            </h3>
+          <div className="mb-4 flex items-center justify-between gap-2 flex-wrap">
+            <div className="flex items-center gap-2">
+              <Quote className="size-4 text-primary-deep" />
+              <h3 className="font-display text-base font-bold uppercase tracking-wider text-ink">
+                Signed by the 3 of us
+              </h3>
+            </div>
+            <span className="text-xs text-slate-500 font-medium">
+              Direct inbox access below
+            </span>
           </div>
 
           <div className="grid gap-4 md:grid-cols-3">
             {founders.map((founder) => (
               <article
                 key={founder.name}
-                className="flex flex-col justify-between rounded-card-sm border-2 border-ink bg-surface p-5 shadow-brutal-sm transition-transform duration-150 hover:-translate-y-1"
+                className="flex min-w-0 flex-col justify-between rounded-card-sm border-2 border-ink bg-surface p-5 shadow-brutal-sm transition-transform duration-150 hover:-translate-y-1"
               >
                 <div>
                   <div className="flex items-center gap-3">
@@ -156,6 +184,29 @@ export function FoundersNote() {
                     {founder.quote}
                   </p>
                 </div>
+
+                {/* Direct Founder Email Box */}
+                <div className="mt-4 pt-3 border-t border-ink/10 flex items-center justify-between gap-2 touch:min-h-11">
+                  <a
+                    href={`mailto:${founder.email}?subject=${encodeURIComponent("Message for " + founder.name + " — Learnometry")}`}
+                    className="min-w-0 truncate font-mono text-[11px] font-bold text-primary-text hover:underline touch:py-3.5"
+                    title={`Email ${founder.name}`}
+                  >
+                    {founder.email}
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => handleCopy(founder.email)}
+                    className="shrink-0 rounded p-1 text-slate-600 transition-colors hover:bg-slate-200 hover:text-ink cursor-pointer touch:flex touch:size-11 touch:items-center touch:justify-center touch:-mr-2"
+                    aria-label={`Copy email for ${founder.name}`}
+                  >
+                    {copiedEmail === founder.email ? (
+                      <Check className="size-3.5 text-success-text stroke-[3]" />
+                    ) : (
+                      <Copy className="size-3.5" />
+                    )}
+                  </button>
+                </div>
               </article>
             ))}
           </div>
@@ -176,7 +227,7 @@ export function FoundersNote() {
           <button
             type="button"
             onClick={() => openEmailModal("founder")}
-            className="cursor-pointer shrink-0 inline-flex items-center gap-1.5 rounded-btn border-2 border-ink bg-surface px-4 py-2 text-xs sm:text-sm font-bold text-ink shadow-brutal-sm transition-[transform,box-shadow] hover:-translate-y-0.5 hover:shadow-brutal active:translate-y-0.5 active:shadow-none"
+            className="cursor-pointer shrink-0 inline-flex items-center justify-center gap-1.5 rounded-btn border-2 border-ink bg-surface px-4 py-2 text-xs sm:text-sm font-bold text-ink shadow-brutal-sm transition-[transform,box-shadow] hover:-translate-y-0.5 hover:shadow-brutal active:translate-y-0.5 active:shadow-none touch:min-h-11 max-sm:w-full"
           >
             <Mail className="size-3.5" />
             Email the Founders
@@ -186,3 +237,4 @@ export function FoundersNote() {
     </Section>
   );
 }
+

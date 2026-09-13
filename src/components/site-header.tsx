@@ -52,7 +52,7 @@ export function SiteHeader() {
         <div className="flex h-18 sm:h-20 items-center justify-between gap-4 sm:gap-6">
           <Link
             href="/"
-            className="inline-flex items-center rounded-sm transition-opacity duration-150 hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            className="inline-flex items-center rounded-sm transition-opacity duration-150 hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 touch:min-h-11"
             aria-label="Learnometry home"
           >
             <Image
@@ -61,6 +61,9 @@ export function SiteHeader() {
               width={611}
               height={133}
               priority
+              /* Rendered no wider than ~220px, so without `sizes` Next serves the
+                 1920px candidate to phones for no visible gain. */
+              sizes="220px"
               className="h-9 w-auto sm:h-11 md:h-12 object-contain"
             />
           </Link>
@@ -108,11 +111,23 @@ export function SiteHeader() {
         </div>
       </Container>
 
-      {open ? (
-        <div
-          id="mobile-nav"
-          className="border-t border-border-subtle bg-surface lg:hidden"
-        >
+      {/*
+        Kept mounted and animated open rather than swapped in, so the panel has
+        something to transition from. Same idiom as the FAQ accordion: the row
+        track carries the height animation, and `invisible` (visibility:hidden,
+        which is inherited and cancels focusability) keeps the collapsed links
+        out of the tab order and away from screen readers — a zero-height panel
+        alone is still focusable and still read aloud.
+      */}
+      <div
+        id="mobile-nav"
+        className={`grid overflow-hidden border-t border-border-subtle bg-surface transition-[grid-template-rows,opacity] duration-300 ease-out lg:hidden ${
+          open
+            ? "grid-rows-[1fr] opacity-100"
+            : "invisible grid-rows-[0fr] border-t-0 opacity-0"
+        }`}
+      >
+        <div className="min-h-0">
           <Container>
             <nav aria-label="Mobile" className="flex flex-col gap-1 py-4">
               {navLinks.map((link) => (
@@ -138,7 +153,7 @@ export function SiteHeader() {
             </nav>
           </Container>
         </div>
-      ) : null}
+      </div>
     </header>
   );
 }

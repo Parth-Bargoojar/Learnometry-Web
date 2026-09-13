@@ -7,6 +7,7 @@ import { Container } from "@/components/ui/section";
 import { useWaitlistModal } from "@/components/waitlist-modal";
 import { useEmailSupportModal } from "@/components/email-support-modal";
 import { INSTAGRAM_URL, OFFICIAL_EMAIL } from "@/lib/constants";
+import { LEGAL_ENTITY } from "@/lib/legal";
 import { InstagramIcon } from "@/components/ui/icons";
 
 const SUPPORT_EMAIL = OFFICIAL_EMAIL;
@@ -37,6 +38,7 @@ const columns = [
       { label: "Privacy policy", href: "/privacy" },
       { label: "Guardian consent", href: "/guardian-consent" },
       { label: "Refund & cancellation", href: "/refunds" },
+      { label: "Cookie policy", href: "/cookies" },
     ],
   },
   {
@@ -77,7 +79,7 @@ export function SiteFooter() {
           <div className="flex flex-col gap-4 items-start">
             <Link
               href="/"
-              className="inline-flex items-center rounded-sm transition-opacity duration-150 hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              className="inline-flex items-center rounded-sm transition-opacity duration-150 hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 touch:min-h-11"
               aria-label="Learnometry home"
             >
               <Image
@@ -85,6 +87,7 @@ export function SiteFooter() {
                 alt="Learnometry"
                 width={611}
                 height={133}
+                sizes="240px"
                 className="h-10 sm:h-12 lg:h-[52px] w-auto object-contain"
               />
             </Link>
@@ -96,7 +99,7 @@ export function SiteFooter() {
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-btn border border-white/20 bg-white/5 px-3 py-1.5 text-xs font-semibold text-slate-200 transition-colors hover:border-primary hover:bg-primary/20 hover:text-white"
+              className="inline-flex items-center gap-2 rounded-btn border border-white/20 bg-white/5 px-3 py-1.5 text-xs font-semibold text-slate-200 transition-colors hover:border-primary hover:bg-primary/20 hover:text-white touch:min-h-11"
               aria-label="Follow Learnometry on Instagram"
             >
               <InstagramIcon className="size-4 text-primary" />
@@ -117,7 +120,7 @@ export function SiteFooter() {
                         <button
                           type="button"
                           onClick={openWaitlistModal}
-                          className="cursor-pointer text-left inline-block py-1.5 text-[15px] text-slate-400 transition-colors duration-150 hover:text-primary"
+                          className="cursor-pointer text-left inline-block py-1.5 text-[15px] text-slate-400 transition-colors duration-150 hover:text-primary touch:inline-flex touch:min-h-11 touch:items-center"
                         >
                           {link.label}
                         </button>
@@ -125,7 +128,7 @@ export function SiteFooter() {
                         <button
                           type="button"
                           onClick={() => openEmailModal("general")}
-                          className="cursor-pointer text-left inline-block py-1.5 text-[15px] text-slate-400 transition-colors duration-150 hover:text-primary"
+                          className="cursor-pointer text-left inline-block py-1.5 text-[15px] text-slate-400 transition-colors duration-150 hover:text-primary touch:inline-flex touch:min-h-11 touch:items-center"
                         >
                           {link.label}
                         </button>
@@ -134,7 +137,7 @@ export function SiteFooter() {
                           href={link.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-block py-1.5 text-[15px] text-slate-400 transition-colors duration-150 hover:text-primary"
+                          className="inline-block py-1.5 text-[15px] text-slate-400 transition-colors duration-150 hover:text-primary touch:inline-flex touch:min-h-11 touch:items-center"
                         >
                           {link.label}
                         </a>
@@ -144,7 +147,7 @@ export function SiteFooter() {
                           /* Hash targets must keep Next's scroll behaviour or the
                              anchor is ignored when arriving from another route. */
                           scroll={link.href.includes("#")}
-                          className="inline-block py-1.5 text-[15px] text-slate-400 transition-colors duration-150 hover:text-primary"
+                          className="inline-block py-1.5 text-[15px] text-slate-400 transition-colors duration-150 hover:text-primary touch:inline-flex touch:min-h-11 touch:items-center"
                         >
                           {link.label}
                         </Link>
@@ -157,38 +160,62 @@ export function SiteFooter() {
           </div>
         </div>
 
+        {/* Displayed on every page: exam boards are named throughout the site, and
+            the Consumer Protection (E-Commerce) Rules expect the operating entity to
+            be identifiable from anywhere on it. */}
+        <p className="border-t border-white/15 py-4 text-xs leading-relaxed text-slate-400">
+          Learnometry is an independent study tool. It is{" "}
+          <strong className="font-semibold text-slate-300">
+            not affiliated with, endorsed by or connected to
+          </strong>{" "}
+          the Central Board of Secondary Education (CBSE), the National Testing Agency
+          (NTA), the National Medical Commission (NMC) or any examination authority,
+          board or coaching institute. CBSE, JEE and NEET are used descriptively to
+          identify the syllabus and exam patterns our content is modelled on, and remain
+          the property of their respective owners. Learnometry does not guarantee any
+          particular mark, percentile, rank or admission.
+        </p>
+
         <div className="flex flex-col gap-4 border-t border-white/15 py-5 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm text-slate-400">
-            © {year} Learnometry. Built for CBSE, JEE &amp; NEET students.
+            © {year} {LEGAL_ENTITY.legalName || "Learnometry"}. Built for CBSE, JEE &amp;
+            NEET students.
           </p>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 touch:gap-x-5">
             <Link
               href="/terms"
               scroll={false}
-              className="inline-block py-1.5 text-sm text-slate-400 transition-colors duration-150 hover:text-primary"
+              className="inline-block py-1.5 text-sm text-slate-400 transition-colors duration-150 hover:text-primary touch:inline-flex touch:min-h-11 touch:items-center"
             >
               Terms
             </Link>
             <Link
               href="/privacy"
               scroll={false}
-              className="inline-block py-1.5 text-sm text-slate-400 transition-colors duration-150 hover:text-primary"
+              className="inline-block py-1.5 text-sm text-slate-400 transition-colors duration-150 hover:text-primary touch:inline-flex touch:min-h-11 touch:items-center"
             >
               Privacy
             </Link>
             <Link
               href="/guardian-consent"
               scroll={false}
-              className="inline-block py-1.5 text-sm text-slate-400 transition-colors duration-150 hover:text-primary"
+              className="inline-block py-1.5 text-sm text-slate-400 transition-colors duration-150 hover:text-primary touch:inline-flex touch:min-h-11 touch:items-center"
             >
               Guardian Consent
             </Link>
             <Link
               href="/refunds"
               scroll={false}
-              className="inline-block py-1.5 text-sm text-slate-400 transition-colors duration-150 hover:text-primary"
+              className="inline-block py-1.5 text-sm text-slate-400 transition-colors duration-150 hover:text-primary touch:inline-flex touch:min-h-11 touch:items-center"
             >
               Refunds
+            </Link>
+            <Link
+              href="/cookies"
+              scroll={false}
+              className="inline-block py-1.5 text-sm text-slate-400 transition-colors duration-150 hover:text-primary touch:inline-flex touch:min-h-11 touch:items-center"
+            >
+              Cookies
             </Link>
           </div>
         </div>

@@ -17,6 +17,11 @@ export function WhatYouGet() {
         align="center"
       />
 
+      <p className="mt-4 text-center text-xs font-medium text-slate-600">
+        The figures inside the cards below are illustrative examples of the interface, not
+        results from real students.
+      </p>
+
       {/*
         One row of four rather than a 2×2 or asymmetric bento: four shorter
         cards resolve to a single screen where two tall rows cannot.

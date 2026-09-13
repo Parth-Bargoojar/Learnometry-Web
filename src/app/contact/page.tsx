@@ -6,7 +6,7 @@ import { breadcrumbSchema, graph, webPageSchema } from "@/lib/schema";
 
 const title = "Contact & Student Support";
 const description =
-  "Have questions about diagnostic assessments, study plans, or billing? Contact the Learnometry team. Every inquiry is answered within 24 business hours.";
+  "Have questions about diagnostic assessments, study plans, or billing? Contact the Learnometry team — we aim to reply within 24 business hours.";
 
 export const metadata: Metadata = {
   title,

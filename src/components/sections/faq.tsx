@@ -49,8 +49,12 @@ export function Faq() {
                 id={`faq-panel-${index}`}
                 role="region"
                 aria-labelledby={`faq-trigger-${index}`}
+                /* `invisible` (visibility:hidden), not just zero height: a
+                   zero-height panel is still read aloud and still focusable. */
                 className={`grid transition-all duration-300 ease-in-out ${
-                  isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                  isOpen
+                    ? "grid-rows-[1fr] opacity-100"
+                    : "invisible grid-rows-[0fr] opacity-0"
                 }`}
               >
                 <div className="overflow-hidden">

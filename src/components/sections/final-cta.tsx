@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ArrowRight, CheckCircle2, Loader2, Mail, Sparkles } from "lucide-react";
 import { Container } from "@/components/ui/section";
 import { submitWaitlist } from "@/lib/waitlist";
+import { WaitlistConsent } from "@/components/waitlist-consent";
 
 /*
   The teal field is the brand moment; the content sits on a white bento card.
@@ -44,8 +45,8 @@ export function FinalCta() {
       <Container>
         <div className="cta-card mx-auto flex max-w-3xl flex-col items-center gap-5 rounded-card-lg border-2 border-ink bg-surface p-6 text-center shadow-brutal-lg sm:p-9">
           <span className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-primary/20 px-3 py-1 text-xs font-bold uppercase tracking-wide text-ink shadow-brutal-sm">
-            <Sparkles className="size-3.5 text-primary-deep" />
-            Limited Early Access
+            <Sparkles aria-hidden="true" className="size-3.5 text-primary-deep" />
+            Early Access
           </span>
 
           <h2 className="font-display text-display-lg text-balance text-ink">
@@ -57,7 +58,10 @@ export function FinalCta() {
 
           <div className="w-full max-w-md">
             {isJoined ? (
-              <div className="flex flex-col gap-3 rounded-card-sm border-2 border-ink bg-emerald-50 p-4 text-ink shadow-brutal">
+              <div
+                role="status"
+                className="flex flex-col gap-3 rounded-card-sm border-2 border-ink bg-emerald-50 p-4 text-ink shadow-brutal"
+              >
                 <div className="flex items-center gap-3">
                   <CheckCircle2 className="size-6 shrink-0 text-success" />
                   <div className="text-left">
@@ -92,21 +96,33 @@ export function FinalCta() {
                     autoComplete="off"
                   />
                   <div className="relative flex-1">
+                    <label htmlFor="cta-waitlist-email" className="sr-only">
+                      Your email address
+                    </label>
                     <Mail
                       aria-hidden="true"
-                      className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 size-5 text-slate-400"
+                      className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 size-5 text-slate-500"
                     />
                     <input
+                      id="cta-waitlist-email"
+                      name="email"
                       type="email"
+                      autoComplete="email"
                       required
                       disabled={isLoading}
                       value={email}
+                      aria-describedby={
+                        errorMessage
+                          ? "cta-waitlist-error cta-waitlist-consent"
+                          : "cta-waitlist-consent"
+                      }
+                      aria-invalid={errorMessage ? true : undefined}
                       onChange={(e) => {
                         setEmail(e.target.value);
                         if (errorMessage) setErrorMessage(null);
                       }}
                       placeholder="Enter your email"
-                      className="h-13 w-full rounded-btn border-2 border-ink bg-surface pl-12 pr-4 text-[15px] font-medium text-ink placeholder:text-slate-400 shadow-brutal-sm transition-shadow focus:outline-none focus:ring-2 focus:ring-primary disabled:opacity-60"
+                      className="h-13 w-full rounded-btn border-2 border-ink bg-surface pl-12 pr-4 text-[15px] font-medium text-ink placeholder:text-slate-500 shadow-brutal-sm transition-shadow focus:outline-none focus:ring-2 focus:ring-primary disabled:opacity-60"
                     />
                   </div>
                   <button
@@ -128,10 +144,15 @@ export function FinalCta() {
                   </button>
                 </form>
                 {errorMessage ? (
-                  <div className="mt-2.5 rounded-card-xs border border-danger/40 bg-danger/10 px-3 py-2 text-xs font-medium text-danger text-left">
+                  <div
+                    id="cta-waitlist-error"
+                    role="alert"
+                    className="mt-2.5 rounded-card-xs border border-danger/40 bg-danger/10 px-3 py-2 text-xs font-medium text-danger-text text-left"
+                  >
                     {errorMessage}
                   </div>
                 ) : null}
+                <WaitlistConsent id="cta-waitlist-consent" align="center" />
               </div>
             )}
           </div>

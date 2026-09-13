@@ -1,8 +1,42 @@
 export const OFFICIAL_EMAIL = "learnometry.official@gmail.com";
+
+export const FOUNDER_EMAILS = [
+  "parthbargoojar.official@gmail.com",
+  "jaishnav.official@gmail.com",
+  "krishnagarg8998@gmail.com",
+] as const;
+
+export const INDIVIDUAL_FOUNDER_EMAILS = [
+  {
+    name: "Parth Bargoojar",
+    role: "Co-Founder",
+    email: "parthbargoojar.official@gmail.com",
+  },
+  {
+    name: "Jaishnav",
+    role: "Co-Founder",
+    email: "jaishnav.official@gmail.com",
+  },
+  {
+    name: "Krishna Garg",
+    role: "Co-Founder",
+    email: "krishnagarg8998@gmail.com",
+  },
+] as const;
+
 export const INSTAGRAM_URL = "https://www.instagram.com/learnometry";
+/*
+  Web3Forms access key. This is a public, client-side credential by design — it ships in
+  the browser bundle and is visible to anyone who views the page, so it is not a secret.
+  It is still read from the environment rather than hardcoded, so it can be rotated from
+  the Vercel dashboard without a code change. Abuse is contained in the Web3Forms
+  dashboard (domain allowlist + captcha), not here.
+
+  Must be set as NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY in every deploy environment; the form
+  reports a clear error rather than silently posting an empty key when it is missing.
+*/
 export const WEB3FORMS_ACCESS_KEY =
-  process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ||
-  "8af42d45-faf6-4730-9ec2-97f9cf84e1c8";
+  process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? "";
 
 export type SupportTopicKey =
   | "general"
@@ -76,16 +110,24 @@ export function buildSupportMailLinks(topicKey: SupportTopicKey = "general") {
   const encodedSubject = encodeURIComponent(topic.subject);
   const encodedBody = encodeURIComponent(topic.template);
 
+  const recipientEmail =
+    topicKey === "founder"
+      ? FOUNDER_EMAILS.join(",")
+      : OFFICIAL_EMAIL;
+
   // Standard mailto: URI
-  const mailtoUri = `mailto:${OFFICIAL_EMAIL}?subject=${encodedSubject}&body=${encodedBody}`;
+  const mailtoUri = `mailto:${recipientEmail}?subject=${encodedSubject}&body=${encodedBody}`;
 
   // Direct Gmail Web compose URL (opens compose modal inside browser Gmail)
-  const gmailWebUri = `https://mail.google.com/mail/?view=cm&fs=1&to=${OFFICIAL_EMAIL}&su=${encodedSubject}&body=${encodedBody}`;
+  const gmailWebUri = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+    recipientEmail
+  )}&su=${encodedSubject}&body=${encodedBody}`;
 
   return {
-    email: OFFICIAL_EMAIL,
+    email: recipientEmail,
     topic,
     mailtoUri,
     gmailWebUri,
   };
 }
+

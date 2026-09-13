@@ -22,6 +22,7 @@ import { Container } from "@/components/ui/section";
 import { buttonClasses } from "@/components/ui/button";
 import { useWaitlistModal } from "@/components/waitlist-modal";
 import {
+  INDIVIDUAL_FOUNDER_EMAILS,
   INSTAGRAM_URL,
   OFFICIAL_EMAIL,
   SUPPORT_TOPICS,
@@ -33,7 +34,7 @@ import { InstagramIcon } from "@/components/ui/icons";
 const supportFaqs = [
   {
     q: "How fast will the Learnometry team respond?",
-    a: "We read every email personally and guarantee a response within 24 business hours. During mock test seasons or major exam dates, our founders monitor queries even on weekends.",
+    a: "We read every email ourselves and aim to reply within 24 business hours on working days. Complaints raised with our Grievance Officer are acknowledged within 48 hours and we aim to resolve them within one month.",
   },
   {
     q: "Can parents reach out directly regarding student progress?",
@@ -41,7 +42,7 @@ const supportFaqs = [
   },
   {
     q: "How do I request a refund under the 7-Day Guarantee?",
-    a: "Simply email us at learnometry.official@gmail.com with your account email and transaction ID within 7 days of purchase (provided you used under 20% of your allowance). We process eligible refunds within 5-7 business days.",
+    a: "Email us with your account email and transaction ID within 7 days of purchase, provided you have used under 20% of your allowance. We acknowledge billing emails within 48 hours and process approved refunds to the original payment method within 5-7 business days.",
   },
   {
     q: "Can I report a question error or ask for specific chapters?",
@@ -52,6 +53,7 @@ const supportFaqs = [
 export function ContactView() {
   const [selectedTopic, setSelectedTopic] = useState<SupportTopicKey>("general");
   const [copied, setCopied] = useState(false);
+  const [copiedFounderEmail, setCopiedFounderEmail] = useState<string | null>(null);
   const { openWaitlistModal } = useWaitlistModal();
 
   const handleCopyEmail = async () => {
@@ -71,18 +73,35 @@ export function ContactView() {
     }
   };
 
+  const handleCopyFounderEmail = async (email: string) => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopiedFounderEmail(email);
+      setTimeout(() => setCopiedFounderEmail(null), 2500);
+    } catch {
+      const textarea = document.createElement("textarea");
+      textarea.value = email;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+      setCopiedFounderEmail(email);
+      setTimeout(() => setCopiedFounderEmail(null), 2500);
+    }
+  };
+
   const { topic, mailtoUri, gmailWebUri } = buildSupportMailLinks(selectedTopic);
 
   return (
     <>
       <SiteHeader />
-      <main className="flex-1 bg-background py-10 sm:py-16">
+      <main id="main" className="flex-1 bg-background py-10 sm:py-16">
         <Container className="max-w-4xl">
           {/* Back to home */}
           <Link
             href="/"
             scroll={false}
-            className="inline-flex items-center gap-2 py-1.5 text-sm font-semibold text-primary-text transition-colors hover:text-ink"
+            className="inline-flex items-center gap-2 py-1.5 text-sm font-semibold text-primary-text transition-colors hover:text-ink touch:min-h-11"
           >
             <ArrowLeft className="size-4" />
             Back to Home
@@ -126,15 +145,15 @@ export function ContactView() {
                   onClick={handleCopyEmail}
                   className={`inline-flex items-center justify-center gap-2 rounded-btn border-2 border-ink px-4 py-2.5 text-sm font-bold shadow-brutal-sm transition-all active:translate-y-0.5 active:shadow-none cursor-pointer ${
                     copied
-                      ? "bg-success text-white"
+                      ? "bg-success-text text-white"
                       : "bg-surface text-ink hover:bg-slate-100"
                   }`}
                   aria-label="Copy official email address"
                 >
                   {copied ? (
                     <>
-                      <Check className="size-4 stroke-[3]" />
-                      <span>Copied to Clipboard!</span>
+                      <Check aria-hidden="true" className="size-4 stroke-[3]" />
+                      <span role="status">Copied to Clipboard!</span>
                     </>
                   ) : (
                     <>
@@ -143,6 +162,52 @@ export function ContactView() {
                     </>
                   )}
                 </button>
+              </div>
+            </div>
+
+            {/* Direct Founders Email Strip */}
+            <div className="mt-6 rounded-card border-2 border-ink bg-primary/10 p-4 shadow-brutal-sm">
+              <div className="flex items-center gap-2 mb-3">
+                <UserCheck className="size-4 text-primary-deep" />
+                <h2 className="text-xs font-bold uppercase tracking-wider text-ink">
+                  Direct Founder Contact Inboxes
+                </h2>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                {INDIVIDUAL_FOUNDER_EMAILS.map((f) => (
+                  <div
+                    key={f.email}
+                    className="flex flex-col justify-between rounded-btn border-2 border-ink bg-surface p-3 text-xs shadow-brutal-xs"
+                  >
+                    <div>
+                      <div className="font-bold text-ink">{f.name}</div>
+                      <div className="text-[11px] text-slate-500 font-medium">{f.role}</div>
+                      <div className="mt-1 break-all font-mono text-[11px] text-primary-text font-bold">
+                        {f.email}
+                      </div>
+                    </div>
+                    <div className="mt-2.5 flex items-center gap-2">
+                      <a
+                        href={`mailto:${f.email}?subject=${encodeURIComponent("Message for " + f.name + " — Learnometry")}`}
+                        className="flex-1 rounded border border-ink/20 bg-slate-100 py-1 text-center font-bold text-ink hover:bg-slate-200 transition-colors touch:flex touch:min-h-11 touch:items-center touch:justify-center"
+                      >
+                        Email
+                      </a>
+                      <button
+                        type="button"
+                        onClick={() => handleCopyFounderEmail(f.email)}
+                        className="rounded border border-ink/20 bg-slate-100 p-1 font-bold text-ink hover:bg-slate-200 transition-colors cursor-pointer touch:flex touch:size-11 touch:shrink-0 touch:items-center touch:justify-center"
+                        aria-label={`Copy ${f.name}'s email`}
+                      >
+                        {copiedFounderEmail === f.email ? (
+                          <Check className="size-3.5 text-success-text stroke-[3]" />
+                        ) : (
+                          <Copy className="size-3.5" />
+                        )}
+                      </button>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -165,7 +230,7 @@ export function ContactView() {
                 href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="shrink-0 inline-flex items-center gap-1.5 rounded-btn border-2 border-ink bg-surface px-4 py-2 text-xs font-bold text-ink shadow-brutal-xs transition-all hover:bg-slate-100 active:translate-y-0.5 active:shadow-none"
+                className="shrink-0 inline-flex items-center justify-center gap-1.5 rounded-btn border-2 border-ink bg-surface px-4 py-2 touch:min-h-11 max-sm:w-full text-xs font-bold text-ink shadow-brutal-xs transition-all hover:bg-slate-100 active:translate-y-0.5 active:shadow-none"
               >
                 <span>Check Instagram (@learnometry)</span>
                 <ExternalLink className="size-3.5" />
@@ -174,10 +239,20 @@ export function ContactView() {
 
             {/* Topic Selection */}
             <div className="mt-8">
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+              {/* A <label> with no form control labels nothing. These are toggle
+                  buttons, so the group gets a heading and each button reports its
+                  own pressed state. */}
+              <h2
+                id="contact-topic-label"
+                className="block text-xs font-bold uppercase tracking-wider text-slate-700"
+              >
                 1. Choose your reason for contacting:
-              </label>
-              <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
+              </h2>
+              <div
+                role="group"
+                aria-labelledby="contact-topic-label"
+                className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3"
+              >
                 {(Object.keys(SUPPORT_TOPICS) as SupportTopicKey[]).map((key) => {
                   const t = SUPPORT_TOPICS[key];
                   const isSelected = selectedTopic === key;
@@ -185,6 +260,7 @@ export function ContactView() {
                     <button
                       key={key}
                       type="button"
+                      aria-pressed={isSelected}
                       onClick={() => setSelectedTopic(key)}
                       className={`flex flex-col items-start rounded-card border-2 p-3 text-left transition-all cursor-pointer ${
                         isSelected
@@ -206,9 +282,9 @@ export function ContactView() {
 
             {/* 1-Click Launch Actions */}
             <div className="mt-8">
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+              <h2 className="block text-xs font-bold uppercase tracking-wider text-slate-700">
                 2. Send email via your preferred method:
-              </label>
+              </h2>
               <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {/* Gmail Web Option */}
                 <a
@@ -222,7 +298,7 @@ export function ContactView() {
                       G
                     </span>
                     <div>
-                      <div className="flex items-center gap-1.5 font-bold text-sm text-ink group-hover:text-primary-deep">
+                      <div className="flex items-center gap-1.5 font-bold text-sm text-ink group-hover:text-primary-text">
                         <span>Open in Gmail Web</span>
                         <ExternalLink className="size-3.5 opacity-60" />
                       </div>
@@ -243,7 +319,7 @@ export function ContactView() {
                       @
                     </span>
                     <div>
-                      <div className="flex items-center gap-1.5 font-bold text-sm text-ink group-hover:text-primary-deep">
+                      <div className="flex items-center gap-1.5 font-bold text-sm text-ink group-hover:text-primary-text">
                         <span>Open Default Mail App</span>
                         <Mail className="size-3.5 opacity-60" />
                       </div>
@@ -262,7 +338,7 @@ export function ContactView() {
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
                   Pre-configured Subject &amp; Starter Template
                 </span>
-                <span className="text-[11px] font-semibold text-primary-deep">
+                <span className="text-[11px] font-semibold text-primary-text">
                   {topic.label}
                 </span>
               </div>
@@ -280,10 +356,10 @@ export function ContactView() {
                 <Clock className="size-5 text-primary-deep shrink-0 mt-0.5" />
                 <div>
                   <h3 className="text-xs font-bold uppercase tracking-wider text-ink">
-                    24h Turnaround
+                    Fast replies
                   </h3>
                   <p className="text-xs text-slate-600 mt-0.5">
-                    Guaranteed response within 24 business hours.
+                    We aim to reply within 24 business hours on working days.
                   </p>
                 </div>
               </div>
@@ -295,7 +371,7 @@ export function ContactView() {
                     Direct Core Team
                   </h3>
                   <p className="text-xs text-slate-600 mt-0.5">
-                    Real educators &amp; founders answer, not automated bots.
+                    A founder replies to you, not an automated bot.
                   </p>
                 </div>
               </div>
@@ -343,13 +419,13 @@ export function ContactView() {
                   Billing or Refund Request?
                 </h2>
                 <p className="text-xs text-slate-600 mt-0.5">
-                  Learnometry offers a hassle-free 7-day refund guarantee if you have used under 20% of your study allowance.
+                  You can request a refund within 7 days of your first payment, provided you have used under 20% of the allowance for the cycle.
                 </p>
               </div>
             </div>
             <Link
               href="/refunds"
-              className="inline-block py-1.5 text-xs font-bold text-primary-deep underline hover:text-ink shrink-0"
+              className="inline-block py-1.5 text-xs font-bold text-primary-text underline hover:text-ink shrink-0 touch:inline-flex touch:min-h-11 touch:items-center"
             >
               Read Refund Policy →
             </Link>
@@ -361,7 +437,7 @@ export function ContactView() {
               Ready to find your weak concepts?
             </h2>
             <p className="mt-2 text-sm sm:text-base font-medium max-w-xl mx-auto">
-              Join students from across CBSE, JEE, and NEET on our free early access waitlist.
+              Join our free early access waitlist for CBSE, JEE and NEET preparation.
             </p>
             <div className="mt-6 flex justify-center">
               <button

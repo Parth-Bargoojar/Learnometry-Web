@@ -30,7 +30,7 @@ export function absoluteUrl(path = "/"): string {
  * tag is omitted entirely rather than rendered empty.
  */
 export const GOOGLE_SITE_VERIFICATION =
-  process.env.GOOGLE_SITE_VERIFICATION || "g2Yd2nuFSA8hnLRltjVpLKNJECR-wcOE4uB4FchY-Io";
+  process.env.GOOGLE_SITE_VERIFICATION || undefined;
 
 export const OG_IMAGE_ALT =
   "Learnometry — find your weak concepts and fix them in the right order";
@@ -61,4 +61,5 @@ export const ROUTES = [
   { path: "/privacy", changeFrequency: "yearly", priority: 0.3 },
   { path: "/guardian-consent", changeFrequency: "yearly", priority: 0.3 },
   { path: "/refunds", changeFrequency: "yearly", priority: 0.3 },
+  { path: "/cookies", changeFrequency: "yearly", priority: 0.3 },
 ] as const;

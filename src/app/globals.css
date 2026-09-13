@@ -1,6 +1,17 @@
 @import "tailwindcss";
 
 /*
+  One shared mobile bound for the whole site.
+
+  `max-md:` is `width < 768px`, which excludes 768px exactly — and that is iPad
+  portrait, a real touch width where the 44px target minimum still applies. This
+  variant is inclusive, and every raw media query in the mobile layer below uses
+  the same `max-width: 768px` so the utility classes and the stylesheet can never
+  disagree about where "mobile" ends.
+*/
+@custom-variant touch (@media (width <= 768px));
+
+/*
   Learnometry design tokens — Design System v1 §40.
   Neutrals intentionally use Tailwind's built-in `slate` scale: its values are
   identical to the neutral ramp in §3.3, so no parallel scale is introduced.
@@ -31,6 +42,9 @@
   */
   --color-primary-text: #0e6e7d;
   --color-success-text: #15803d;
+  /* #DC2626 on the 10% danger tint used by form errors measures 4.41:1 — just
+     under the AA bar for 12px text. This darker red clears it at 5.6:1. */
+  --color-danger-text: #b91c1c;
 
   --radius-btn: 10px;
   --radius-input: 10px;
@@ -162,6 +176,94 @@
   }
 }
 
+/*
+  ============================================================================
+  MOBILE REFINEMENT LAYER — applies at 768px and below only.
+
+  Everything in this block is bounded by `max-width: 768px`, so the desktop and
+  large-tablet rendering above that width is byte-for-byte what it was before.
+  Unlayered on purpose, for the same reason as the short-viewport block above:
+  these have to beat the Tailwind utilities they refine, and the utilities layer
+  outranks `base`.
+  ============================================================================
+*/
+@media (max-width: 768px) {
+  /*
+    iOS Safari zooms the viewport whenever a focused control renders below 16px,
+    and it does not zoom back out on blur — the user is left stranded at a
+    magnified, horizontally-scrolling layout. The waitlist fields are set to
+    15px, which trips it. 16px is the documented threshold, and it is the one
+    value that buys immunity, so the mobile bump is a functional fix rather than
+    a type-scale change. Desktop keeps 15px.
+  */
+  input:not([type="checkbox"]):not([type="radio"]),
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  /*
+    iOS gives text inputs an inset shadow and its own corner radius, which
+    fights the flat bordered surfaces the design system specifies. (The grey
+    tap-highlight overlay needs no rule here: Tailwind's preflight already
+    clears it on `html` and the property inherits.)
+  */
+  input,
+  textarea {
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: var(--radius-input);
+  }
+
+  /*
+    A long unbroken token — a founder address, a support inbox — is the usual
+    cause of a page that scrolls sideways at 320px. Headings and prose wrap
+    rather than push the layout open.
+  */
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  li,
+  dd,
+  dt {
+    overflow-wrap: break-word;
+  }
+
+  /* Display type is set in vw units; at 320px the tightened desktop tracking
+     turns into cramped, hard-to-read headlines. */
+  .font-display {
+    letter-spacing: -0.01em;
+  }
+}
+
+/*
+  Touch devices only — `hover: none` keeps this away from every desktop pointer,
+  including a desktop browser resized narrow.
+
+  Hover is the entire feedback vocabulary of the button system (§10: lift on
+  hover, press into the shadow on active), and a touch screen gets none of it.
+  Without an explicit pressed state a tap gives no acknowledgement at all, which
+  on a slow connection is what makes people tap a second and third time.
+*/
+@media (hover: none) and (pointer: coarse) and (max-width: 768px) {
+  /* The offset-shadow controls already describe a press in the design system;
+     this just makes the same gesture fire on touch instead of mouse-down. */
+  a:active,
+  button:not(:disabled):active,
+  [role="button"]:active {
+    transform: translateY(1px);
+  }
+
+  /* Cards are lift-on-hover on desktop. On touch that hover never resolves, so
+     the card can stick in its lifted state after a tap. Anchor them flat. */
+  article:hover,
+  li:hover > div {
+    transform: none;
+  }
+}
+
 /* §26 — motion is an enhancement, never a requirement. */
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -174,5 +276,107 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/*
+  Print. The policy pages (/terms, /privacy, /refunds, /cookies,
+  /guardian-consent) are the ones people actually save as PDF or hand to a
+  parent, so printing has to produce a plain, readable document rather than a
+  screenshot of the site chrome.
+
+  Unlayered on purpose — these have to beat the Tailwind utilities they undo.
+*/
+@media print {
+  /* Ink-heavy brand surfaces cost a page of toner and read worse on paper. */
+  html,
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  /* Site chrome, floating controls and calls to action are all dead weight on
+     paper — none of them can be clicked. */
+  header,
+  footer,
+  .no-print,
+  [role="dialog"],
+  [aria-label="Skip to content"],
+  a[href="#main"] {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+    background: #fff !important;
+  }
+
+  /* The "Back to Home" link at the head of each policy page — navigation, not
+     content, and on paper it only adds a URL nobody can click. */
+  main > * > a[href="/"]:first-child {
+    display: none !important;
+  }
+
+  /* The offset "brutal" shadows print as solid black bars. */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Keep borders — they carry the structure of the policy cards — but as hairlines. */
+  [class*="border-ink"],
+  [class*="border-2"] {
+    border-color: #000 !important;
+    border-width: 1px !important;
+  }
+
+  /* A printed link is useless without its destination. Internal links resolve
+     against the site; mailto/tel say enough already. */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    word-break: break-all;
+  }
+
+  a[href^="/"]::after {
+    /* --print-origin is set on <html> from SITE_URL in layout.tsx, so the
+       printed domain can't drift from the deployed one. */
+    content: " (" var(--print-origin, "") attr(href) ")";
+    font-size: 0.85em;
+    word-break: break-all;
+  }
+
+  a[href^="#"]::after,
+  a[href^="mailto:"]::after,
+  a[href^="tel:"]::after {
+    content: "";
+  }
+
+  /* Don't strand a heading at the foot of a page or split a clause across one. */
+  h1,
+  h2,
+  h3 {
+    break-after: avoid-page;
+    page-break-after: avoid;
+  }
+
+  li,
+  tr,
+  blockquote,
+  figure {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Full-screen sections are a viewport idea; on paper they only add blank pages. */
+  .snap-section,
+  .final-screen {
+    min-height: 0 !important;
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+
+  @page {
+    margin: 16mm;
   }
 }

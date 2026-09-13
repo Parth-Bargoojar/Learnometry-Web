@@ -90,9 +90,10 @@ export function HowItWorks() {
       <div className="mt-4 flex flex-col items-center gap-5 rounded-card-lg border-2 border-ink bg-surface p-5 shadow-brutal sm:flex-row sm:items-start sm:p-6">
         <Image
           src="/mascot.jpeg"
-          alt=""
+          alt="The Learnometry mascot"
           width={320}
           height={320}
+          sizes="80px"
           className="size-20 shrink-0 rounded-card border-2 border-ink object-contain"
         />
         <div className="relative w-full rounded-card-lg border-2 border-ink bg-slate-50 p-4 sm:p-5">
