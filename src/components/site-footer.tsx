@@ -35,7 +35,7 @@ const columns = [
     links: [
       { label: "Terms of service", href: "/terms" },
       { label: "Privacy policy", href: "/privacy" },
-      { label: "Guardian consent", href: "/consent" },
+      { label: "Guardian consent", href: "/guardian-consent" },
       { label: "Refund & cancellation", href: "/refunds" },
     ],
   },
@@ -83,8 +83,8 @@ export function SiteFooter() {
               <Image
                 src="/primary-logo-dark.png"
                 alt="Learnometry"
-                width={2444}
-                height={532}
+                width={611}
+                height={133}
                 className="h-10 sm:h-12 lg:h-[52px] w-auto object-contain"
               />
             </Link>
@@ -110,14 +110,14 @@ export function SiteFooter() {
                 <h2 className="text-xs font-bold uppercase tracking-[0.16em] text-white">
                   {column.heading}
                 </h2>
-                <ul className="mt-3 flex flex-col gap-2">
+                <ul className="mt-3 flex flex-col gap-1">
                   {column.links.map((link) => (
                     <li key={link.label}>
                       {link.href === "#waitlist" || link.label === "Join waitlist" ? (
                         <button
                           type="button"
                           onClick={openWaitlistModal}
-                          className="cursor-pointer text-left text-[15px] text-slate-400 transition-colors duration-150 hover:text-primary"
+                          className="cursor-pointer text-left inline-block py-1.5 text-[15px] text-slate-400 transition-colors duration-150 hover:text-primary"
                         >
                           {link.label}
                         </button>
@@ -125,7 +125,7 @@ export function SiteFooter() {
                         <button
                           type="button"
                           onClick={() => openEmailModal("general")}
-                          className="cursor-pointer text-left text-[15px] text-slate-400 transition-colors duration-150 hover:text-primary"
+                          className="cursor-pointer text-left inline-block py-1.5 text-[15px] text-slate-400 transition-colors duration-150 hover:text-primary"
                         >
                           {link.label}
                         </button>
@@ -134,15 +134,17 @@ export function SiteFooter() {
                           href={link.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-[15px] text-slate-400 transition-colors duration-150 hover:text-primary"
+                          className="inline-block py-1.5 text-[15px] text-slate-400 transition-colors duration-150 hover:text-primary"
                         >
                           {link.label}
                         </a>
                       ) : (
                         <Link
                           href={link.href}
-                          scroll={false}
-                          className="text-[15px] text-slate-400 transition-colors duration-150 hover:text-primary"
+                          /* Hash targets must keep Next's scroll behaviour or the
+                             anchor is ignored when arriving from another route. */
+                          scroll={link.href.includes("#")}
+                          className="inline-block py-1.5 text-[15px] text-slate-400 transition-colors duration-150 hover:text-primary"
                         >
                           {link.label}
                         </Link>
@@ -163,28 +165,28 @@ export function SiteFooter() {
             <Link
               href="/terms"
               scroll={false}
-              className="text-sm text-slate-400 transition-colors duration-150 hover:text-primary"
+              className="inline-block py-1.5 text-sm text-slate-400 transition-colors duration-150 hover:text-primary"
             >
               Terms
             </Link>
             <Link
               href="/privacy"
               scroll={false}
-              className="text-sm text-slate-400 transition-colors duration-150 hover:text-primary"
+              className="inline-block py-1.5 text-sm text-slate-400 transition-colors duration-150 hover:text-primary"
             >
               Privacy
             </Link>
             <Link
-              href="/consent"
+              href="/guardian-consent"
               scroll={false}
-              className="text-sm text-slate-400 transition-colors duration-150 hover:text-primary"
+              className="inline-block py-1.5 text-sm text-slate-400 transition-colors duration-150 hover:text-primary"
             >
               Guardian Consent
             </Link>
             <Link
               href="/refunds"
               scroll={false}
-              className="text-sm text-slate-400 transition-colors duration-150 hover:text-primary"
+              className="inline-block py-1.5 text-sm text-slate-400 transition-colors duration-150 hover:text-primary"
             >
               Refunds
             </Link>

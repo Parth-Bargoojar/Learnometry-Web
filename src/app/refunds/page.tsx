@@ -4,23 +4,47 @@ import { ArrowLeft, CheckCircle2, CreditCard, RotateCcw } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Container } from "@/components/ui/section";
+import { JsonLd } from "@/components/json-ld";
+import { OG_IMAGE } from "@/lib/site";
+import { RelatedPolicies } from "@/components/related-policies";
+import { breadcrumbSchema, graph, webPageSchema } from "@/lib/schema";
+
+const title = "Refund & Cancellation Policy";
+const description =
+  "Learnometry's refund and cancellation terms: the 7-day refund window, how daily credits and rollover work, and how to cancel a monthly plan with no lock-in.";
 
 export const metadata: Metadata = {
-  title: "Refund & Cancellation Policy — Learnometry",
-  description:
-    "Learnometry Refund & Cancellation Policy. Transparent 7-day refund window, credit rollover policy, and hassle-free subscription cancellation.",
+  title,
+  description,
+  alternates: { canonical: "/refunds" },
+  openGraph: {
+    title: `${title} | Learnometry`,
+    description,
+    url: "/refunds",
+    images: [OG_IMAGE],
+  },
 };
 
 export default function RefundPolicyPage() {
   return (
     <>
+      <JsonLd
+        data={graph([
+          webPageSchema({
+            path: "/refunds",
+            name: `${title} | Learnometry`,
+            description,
+          }),
+          breadcrumbSchema([{ name: "Refunds", path: "/refunds" }]),
+        ])}
+      />
       <SiteHeader />
       <main className="flex-1 bg-background py-10 sm:py-16">
         <Container className="max-w-4xl">
           <Link
             href="/"
             scroll={false}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-primary-text transition-colors hover:text-ink"
+            className="inline-flex items-center gap-2 py-1.5 text-sm font-semibold text-primary-text transition-colors hover:text-ink"
           >
             <ArrowLeft className="size-4" />
             Back to Home
@@ -118,6 +142,8 @@ export default function RefundPolicyPage() {
               </section>
             </div>
           </article>
+
+          <RelatedPolicies currentPath="/refunds" />
         </Container>
       </main>
       <SiteFooter />

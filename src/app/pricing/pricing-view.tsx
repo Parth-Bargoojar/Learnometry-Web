@@ -176,7 +176,7 @@ export function PricingView() {
           <Link
             href="/"
             scroll={false}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-primary-text transition-colors hover:text-ink"
+            className="inline-flex items-center gap-2 py-1.5 text-sm font-semibold text-primary-text transition-colors hover:text-ink"
           >
             <ArrowLeft className="size-4" />
             Back to Home
@@ -464,7 +464,7 @@ export function PricingView() {
             </div>
             <Link
               href="/refunds"
-              className="text-xs font-bold text-primary-deep underline hover:text-ink shrink-0"
+              className="inline-block py-1.5 text-xs font-bold text-primary-deep underline hover:text-ink shrink-0"
             >
               Read Refund Policy →
             </Link>

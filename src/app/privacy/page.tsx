@@ -4,23 +4,47 @@ import { ArrowLeft, Lock, ShieldCheck } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Container } from "@/components/ui/section";
+import { JsonLd } from "@/components/json-ld";
+import { OG_IMAGE } from "@/lib/site";
+import { RelatedPolicies } from "@/components/related-policies";
+import { breadcrumbSchema, graph, webPageSchema } from "@/lib/schema";
+
+const title = "Privacy Policy";
+const description =
+  "How Learnometry collects, stores and protects student data under India's DPDP Act 2023. Your assessment data is never sold to advertisers or third parties.";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Learnometry",
-  description:
-    "Learnometry Privacy Policy. Aligned with India's Digital Personal Data Protection (DPDP) Act 2023. We never sell your student assessment data.",
+  title,
+  description,
+  alternates: { canonical: "/privacy" },
+  openGraph: {
+    title: `${title} | Learnometry`,
+    description,
+    url: "/privacy",
+    images: [OG_IMAGE],
+  },
 };
 
 export default function PrivacyPage() {
   return (
     <>
+      <JsonLd
+        data={graph([
+          webPageSchema({
+            path: "/privacy",
+            name: `${title} | Learnometry`,
+            description,
+          }),
+          breadcrumbSchema([{ name: "Privacy", path: "/privacy" }]),
+        ])}
+      />
       <SiteHeader />
       <main className="flex-1 bg-background py-10 sm:py-16">
         <Container className="max-w-4xl">
           <Link
             href="/"
             scroll={false}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-primary-text transition-colors hover:text-ink"
+            className="inline-flex items-center gap-2 py-1.5 text-sm font-semibold text-primary-text transition-colors hover:text-ink"
           >
             <ArrowLeft className="size-4" />
             Back to Home
@@ -123,6 +147,8 @@ export default function PrivacyPage() {
               </section>
             </div>
           </article>
+
+          <RelatedPolicies currentPath="/privacy" />
         </Container>
       </main>
       <SiteFooter />

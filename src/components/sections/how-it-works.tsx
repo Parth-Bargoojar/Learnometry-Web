@@ -91,8 +91,8 @@ export function HowItWorks() {
         <Image
           src="/mascot.jpeg"
           alt=""
-          width={160}
-          height={160}
+          width={320}
+          height={320}
           className="size-20 shrink-0 rounded-card border-2 border-ink object-contain"
         />
         <div className="relative w-full rounded-card-lg border-2 border-ink bg-slate-50 p-4 sm:p-5">

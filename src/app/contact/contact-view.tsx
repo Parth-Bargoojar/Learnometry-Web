@@ -82,7 +82,7 @@ export function ContactView() {
           <Link
             href="/"
             scroll={false}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-primary-text transition-colors hover:text-ink"
+            className="inline-flex items-center gap-2 py-1.5 text-sm font-semibold text-primary-text transition-colors hover:text-ink"
           >
             <ArrowLeft className="size-4" />
             Back to Home
@@ -107,15 +107,15 @@ export function ContactView() {
             {/* Direct Email Address Bar */}
             <div className="rounded-card border-2 border-ink bg-slate-50 p-4 sm:p-5 shadow-brutal-sm">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div className="flex items-center gap-3">
+                <div className="flex min-w-0 items-center gap-3">
                   <span className="flex size-11 shrink-0 items-center justify-center rounded-card-sm border-2 border-ink bg-primary text-ink shadow-brutal-xs">
                     <Mail className="size-5" />
                   </span>
-                  <div>
-                    <div className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                  <div className="min-w-0">
+                    <h2 className="text-xs font-bold uppercase tracking-wider text-slate-500">
                       Official Learnometry Email
-                    </div>
-                    <div className="font-mono text-base sm:text-lg font-bold text-ink">
+                    </h2>
+                    <div className="break-all font-mono text-sm sm:text-lg font-bold text-ink">
                       {OFFICIAL_EMAIL}
                     </div>
                   </div>
@@ -279,9 +279,9 @@ export function ContactView() {
               <div className="flex items-start gap-2.5">
                 <Clock className="size-5 text-primary-deep shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-ink">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-ink">
                     24h Turnaround
-                  </h4>
+                  </h3>
                   <p className="text-xs text-slate-600 mt-0.5">
                     Guaranteed response within 24 business hours.
                   </p>
@@ -291,9 +291,9 @@ export function ContactView() {
               <div className="flex items-start gap-2.5">
                 <UserCheck className="size-5 text-primary-deep shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-ink">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-ink">
                     Direct Core Team
-                  </h4>
+                  </h3>
                   <p className="text-xs text-slate-600 mt-0.5">
                     Real educators &amp; founders answer, not automated bots.
                   </p>
@@ -303,9 +303,9 @@ export function ContactView() {
               <div className="flex items-start gap-2.5">
                 <ShieldCheck className="size-5 text-success shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-ink">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-ink">
                     DPDP Aligned
-                  </h4>
+                  </h3>
                   <p className="text-xs text-slate-600 mt-0.5">
                     Your queries and data are held in strict confidence.
                   </p>
@@ -339,9 +339,9 @@ export function ContactView() {
             <div className="flex items-center gap-3">
               <RotateCcw className="size-6 text-primary-deep shrink-0" />
               <div>
-                <h4 className="font-bold text-sm text-ink">
+                <h2 className="font-bold text-sm text-ink">
                   Billing or Refund Request?
-                </h4>
+                </h2>
                 <p className="text-xs text-slate-600 mt-0.5">
                   Learnometry offers a hassle-free 7-day refund guarantee if you have used under 20% of your study allowance.
                 </p>
@@ -349,7 +349,7 @@ export function ContactView() {
             </div>
             <Link
               href="/refunds"
-              className="text-xs font-bold text-primary-deep underline hover:text-ink shrink-0"
+              className="inline-block py-1.5 text-xs font-bold text-primary-deep underline hover:text-ink shrink-0"
             >
               Read Refund Policy →
             </Link>

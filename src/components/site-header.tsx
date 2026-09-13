@@ -58,8 +58,8 @@ export function SiteHeader() {
             <Image
               src="/primary-logo.png"
               alt="Learnometry"
-              width={2444}
-              height={532}
+              width={611}
+              height={133}
               priority
               className="h-9 w-auto sm:h-11 md:h-12 object-contain"
             />

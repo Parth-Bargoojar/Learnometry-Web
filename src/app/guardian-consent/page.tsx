@@ -4,23 +4,47 @@ import { ArrowLeft, CheckCircle2, ShieldCheck, UserCheck } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Container } from "@/components/ui/section";
+import { JsonLd } from "@/components/json-ld";
+import { OG_IMAGE } from "@/lib/site";
+import { RelatedPolicies } from "@/components/related-policies";
+import { breadcrumbSchema, graph, webPageSchema } from "@/lib/schema";
+
+const title = "Guardian Consent Policy";
+const description =
+  "How Learnometry obtains verifiable parent or guardian consent for students under 18, in line with India's DPDP Act 2023, and what guardians can access and control.";
 
 export const metadata: Metadata = {
-  title: "Guardian Consent Policy — Learnometry",
-  description:
-    "Guardian and parental consent policy for Learnometry learners under 18 years of age. Aligned with India's DPDP Act 2023.",
+  title,
+  description,
+  alternates: { canonical: "/guardian-consent" },
+  openGraph: {
+    title: `${title} | Learnometry`,
+    description,
+    url: "/guardian-consent",
+    images: [OG_IMAGE],
+  },
 };
 
 export default function GuardianConsentPage() {
   return (
     <>
+      <JsonLd
+        data={graph([
+          webPageSchema({
+            path: "/guardian-consent",
+            name: `${title} | Learnometry`,
+            description,
+          }),
+          breadcrumbSchema([{ name: "Guardian Consent", path: "/guardian-consent" }]),
+        ])}
+      />
       <SiteHeader />
       <main className="flex-1 bg-background py-10 sm:py-16">
         <Container className="max-w-4xl">
           <Link
             href="/"
             scroll={false}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-primary-text transition-colors hover:text-ink"
+            className="inline-flex items-center gap-2 py-1.5 text-sm font-semibold text-primary-text transition-colors hover:text-ink"
           >
             <ArrowLeft className="size-4" />
             Back to Home
@@ -128,6 +152,8 @@ export default function GuardianConsentPage() {
               </section>
             </div>
           </article>
+
+          <RelatedPolicies currentPath="/guardian-consent" />
         </Container>
       </main>
       <SiteFooter />

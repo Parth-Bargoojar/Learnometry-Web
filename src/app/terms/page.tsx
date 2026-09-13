@@ -4,23 +4,47 @@ import { ArrowLeft, FileText, ShieldCheck } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Container } from "@/components/ui/section";
+import { JsonLd } from "@/components/json-ld";
+import { OG_IMAGE } from "@/lib/site";
+import { RelatedPolicies } from "@/components/related-policies";
+import { breadcrumbSchema, graph, webPageSchema } from "@/lib/schema";
+
+const title = "Terms of Service";
+const description =
+  "Learnometry Terms of Service: how diagnostic assessments, study credits, subscriptions and eligibility for learners under 18 work for CBSE, JEE and NEET students.";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — Learnometry",
-  description:
-    "Learnometry Terms of Service. Clear terms on educational diagnostics, credit usage, minor eligibility, and student data protection.",
+  title,
+  description,
+  alternates: { canonical: "/terms" },
+  openGraph: {
+    title: `${title} | Learnometry`,
+    description,
+    url: "/terms",
+    images: [OG_IMAGE],
+  },
 };
 
 export default function TermsPage() {
   return (
     <>
+      <JsonLd
+        data={graph([
+          webPageSchema({
+            path: "/terms",
+            name: `${title} | Learnometry`,
+            description,
+          }),
+          breadcrumbSchema([{ name: "Terms", path: "/terms" }]),
+        ])}
+      />
       <SiteHeader />
       <main className="flex-1 bg-background py-10 sm:py-16">
         <Container className="max-w-4xl">
           <Link
             href="/"
             scroll={false}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-primary-text transition-colors hover:text-ink"
+            className="inline-flex items-center gap-2 py-1.5 text-sm font-semibold text-primary-text transition-colors hover:text-ink"
           >
             <ArrowLeft className="size-4" />
             Back to Home
@@ -113,6 +137,8 @@ export default function TermsPage() {
               </section>
             </div>
           </article>
+
+          <RelatedPolicies currentPath="/terms" />
         </Container>
       </main>
       <SiteFooter />
