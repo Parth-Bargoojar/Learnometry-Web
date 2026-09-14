@@ -87,27 +87,36 @@ export function HowItWorks() {
         §13 — the mascot's single appearance on this page: first-use guidance,
         contained inside a bordered surface rather than floating over the layout.
       */}
-      <div className="mt-4 flex flex-col items-center gap-5 rounded-card-lg border-2 border-ink bg-surface p-5 shadow-brutal sm:flex-row sm:items-start sm:p-6">
-        <Image
-          src="/mascot.jpeg"
-          alt="The Learnometry mascot"
-          width={320}
-          height={320}
-          sizes="80px"
-          className="size-20 shrink-0 rounded-card border-2 border-ink object-contain"
-        />
-        <div className="relative w-full rounded-card-lg border-2 border-ink bg-slate-50 p-4 sm:p-5">
+      <div className="mt-6 flex flex-row items-center gap-3.5 sm:gap-5 rounded-card-lg border-2 border-ink bg-gradient-to-r from-primary/[0.12] via-primary/[0.04] to-surface p-3.5 sm:p-5 shadow-brutal transition-transform hover:-translate-y-0.5">
+        <div className="relative shrink-0">
+          <div className="size-16 sm:size-20 overflow-hidden rounded-full border-2 border-ink bg-surface shadow-brutal-sm ring-4 ring-primary/25">
+            <Image
+              src="/mascot.jpeg"
+              alt="The Learnometry mascot"
+              width={160}
+              height={160}
+              sizes="(max-width: 640px) 64px, 80px"
+              className="size-full scale-110 object-contain"
+            />
+          </div>
+        </div>
+
+        <div className="relative min-w-0 flex-1 rounded-card border-2 border-ink bg-surface p-3.5 sm:p-4 shadow-brutal-sm">
+          {/* Speech bubble pointer pointing directly left towards the mascot avatar */}
           <span
             aria-hidden="true"
-            className="absolute -top-2.5 left-8 size-5 rotate-45 border-t-2 border-l-2 border-ink bg-slate-50 sm:-left-2.5 sm:top-6 sm:border-t-0 sm:border-b-2 sm:border-l-2"
+            className="absolute -left-2 top-1/2 size-3.5 -translate-y-1/2 rotate-45 border-b-2 border-l-2 border-ink bg-surface"
           />
-          <span className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-primary px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-ink">
-            <Sparkles aria-hidden="true" className="size-3.5" />
-            Starter Pack
-          </span>
-          <p className="mt-2.5 text-[15px] font-semibold leading-relaxed text-ink">
-            Take 30 minutes for your first diagnostic — free, no card required.
-          </p>
+          <div className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:gap-3">
+            <span className="inline-flex w-fit items-center gap-1.5 rounded-full border-2 border-ink bg-primary px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide text-ink shadow-brutal-sm">
+              <Sparkles aria-hidden="true" className="size-3" />
+              Starter Pack
+            </span>
+            <p className="text-xs sm:text-[15px] font-semibold leading-relaxed text-ink">
+              Take 30 minutes for your first diagnostic —{" "}
+              <span className="text-primary-deep font-bold">free, no card required.</span>
+            </p>
+          </div>
         </div>
       </div>
     </Section>
