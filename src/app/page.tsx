@@ -20,7 +20,7 @@ import {
   webPageSchema,
 } from "@/lib/schema";
 
-const title = "JEE, NEET & CBSE Diagnostic Test + Study Plan | Learnometry";
+const title = "Learnometry — Diagnostic Test & Study Plan for JEE, NEET & CBSE";
 const description =
   "Free diagnostic test for CBSE, JEE & NEET students. Find the exact concepts pulling your marks down, get a day-by-day study plan, and retest to confirm the fix.";
 
