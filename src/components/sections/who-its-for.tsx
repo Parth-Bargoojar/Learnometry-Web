@@ -4,18 +4,18 @@ import { Section, SectionHeading } from "@/components/ui/section";
 const audiences: { icon: LucideIcon; title: string; body: string }[] = [
   {
     icon: Compass,
-    title: "You know your score, not your next move.",
-    body: "You finish a mock test, read the analytics, and still open your books wondering where to start. You need a sequence, not another dashboard.",
-  },
-  {
-    icon: Wallet,
-    title: "You can't afford another wasted month.",
-    body: "Revision time spent on the wrong chapter is the most expensive mistake in exam prep. Fixing the right concept first is what protects the months you have left.",
+    title: "You finish a mock and still guess what to open.",
+    body: "The analytics load, you read them, and you are back to picking a chapter by feel on Monday morning.",
   },
   {
     icon: Hourglass,
-    title: "You want the most out of every study hour.",
-    body: "You already study hard. The question is allocation — which concept returns the most marks per hour, and in what order to take them.",
+    title: "Your timetable is already full.",
+    body: "Between coaching, school and homework, revision gets whatever is left. Those hours have to land on the right concept the first time.",
+  },
+  {
+    icon: Wallet,
+    title: "You have months left before the paper.",
+    body: "A month spent revising what you already knew is a month you do not get back before the paper.",
   },
 ];
 
@@ -24,8 +24,8 @@ export function WhoItsFor() {
     <Section className="border-b-2 border-ink bg-background">
       <SectionHeading
         eyebrow="Who it's for"
-        title="Built for students who are already working hard."
-        description="Learnometry doesn't add more to study. It decides what to study first."
+        title="For the Class 11 or 12 student with a full coaching timetable."
+        description="Learnometry picks what you open first, out of the material you already own."
       />
 
       <div className="mt-12 grid gap-5 md:grid-cols-3">

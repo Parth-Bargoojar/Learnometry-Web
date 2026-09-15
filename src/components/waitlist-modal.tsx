@@ -148,10 +148,10 @@ export function WaitlistProvider({ children }: { children: ReactNode }) {
               </span>
 
               <h2 id="modal-headline" className="mt-4 font-display text-2xl tracking-tight text-ink sm:text-[26px]">
-                Reserve your early spot.
+                Get your first diagnostic free.
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                Be among the first CBSE, JEE, and NEET students to diagnose weak concepts. You&apos;ll also unlock 30 free monthly credits on launch.
+                Leave your email and we&apos;ll open your diagnostic on launch day, with 30 credits to build the study plan that follows.
               </p>
 
               {isJoined ? (
@@ -162,9 +162,9 @@ export function WaitlistProvider({ children }: { children: ReactNode }) {
                   >
                     <CheckCircle2 className="size-6 shrink-0 text-success" />
                     <div>
-                      <p className="font-semibold text-[15px]">You&apos;re on the list!</p>
+                      <p className="font-semibold text-[15px]">You&apos;re in.</p>
                       <p className="text-xs text-slate-600">
-                        We will notify <strong className="text-ink">{email}</strong> as soon as access opens.
+                        We&apos;ll email <strong className="text-ink">{email}</strong> the moment your diagnostic is ready.
                       </p>
                     </div>
                   </div>
@@ -226,7 +226,7 @@ export function WaitlistProvider({ children }: { children: ReactNode }) {
                           setEmail(e.target.value);
                           if (errorMessage) setErrorMessage(null);
                         }}
-                        placeholder="Enter your email address"
+                        placeholder="Your email address"
                         className="h-12 w-full rounded-btn border-2 border-ink bg-surface pl-11 pr-4 text-[15px] font-medium text-ink placeholder:text-slate-500 shadow-brutal-sm transition-shadow focus:outline-none focus:ring-2 focus:ring-primary disabled:opacity-60"
                       />
                     </div>
@@ -238,7 +238,7 @@ export function WaitlistProvider({ children }: { children: ReactNode }) {
                       {isLoading ? (
                         <>
                           <Loader2 className="size-4.5 animate-spin" />
-                          <span>Joining Waitlist...</span>
+                          <span>Reserving...</span>
                         </>
                       ) : (
                         <>

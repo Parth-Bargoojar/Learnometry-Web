@@ -12,54 +12,38 @@ export interface FaqItem {
 
 export const HOME_FAQS: FaqItem[] = [
   {
-    question: "Does Learnometry replace my coaching classes or books?",
+    question: "Is the first diagnostic really free?",
     answer:
-      "No. Learnometry acts as your diagnostic copilot. It tells you which concepts from your coaching material to study first so you never waste hours revising topics you already know.",
+      "Yes. Every student gets 30 free credits a month at launch. That covers a full diagnostic, your root-cause report and your first study plan, with no card added.",
   },
   {
-    question: "Is Learnometry an AI chatbot or a generic question generator?",
+    question: "Does this replace my coaching classes or books?",
     answer:
-      "No. Learnometry is an intelligent diagnostic decision engine, not a conversational chatbot or infinite question spammer. We do not generate random questions on the fly. Instead, we map your assessment answers against structured prerequisite trees to isolate your exact error patterns, tell you the next best study action, and verify improvement through retests.",
+      "No. Learnometry tells you which concepts from the material you already have to study first, so your revision hours stop going to topics you have already cleared.",
   },
   {
-    question: "Are my test marks or diagnoses guessed by generative AI?",
+    question: "Are my marks or diagnoses guessed by AI?",
     answer:
-      "Never. All scoring, question verification, and prerequisite dependency calculations are 100% deterministic code logic. AI models are strictly barred from fabricating marks, calculating scores, or hallucinating student performance. If there is not enough evidence to confirm a diagnosis, our system explicitly displays 'Insufficient evidence' rather than guessing.",
+      "No. Scoring, question checking and prerequisite calculations run on deterministic server-side code. Generative models are barred from producing marks or performance claims. Where there is too little evidence to call a concept weak, your report says “Insufficient evidence” instead of guessing.",
   },
   {
-    question: "Is the first diagnostic test really free?",
+    question: "How do I know a weak concept actually improved?",
     answer:
-      "Yes. Every student receives 30 free credits every month upon launch. You can take a complete diagnostic test, receive your root-cause analysis, and generate your personalized study plan without adding a credit card.",
+      "You take a parallel retest on fresh questions covering the same concept. The status flips to “Gap Closed” only when that retest confirms it, so finishing a video or a set of notes does not count as mastery.",
   },
   {
-    question: "How does the diagnostic find the root cause of a mistake?",
+    question: "What happens if I miss a day or coaching eats my week?",
     answer:
-      "Our engine maps questions to prerequisite dependency trees. If you miss a quadratic equation question, it isolates whether you struggled with algebraic signs, formula recall, or arithmetic slips.",
+      "Your plan re-prioritises instead of piling up a backlog. It is built around the daily study hours you report, so a lost day moves the lowest-yield task rather than adding to tomorrow.",
   },
   {
-    question: "Why doesn't Learnometry mark a concept 'Mastered' as soon as I finish reading notes?",
+    question: "Which exams, subjects and boards are covered?",
     answer:
-      "Because completion alone does not equal mastery. Merely reading notes or watching a video creates the illusion of understanding. Learnometry requires a targeted, parallel retest on fresh questions testing the exact same concept before confirming that your gap is closed.",
+      "CBSE Class 11 and 12 boards, JEE Main and Advanced, and NEET. Questions and concept trees are mapped to the CBSE, NTA and NMC syllabi, with high-weightage chapters first.",
   },
   {
-    question: "What happens if I miss a day or have a heavy coaching schedule?",
+    question: "Can a parent or guardian see the reports?",
     answer:
-      "Your plan adapts rather than piling up unmanageable backlog. Learnometry is calibrated around your real, reported daily available study hours. If coaching tests or school assignments take up your time, the engine re-prioritizes your schedule so your limited revision time is always spent on the highest-yield concept gaps.",
-  },
-  {
-    question: "How do I know if my weak concept actually improved?",
-    answer:
-      "After completing your recommended 35-minute study task, you take a targeted parallel retest. Your mastery status only flips to 'Gap Closed' once the retest shows you can answer that concept reliably — and where there is too little evidence either way, we say so instead of guessing.",
-  },
-  {
-    question: "Which exams, subjects, and boards are supported?",
-    answer:
-      "Learnometry is built specifically for Indian students preparing for CBSE Class 11 & 12 Board exams, JEE (Main & Advanced), and NEET. Our questions and concept trees are calibrated to official NTA, NMC, and CBSE syllabi, focusing on high-weightage chapters where prerequisite gaps most heavily drag down scores.",
-  },
-  {
-    question: "Can parents or guardians view student diagnostic reports?",
-    answer:
-      "Yes. In compliance with India's DPDP Act 2023, parents and guardians can monitor accounts for students under 18, review verified diagnostic reports, and directly verify score improvement without invasive tracking or third-party ads.",
+      "Yes. Under India's DPDP Act 2023, a parent or guardian can hold the account for a student under 18, review diagnostic reports and check score movement. No third-party ads, no invasive tracking.",
   },
 ];
-

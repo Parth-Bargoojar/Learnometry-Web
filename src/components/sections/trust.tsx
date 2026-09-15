@@ -1,6 +1,5 @@
 import {
   Calculator,
-  Receipt,
   ScanSearch,
   ShieldCheck,
   type LucideIcon,
@@ -11,23 +10,18 @@ import { Section, SectionHeading } from "@/components/ui/section";
 const principles: { icon: LucideIcon; title: string; body: string }[] = [
   {
     icon: Calculator,
-    title: "Your score is calculated, not estimated",
-    body: "Marking follows fixed, server-side rules — including negative marking. No model decides whether your answer was right.",
+    title: "Fixed marking rules, run server-side",
+    body: "Negative marking included, identical for every student. No model decides whether your answer was right.",
   },
   {
     icon: ScanSearch,
-    title: "Every weakness shows its evidence",
-    body: "Each diagnosis names the questions behind it and how confident the conclusion is, so you can judge it rather than take it on faith.",
+    title: "Every weakness shows its questions",
+    body: "Each diagnosis lists the answers that produced it and how confident it is, so you can check the reasoning instead of trusting it.",
   },
   {
     icon: ShieldCheck,
-    title: "We say “not enough evidence” when it's true",
-    body: "Two questions on a concept isn't proof of a weakness. Where the signal is thin, we hold the claim instead of manufacturing certainty.",
-  },
-  {
-    icon: Receipt,
-    title: "Credits are shown plainly",
-    body: "You always see what you have, what an action costs, and what's left. No “unlimited AI” wording, no countdown pressure to upgrade.",
+    title: "Two questions is not proof, so we label it",
+    body: "Where a concept has too few answers to judge, your report reads “Insufficient evidence” and the plan leaves it alone.",
   },
 ];
 
@@ -36,12 +30,12 @@ export function Trust() {
     <Section className="border-b-2 border-ink bg-surface">
       <SectionHeading
         eyebrow="Why you can act on this"
-        title="How we avoid guessing."
-        description="Learnometry makes claims about your preparation, so those claims have to be checkable. Here's exactly where the certainty comes from — and where it doesn't."
+        title="Where every number on your report comes from."
+        description="Learnometry tells you what to do with the months you have left, so you should be able to check its working. Here is how each figure is produced."
       />
 
       {/* Same bordered-card language as the other sections, not a plain icon list. */}
-      <div className="mt-10 grid gap-4 md:grid-cols-2">
+      <div className="mt-10 grid gap-4 md:grid-cols-3">
         {principles.map((principle) => (
           <article
             key={principle.title}

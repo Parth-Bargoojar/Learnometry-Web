@@ -15,7 +15,7 @@ export function Faq() {
     <Section id="faq" className="border-b-2 border-ink bg-surface">
       <SectionHeading
         eyebrow="FAQ"
-        title="Questions students actually ask."
+        title="Before you hand over your email."
         align="center"
       />
 
@@ -77,27 +77,13 @@ export function Faq() {
           className="font-semibold text-primary-text underline decoration-primary decoration-2 underline-offset-4 transition-colors hover:text-ink"
         >
           Compare the monthly plans
-        </Link>
-        , read our{" "}
-        <Link
-          href="/refunds"
-          className="font-semibold text-primary-text underline decoration-primary decoration-2 underline-offset-4 transition-colors hover:text-ink"
-        >
-          refund policy
-        </Link>
-        , or{" "}
+        </Link>{" "}
+        or{" "}
         <Link
           href="/contact"
           className="font-semibold text-primary-text underline decoration-primary decoration-2 underline-offset-4 transition-colors hover:text-ink"
         >
           ask us directly
-        </Link>
-        . Parents can review the{" "}
-        <Link
-          href="/guardian-consent"
-          className="font-semibold text-primary-text underline decoration-primary decoration-2 underline-offset-4 transition-colors hover:text-ink"
-        >
-          guardian consent policy
         </Link>
         .
       </p>

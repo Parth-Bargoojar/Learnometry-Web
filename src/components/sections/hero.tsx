@@ -9,7 +9,7 @@ import {
   GraduationCap,
   Loader2,
   Mail,
-  RotateCcw,
+  ScanSearch,
   ShieldCheck,
   Sparkles,
   type LucideIcon,
@@ -21,9 +21,9 @@ import { submitWaitlist } from "@/lib/waitlist";
 import { WaitlistConsent } from "@/components/waitlist-consent";
 
 const trustBadges: { icon: LucideIcon; label: string }[] = [
-  { icon: ShieldCheck, label: "Built to CBSE, NTA & NMC Exam Patterns" },
-  { icon: Calculator, label: "Deterministic Scoring, Not AI Guesswork" },
-  { icon: Sparkles, label: "30 Free Credits Every Month at Launch" },
+  { icon: ShieldCheck, label: "Modelled on CBSE, NTA & NMC exam patterns" },
+  { icon: Calculator, label: "Server-side scoring, negative marking included" },
+  { icon: ScanSearch, label: "Every weakness links to the questions behind it" },
 ];
 
 export function Hero() {
@@ -67,7 +67,7 @@ export function Hero() {
         <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-12">
           <div className="flex flex-col items-start gap-4 sm:gap-5">
             <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
-              <Kicker icon={GraduationCap}>Built for CBSE, JEE &amp; NEET students</Kicker>
+              <Kicker icon={GraduationCap}>For Class 11 &amp; 12 JEE, NEET and CBSE students</Kicker>
               <span className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-primary/20 px-3 py-1 text-xs font-bold uppercase tracking-wide text-ink shadow-brutal-sm">
                 <span className="size-2 rounded-full bg-primary-deep animate-pulse" />
                 Early Access Beta
@@ -75,13 +75,13 @@ export function Hero() {
             </div>
 
             <h1 className="font-display text-display-xl text-balance text-ink">
-              Find your weak concepts. Fix them in the right order.
+              Know which concept to fix first tomorrow morning.
             </h1>
 
             <p className="max-w-xl text-base sm:text-lg leading-relaxed text-slate-600">
-              Take a quick diagnostic test to find the exact concepts pulling
-              your marks down. Get a day-by-day revision plan based on your
-              available study hours, then retest to confirm you&apos;ve closed the gap.
+              One 30-minute diagnostic names the exact concepts behind your wrong
+              answers. You get a daily plan ranked by exam weight, sized to the
+              hours you actually have, and a retest that proves the gap closed.
             </p>
 
             <div id="waitlist" className="w-full scroll-mt-28">
@@ -93,8 +93,8 @@ export function Hero() {
                   <div className="flex items-center gap-3">
                     <CheckCircle2 className="size-6 shrink-0 text-success" />
                     <div>
-                      <p className="font-semibold text-[15px]">You&apos;re on the early access waitlist!</p>
-                      <p className="text-xs text-slate-600">We will notify <strong className="text-ink">{email}</strong> as soon as early access opens.</p>
+                      <p className="font-semibold text-[15px]">You&apos;re in. Check your inbox on launch day.</p>
+                      <p className="text-xs text-slate-600">We&apos;ll email <strong className="text-ink">{email}</strong> the moment your diagnostic is ready.</p>
                     </div>
                   </div>
                   <button
@@ -149,7 +149,7 @@ export function Hero() {
                           setEmail(e.target.value);
                           if (errorMessage) setErrorMessage(null);
                         }}
-                        placeholder="Enter your email to join waitlist"
+                        placeholder="Your email address"
                         className="h-12 sm:h-13 w-full rounded-btn border-2 border-ink bg-surface pl-12 pr-4 text-[15px] font-medium text-ink placeholder:text-slate-500 shadow-brutal-sm transition-shadow focus:outline-none focus:ring-2 focus:ring-primary disabled:opacity-60"
                       />
                     </div>
@@ -165,7 +165,7 @@ export function Hero() {
                         </>
                       ) : (
                         <>
-                          <span>Join Waitlist</span>
+                          <span>Get my free diagnostic</span>
                           <ArrowRight aria-hidden="true" className="size-4.5" />
                         </>
                       )}
@@ -185,18 +185,14 @@ export function Hero() {
               )}
             </div>
 
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs sm:text-sm text-slate-600">
-              <span className="flex items-center gap-1.5 font-medium">
-                <Sparkles className="size-3.5 text-primary-text" /> 30 free monthly credits on launch
-              </span>
-              <span aria-hidden="true" className="hidden text-border-subtle sm:inline">·</span>
-              <a
-                href="#how-it-works"
-                className="font-semibold text-ink underline decoration-primary decoration-2 underline-offset-4 transition-colors hover:text-primary-text touch:inline-flex touch:min-h-11 touch:items-center"
-              >
-                See how it works ↓
-              </a>
-            </div>
+            <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs sm:text-sm font-medium text-slate-600">
+              <Sparkles aria-hidden="true" className="size-3.5 text-primary-text" />
+              <span>Free to join.</span>
+              <span aria-hidden="true" className="text-border-subtle">&middot;</span>
+              <span>No card required.</span>
+              <span aria-hidden="true" className="text-border-subtle">&middot;</span>
+              <span>30 credits waiting on launch day.</span>
+            </p>
 
             <ul className="flex flex-wrap items-center gap-2 sm:gap-2.5">
               {trustBadges.map((badge) => (
@@ -214,9 +210,8 @@ export function Hero() {
             </ul>
 
             <p className="max-w-xl text-[11px] leading-normal text-slate-500 mt-0.5">
-              Learnometry is an independent product. It is not affiliated with, endorsed
-              by or connected to CBSE, the NTA, the NMC or any examination authority or
-              coaching institute.
+              Learnometry is an independent product, not affiliated with or endorsed by
+              CBSE, the NTA, the NMC or any coaching institute.
             </p>
           </div>
 
@@ -241,9 +236,6 @@ function HeroVisual() {
           <span className="flex items-center gap-2 font-semibold text-ink">
             <span aria-hidden="true" className="size-2 rounded-full bg-primary" />
             Quadratic Equations · Math
-          </span>
-          <span className="rounded-full border border-ink/20 bg-slate-100 px-2.5 py-0.5 text-[11px] font-semibold text-slate-700">
-            Illustrative example
           </span>
         </div>
 
@@ -313,11 +305,11 @@ function HeroVisual() {
         <div className="mt-5 flex flex-wrap items-center justify-between gap-3 rounded-btn border border-ink/20 bg-slate-50 px-3.5 py-2.5 text-xs">
           <span className="flex items-center gap-1.5 font-medium text-slate-700">
             <Clock className="size-3.5 text-primary-deep shrink-0" />
-            <span>Sample report — not a real student&apos;s result</span>
+            <span>Sample report, not a real student&apos;s result</span>
           </span>
           <span className="font-bold text-primary-text flex items-center gap-1">
             <Sparkles aria-hidden="true" className="size-3.5 text-primary-deep" />
-            Deterministic scoring
+            Scored server-side
           </span>
         </div>
       </article>

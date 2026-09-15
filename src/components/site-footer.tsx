@@ -92,8 +92,8 @@ export function SiteFooter() {
               />
             </Link>
             <p className="max-w-xs text-[15px] leading-relaxed text-slate-400">
-              Diagnose what&apos;s weak. Fix it in the right order. Retest to be
-              sure.
+              Find the concepts costing you marks, then fix them in the order that
+              returns the most.
             </p>
             <a
               href={INSTAGRAM_URL}

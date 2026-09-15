@@ -89,7 +89,7 @@ export function BusinessDetails() {
           </h3>
         </div>
         <p className="mt-2 text-[15px] leading-relaxed text-slate-700">
-          If something we have done — or failed to do — has gone wrong, you can escalate
+          If something we have done, or failed to do, has gone wrong, you can escalate
           it to our Grievance Officer, who also handles questions and complaints about
           personal data under the Digital Personal Data Protection Act, 2023.
         </p>

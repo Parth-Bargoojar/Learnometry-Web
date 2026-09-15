@@ -77,7 +77,7 @@ export default function TermsPage() {
             <p className="mt-2 text-base text-slate-600">
               Welcome to Learnometry. These Terms govern your use of our website and of our
               diagnostic assessment, study planning and prescriptive prep platform for
-              CBSE, JEE and NEET. Please read them — they are a binding agreement between
+              CBSE, JEE and NEET. Please read them. They are a binding agreement between
               you and us.
             </p>
 
@@ -135,7 +135,7 @@ export default function TermsPage() {
 
               <section>
                 <h2 className="font-display text-xl text-ink">
-                  3. What the service is — and what it is not
+                  3. What the service is, and what it is not
                 </h2>
                 <p className="mt-2">Learnometry provides:</p>
                 <ul className="mt-2 list-disc space-y-1.5 pl-5 text-slate-600">
@@ -155,7 +155,7 @@ export default function TermsPage() {
                   <p className="text-sm text-amber-900">
                     <strong>No guarantee of results.</strong> Learnometry is a study aid. It
                     does not replace formal school education, coaching classes or your own
-                    effort. We make no promise — express or implied — of any particular
+                    effort. We make no promise, express or implied, of any particular
                     mark, percentile, rank, admission or exam selection, and nothing on this
                     website should be read as one. Diagnostic outputs are calibrated
                     estimates derived from your test responses and can be wrong.
@@ -181,7 +181,7 @@ export default function TermsPage() {
                   and question format our content is modelled on. All such names, marks and
                   logos are the property of their respective owners and are used only for
                   identification and descriptive purposes. We are not an official source
-                  for exam notifications, syllabi or results — always check the relevant
+                  for exam notifications, syllabi or results. Always check the relevant
                   authority&apos;s own website.
                 </p>
               </section>
@@ -195,7 +195,7 @@ export default function TermsPage() {
                   evaluation rules, including negative marking where the exam pattern
                   applies it. No AI model estimates or generates your assessment score.
                   Explanations, study plans and concept diagnoses are, by contrast,
-                  AI-assisted and may occasionally contain errors — if you spot one, tell
+                  AI-assisted and may occasionally contain errors. If you spot one, tell
                   us and we will correct it.
                 </p>
               </section>
@@ -275,7 +275,7 @@ export default function TermsPage() {
                   Platform for your own academic preparation only.
                 </p>
                 <p className="mt-2">
-                  Anything you submit — feedback, reported errors, suggestions — may be
+                  Anything you submit (feedback, reported errors, suggestions) may be
                   used by us to improve the Platform without obligation to you, but it
                   remains yours and we claim no ownership of your personal study data.
                 </p>
@@ -301,7 +301,7 @@ export default function TermsPage() {
                 <p className="mt-2">
                   You may stop using the Platform and close your account at any time. We may
                   suspend or terminate an account that breaches these Terms, that is used
-                  fraudulently, or where we are required to do so by law — normally after
+                  fraudulently, or where we are required to do so by law, normally after
                   notice and a chance to put it right, and immediately where the breach is
                   serious. If we terminate an account without cause, we will refund the
                   unused portion of the current billing cycle.
@@ -330,7 +330,7 @@ export default function TermsPage() {
                     Nothing in these Terms excludes or limits any liability that cannot
                     lawfully be excluded or limited
                   </strong>{" "}
-                  — including liability for fraud, for death or personal injury caused by
+                  including liability for fraud, for death or personal injury caused by
                   negligence, or any right you have as a consumer under the Consumer
                   Protection Act, 2019.
                 </p>
@@ -368,7 +368,7 @@ export default function TermsPage() {
                     : "Subject to the paragraph below, the competent courts in India shall have jurisdiction over any dispute arising out of them."}
                 </p>
                 <p className="mt-2">
-                  Please contact our Grievance Officer first — most issues are resolved
+                  Please contact our Grievance Officer first. Most issues are resolved
                   quickly that way. Nothing here prevents you as a consumer from bringing a
                   complaint before the consumer forum with jurisdiction over the place where
                   you live or work, as the Consumer Protection Act, 2019 allows.

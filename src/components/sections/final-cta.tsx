@@ -50,11 +50,29 @@ export function FinalCta() {
           </span>
 
           <h2 className="font-display text-display-lg text-balance text-ink">
-            Find out what&apos;s actually holding your score back.
+            Know your weakest concept before your next mock.
           </h2>
           <p className="max-w-xl text-lg leading-relaxed text-slate-600">
-            Join the waitlist today. Get 30 free monthly credits and be the first to diagnose your weak concepts on launch.
+            Leave your email and your first diagnostic is waiting the day we open,
+            along with 30 credits to build the plan that follows it.
           </p>
+
+          {/* The last objections, answered where the decision is actually made. */}
+          <ul className="flex flex-wrap items-center justify-center gap-2">
+            {[
+              "A full diagnostic, free",
+              "No card required",
+              "One email at launch, nothing else",
+            ].map((item) => (
+              <li
+                key={item}
+                className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-surface px-3 py-1 text-xs font-semibold text-ink shadow-brutal-sm"
+              >
+                <CheckCircle2 aria-hidden="true" className="size-3.5 shrink-0 text-success" />
+                {item}
+              </li>
+            ))}
+          </ul>
 
           <div className="w-full max-w-md">
             {isJoined ? (
@@ -65,8 +83,8 @@ export function FinalCta() {
                 <div className="flex items-center gap-3">
                   <CheckCircle2 className="size-6 shrink-0 text-success" />
                   <div className="text-left">
-                    <p className="font-semibold text-[15px]">You&apos;re on the early access waitlist!</p>
-                    <p className="text-xs text-slate-600">We will email <strong className="text-ink">{email}</strong> as soon as early access opens.</p>
+                    <p className="font-semibold text-[15px]">You&apos;re in. Check your inbox on launch day.</p>
+                    <p className="text-xs text-slate-600">We&apos;ll email <strong className="text-ink">{email}</strong> the moment your diagnostic is ready.</p>
                   </div>
                 </div>
                 <button
@@ -121,7 +139,7 @@ export function FinalCta() {
                         setEmail(e.target.value);
                         if (errorMessage) setErrorMessage(null);
                       }}
-                      placeholder="Enter your email"
+                      placeholder="Your email address"
                       className="h-13 w-full rounded-btn border-2 border-ink bg-surface pl-12 pr-4 text-[15px] font-medium text-ink placeholder:text-slate-500 shadow-brutal-sm transition-shadow focus:outline-none focus:ring-2 focus:ring-primary disabled:opacity-60"
                     />
                   </div>
@@ -137,7 +155,7 @@ export function FinalCta() {
                       </>
                     ) : (
                       <>
-                        <span>Join Waitlist</span>
+                        <span>Reserve my free diagnostic</span>
                         <ArrowRight aria-hidden="true" className="size-4.5" />
                       </>
                     )}
@@ -157,17 +175,6 @@ export function FinalCta() {
             )}
           </div>
 
-          <p className="text-sm font-medium text-slate-600">
-            Free to join
-            <span aria-hidden="true" className="mx-2 text-border-subtle">
-              ·
-            </span>
-            No card required
-            <span aria-hidden="true" className="mx-2 text-border-subtle">
-              ·
-            </span>
-            30 launch credits included
-          </p>
         </div>
       </Container>
     </section>

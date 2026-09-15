@@ -14,19 +14,16 @@ const plans = [
     price: "₹199",
     cadence: "per month",
     validity: "1 month validity",
-    dailyAllowance: "200 credits/tokens / day",
-    dailyResetNotice: "Refreshes every 24 hours at midnight",
-    modelAccess: "1 Model (Your Choice)",
-    summary: "For focused daily concept revision with your chosen AI learning engine.",
+    dailyAllowance: "200 credits / day",
+    dailyResetNotice: "Refills at midnight, every day",
+    modelAccess: "1 model (your choice)",
+    summary: "Enough for one diagnostic and a daily concept session.",
     features: [
-      "1 AI model of your choice (switchable in settings)",
-      "200 credits/tokens refreshed daily",
-      "Diagnostic assessment & gap identification",
-      "Targeted daily practice & adaptive study plan",
-      "Evidence-backed explanation of every mistake",
-      "1 month validity · No lock-in",
+      "200 credits a day on one model you pick",
+      "Full diagnostic, ranked plan and retests",
+      "Cancel any month, no lock-in",
     ],
-    cta: "Reserve Starter Spot",
+    cta: "Reserve Starter at ₹199",
     recommended: false,
   },
   {
@@ -35,19 +32,16 @@ const plans = [
     price: "₹299",
     cadence: "per month",
     validity: "1 month validity",
-    dailyAllowance: "350 tokens / day",
-    dailyResetNotice: "Refreshes every 24 hours at midnight",
-    modelAccess: "All Models Unlocked",
-    summary: "The balanced daily driver — multi-model reasoning and 75% higher daily quota.",
+    dailyAllowance: "350 credits / day",
+    dailyResetNotice: "Refills at midnight, every day",
+    modelAccess: "All models",
+    summary: "75% more credits a day than Starter, on every model.",
     features: [
-      "All AI models unlocked (fast + reasoning)",
-      "350 tokens/credits refreshed daily",
-      "Deep root-cause error diagnostics",
-      "Personalized multi-week plan & scheduled retests",
-      "Complex step-by-step problem breakdowns",
-      "1 month validity · No lock-in",
+      "350 credits a day across all models",
+      "Multi-week plan with scheduled retests",
+      "Step-by-step breakdowns of hard problems",
     ],
-    cta: "Reserve Plus Spot",
+    cta: "Reserve Plus at ₹299",
     recommended: true,
   },
   {
@@ -56,19 +50,16 @@ const plans = [
     price: "₹349",
     cadence: "per month",
     validity: "1 month validity",
-    dailyAllowance: "500 tokens / day",
-    dailyResetNotice: "Refreshes every 24 hours at midnight",
-    modelAccess: "All Models + Max Reasoning",
-    summary: "For intensive exam sprinters doing heavy daily practice and deep retests.",
+    dailyAllowance: "500 credits / day",
+    dailyResetNotice: "Refills at midnight, every day",
+    modelAccess: "All models, deepest reasoning",
+    summary: "For the final-months sprint, retesting several concepts a day.",
     features: [
-      "All AI models including deepest reasoning engines",
-      "500 tokens/credits refreshed daily",
-      "High-frequency retesting and rapid adaptation",
-      "Full multi-chapter diagnostic deep-dives",
-      "Priority AI queue for instant generation",
-      "1 month validity · No lock-in",
+      "500 credits a day, including the slower reasoning models",
+      "Multi-chapter diagnostics and high-frequency retests",
+      "Priority queue at peak hours",
     ],
-    cta: "Reserve Pro Spot",
+    cta: "Reserve Pro at ₹349",
     recommended: false,
   },
 ];
@@ -80,16 +71,16 @@ export function Pricing() {
     <Section id="pricing" className="border-b-2 border-ink bg-background">
       <SectionHeading
         align="center"
-        eyebrow="Transparent Pricing"
-        title="Predictable daily study allowances. Zero surprise fees."
-        description="Every plan includes a daily allowance of AI credits that resets at midnight. Choose between one dedicated model or access to all reasoning models."
+        eyebrow="Pricing"
+        title="₹199 to ₹349 a month. Cancel any month."
+        description="Your credits refill at midnight, so one heavy revision day never locks you out of the next."
       />
 
       {/* Zero-assumption free trial banner */}
       <div className="mx-auto mt-6 max-w-2xl rounded-btn border-2 border-ink bg-primary/15 px-4 py-2.5 text-center text-sm font-semibold text-ink shadow-brutal-sm">
         <span className="inline-flex items-center gap-1.5">
           <Sparkles className="size-4 text-primary-deep" />
-          <span><strong>Want to try first?</strong> All waitlist students receive a free diagnostic assessment on launch day — no credit card required.</span>
+          <span><strong>Not ready to pay?</strong> Everyone on the waitlist gets a full diagnostic free on launch day, no card required.</span>
         </span>
       </div>
 
@@ -127,7 +118,7 @@ export function Pricing() {
               {/* Model access badge */}
               <div className="mt-3 rounded-btn border border-ink/20 bg-slate-50 px-3 py-2">
                 <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                  Model Access
+                  Model access
                 </p>
                 <p className="text-sm font-bold text-ink flex items-center gap-1.5 mt-0.5">
                   <Zap className="size-4 text-primary-deep" />
@@ -138,7 +129,7 @@ export function Pricing() {
               {/* Daily allowance callout */}
               <div className="mt-2.5 rounded-btn border-2 border-ink bg-primary/10 px-3 py-2">
                 <p className="text-xs font-bold uppercase tracking-wider text-primary-text">
-                  Daily Allowance
+                  Daily allowance
                 </p>
                 <p className="text-sm font-extrabold text-ink">
                   {plan.dailyAllowance}
@@ -180,13 +171,13 @@ export function Pricing() {
 
       <div className="mt-8 flex flex-col items-center justify-center gap-2 text-center">
         <p className="text-sm font-medium text-slate-600">
-          All prices in INR. Valid for 30 days with daily quota resets at 00:00 midnight. No hidden charges.
+          Prices in INR, valid 30 days, credits reset at 00:00. No hidden charges.
         </p>
         <Link
           href="/pricing"
           className="inline-flex items-center gap-1 text-sm font-semibold text-primary-text underline hover:text-ink transition-colors touch:min-h-11"
         >
-          Compare full plan breakdown, daily token details &amp; FAQ
+          Compare the full plan breakdown
           <ArrowRight className="size-4" />
         </Link>
       </div>

@@ -6,8 +6,8 @@ export function Problem() {
     <Section className="border-b-2 border-ink bg-surface">
       <SectionHeading
         eyebrow="The gap"
-        title="Most tools grade you. Almost none tell you what to do next."
-        description="You already know which chapter is weak — your test analytics said so. What you don't have is the order to fix it in: which concept first, for how long, and how to know it actually worked. That part has always required a mentor."
+        title="Your mock report ends at the percentile."
+        description="It flags Quadratic Equations as weak and stops there. You are left deciding which concept inside that chapter broke, how long to spend on it, and how to tell whether the fix held. You make that call alone, at 11pm, with a syllabus still to finish."
       />
 
       <div className="mt-12 grid gap-5 md:grid-cols-2">
@@ -17,13 +17,13 @@ export function Problem() {
               <X aria-hidden="true" className="size-4 text-danger" />
             </span>
             <h3 className="text-lg font-semibold text-slate-600">
-              What regular test analytics give you
+              A standard test report
             </h3>
           </div>
           <ul className="mt-5 flex flex-col gap-3 text-[15px] text-slate-600">
-            <li>A generic percentile and a rank, nothing more.</li>
-            <li>Chapter-level accuracy, averaged across everything.</li>
-            <li>A list of topics vaguely labelled &ldquo;revise more&rdquo;.</li>
+            <li>A percentile and a rank.</li>
+            <li>Accuracy averaged across a whole chapter.</li>
+            <li>Topics labelled &ldquo;revise more&rdquo;.</li>
           </ul>
         </article>
 
@@ -36,7 +36,7 @@ export function Problem() {
               <Check aria-hidden="true" className="size-4 text-ink" />
             </span>
             <h3 className="text-lg font-semibold text-ink">
-              What Learnometry gives you
+              Your Learnometry report
             </h3>
           </div>
           <ul className="mt-5 flex flex-col gap-3 text-[15px] font-medium text-ink">
@@ -45,21 +45,21 @@ export function Problem() {
                 aria-hidden="true"
                 className="mt-0.5 size-4.5 shrink-0 text-success"
               />
-              The exact concept behind the wrong answer.
+              The exact concept behind each wrong answer.
             </li>
             <li className="flex items-start gap-2.5">
               <Check
                 aria-hidden="true"
                 className="mt-0.5 size-4.5 shrink-0 text-success"
               />
-              A 35-minute action plan, ranked by impact.
+              Tomorrow&apos;s 35-minute task, ranked by exam weight.
             </li>
             <li className="flex items-start gap-2.5">
               <Check
                 aria-hidden="true"
                 className="mt-0.5 size-4.5 shrink-0 text-success"
               />
-              A retest that verifies the gap actually closed.
+              A retest that confirms the gap closed.
             </li>
           </ul>
         </article>

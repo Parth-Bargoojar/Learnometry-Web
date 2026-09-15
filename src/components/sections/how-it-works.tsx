@@ -1,42 +1,30 @@
 import Image from "next/image";
 import {
   ChevronRight,
-  ClipboardList,
   ListOrdered,
   RefreshCw,
   Search,
   Sparkles,
-  Target,
   type LucideIcon,
 } from "lucide-react";
 import { Section, SectionHeading } from "@/components/ui/section";
 
-/* §45 — the seven-stage internal loop, condensed to the five a visitor needs. */
+/* §45 — the seven-stage internal loop, condensed to the three a visitor needs. */
 const steps: { icon: LucideIcon; title: string; body: string }[] = [
-  {
-    icon: ClipboardList,
-    title: "Assess",
-    body: "A timed diagnostic built from calibrated questions.",
-  },
   {
     icon: Search,
     title: "Diagnose",
-    body: "Each wrong answer maps to a concept and a likely cause.",
+    body: "A 30-minute timed test. Every wrong answer maps to the concept it came from and the error that caused it, with the questions shown as evidence.",
   },
   {
     icon: ListOrdered,
     title: "Prescribe",
-    body: "Weaknesses ranked by impact, fitted to your hours.",
-  },
-  {
-    icon: Target,
-    title: "Study",
-    body: "Targeted practice tied to the exact gap you're closing.",
+    body: "Your gaps ordered by exam weight and prerequisite depth, then cut into daily sessions that fit the study hours you report.",
   },
   {
     icon: RefreshCw,
     title: "Retest",
-    body: "A parallel test measures whether it actually worked.",
+    body: "A fresh parallel test on the same concept. Your status flips to Gap Closed only when that test says so.",
   },
 ];
 
@@ -45,11 +33,11 @@ export function HowItWorks() {
     <Section id="how-it-works" className="border-b-2 border-ink bg-background">
       <SectionHeading
         eyebrow="How it works"
-        title="A closed loop, not a report you file away."
-        description="Each step feeds the next. Nothing is recommended without evidence, and nothing is marked fixed until a retest says so."
+        title="Three steps, and the last one checks the other two."
+        description="Every recommendation traces back to a question you answered. Nothing is marked fixed until a fresh retest confirms it."
       />
 
-      <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+      <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {steps.map((step, index) => (
           <li key={step.title} className="relative h-full">
             <div className="flex h-full flex-col gap-3 rounded-card-lg border-2 border-ink bg-surface p-5 transition-transform duration-200 hover:-translate-y-1">
@@ -113,8 +101,8 @@ export function HowItWorks() {
               Starter Pack
             </span>
             <p className="text-xs sm:text-[15px] font-semibold leading-relaxed text-ink">
-              Take 30 minutes for your first diagnostic —{" "}
-              <span className="text-primary-deep font-bold">free, no card required.</span>
+              Your first diagnostic takes 30 minutes and costs nothing.{" "}
+              <span className="text-primary-deep font-bold">No card required.</span>
             </p>
           </div>
         </div>

@@ -20,9 +20,9 @@ import {
   webPageSchema,
 } from "@/lib/schema";
 
-const title = "Learnometry — Diagnostic Test & Study Plan for JEE, NEET & CBSE";
+const title = "Learnometry: Diagnostic Test & Study Plan for JEE, NEET & CBSE";
 const description =
-  "Free diagnostic test for CBSE, JEE & NEET students. Find the exact concepts pulling your marks down, get a day-by-day study plan, and retest to confirm the fix.";
+  "Free 30-minute diagnostic for CBSE, JEE and NEET students. See the exact concepts costing you marks, get a daily plan ranked by exam weight, and retest to confirm the gap closed.";
 
 export const metadata: Metadata = {
   /* Absolute title: the home page is the one page that should not carry the "| Learnometry" suffix twice. */

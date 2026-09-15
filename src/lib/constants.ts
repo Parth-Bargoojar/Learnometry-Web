@@ -59,7 +59,7 @@ export const SUPPORT_TOPICS: Record<SupportTopicKey, SupportTopic> = {
     key: "general",
     label: "General Question",
     badge: "Quick Inquiry",
-    subject: "Learnometry Inquiry — General Question",
+    subject: "Learnometry Inquiry: General Question",
     template:
       "Hi Learnometry Team,\n\nI have a question regarding:\n\n[Please describe your question or feedback here]\n\nThanks!\nName: \nGrade / Target Exam (e.g., Class 11, JEE 2026): ",
     description: "Questions about our platform, features, or roadmap.",
@@ -68,7 +68,7 @@ export const SUPPORT_TOPICS: Record<SupportTopicKey, SupportTopic> = {
     key: "diagnostic",
     label: "Diagnostic & Study Plan",
     badge: "Student Prep",
-    subject: "Learnometry Help — Diagnostic Assessment & Study Plan",
+    subject: "Learnometry Help: Diagnostic Assessment & Study Plan",
     template:
       "Hi Learnometry Team,\n\nI took / want to take the diagnostic test and need help with:\n\n- My target exam (CBSE / JEE / NEET): \n- The chapter or topic: \n- What I need help with: \n\nThanks!\nName: ",
     description: "Guidance on how the root-cause diagnosis or retests work.",
@@ -77,7 +77,7 @@ export const SUPPORT_TOPICS: Record<SupportTopicKey, SupportTopic> = {
     key: "parent",
     label: "Parent / Guardian",
     badge: "Guardian Desk",
-    subject: "Learnometry Inquiry — Parent / Guardian Question",
+    subject: "Learnometry Inquiry: Parent / Guardian Question",
     template:
       "Hello Learnometry Team,\n\nI am a parent/guardian of a student preparing for [Class / Target Exam].\n\nI would like to inquire about:\n[Your question about child's progress, privacy, consent, or plans]\n\nBest regards,\nParent Name: \nContact Number (optional): ",
     description: "Questions about your child's data privacy, consent, or reports.",
@@ -86,7 +86,7 @@ export const SUPPORT_TOPICS: Record<SupportTopicKey, SupportTopic> = {
     key: "billing",
     label: "Billing & Refunds",
     badge: "Account Help",
-    subject: "Learnometry Support — Billing & Refund Inquiry",
+    subject: "Learnometry Support: Billing & Refund Inquiry",
     template:
       "Hi Learnometry Team,\n\nI have a question about billing or refunds for my account.\n\n- Account Email: \n- Plan / Transaction Details: \n- Request Details: \n\nThank you,\nName: ",
     description: "Questions regarding monthly plans, credit top-ups, or 7-day refund.",
@@ -95,7 +95,7 @@ export const SUPPORT_TOPICS: Record<SupportTopicKey, SupportTopic> = {
     key: "founder",
     label: "Message the Founders",
     badge: "Founder Direct",
-    subject: "Learnometry Founder Note — Feedback & Student Journey",
+    subject: "Learnometry Founder Note: Feedback & Student Journey",
     template:
       "Hi Founders of Learnometry,\n\nI wanted to share some thoughts with you directly about:\n\n[Share your prep challenges, feedback on the product, or suggestions]\n\nCheers,\nName: \nCity: ",
     description: "Direct channel to the creators of Learnometry.",

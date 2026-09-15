@@ -156,7 +156,7 @@ export default function GuardianConsentPage() {
                 <p className="mt-2">
                   Consent can be withdrawn at any time, and withdrawing it must be as easy
                   as giving it was. A single email from the guardian address on record is
-                  enough — no form, no phone call, no reason required, and no penalty.
+                  enough. No form, no phone call, no reason required, and no penalty.
                 </p>
                 <ul className="mt-2 list-disc space-y-1.5 pl-5 text-slate-600">
                   <li>We stop processing the learner&apos;s personal data as soon as the withdrawal is verified.</li>

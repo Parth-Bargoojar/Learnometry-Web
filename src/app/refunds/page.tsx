@@ -156,7 +156,7 @@ export default function RefundPolicyPage() {
                 <h2 className="font-display text-xl text-ink">7. If We Cannot Deliver</h2>
                 <p className="mt-2">
                   Separately from the 7-day window above, you are entitled to a full refund
-                  — with no usage condition attached — if we charge you in error, if we
+                  (with no usage condition attached) if we charge you in error, if we
                   withdraw or materially reduce a feature you paid for, or if we close your
                   account for a reason that is not your fault.
                 </p>

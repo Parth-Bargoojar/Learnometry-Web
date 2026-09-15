@@ -30,16 +30,16 @@ const pricingPlans = [
     dailyTokensNotice: "200 daily tokens refreshed every midnight",
     modelAccess: "1 Model (Your Choice)",
     modelBadge: "Single Engine",
-    idealFor: "Students seeking focused, daily single-subject revision",
+    idealFor: "One diagnostic and a daily concept session",
     summary:
-      "Consistent daily practice and targeted diagnostics on the AI model of your choice.",
+      "Daily practice and diagnostics on one model you pick.",
     features: [
       "1 AI model of your choice (switch anytime in settings)",
       "200 credits/tokens refreshed daily at midnight",
       "Full diagnostic assessment & gap identification",
       "Targeted daily practice & adaptive study plan",
       "Evidence-backed explanation of every mistake",
-      "Standard priority generation queue",
+      "Standard generation queue",
       "1 month validity · No automatic lock-in",
     ],
     cta: "Reserve Starter Spot",
@@ -55,16 +55,16 @@ const pricingPlans = [
     dailyTokensNotice: "350 daily tokens refreshed every midnight",
     modelAccess: "All Models Unlocked",
     modelBadge: "Multi-Engine",
-    idealFor: "Aspirants preparing across multiple chapters and exams",
+    idealFor: "Revision running across several chapters at once",
     summary:
-      "The sweet spot for active prep — multi-model reasoning and 75% higher daily quota.",
+      "75% more credits a day than Starter, on every model.",
     features: [
-      "All AI models unlocked (speed + deep reasoning)",
+      "All models, fast and reasoning",
       "350 tokens/credits refreshed daily at midnight",
-      "Deep root-cause error diagnostics & classification",
+      "Root-cause diagnosis and error classification",
       "Personalized multi-week plan & scheduled retests",
       "Step-by-step reasoning for difficult problems",
-      "Fast priority generation queue",
+      "Priority generation queue",
       "1 month validity · No automatic lock-in",
     ],
     cta: "Reserve Plus Spot",
@@ -78,18 +78,18 @@ const pricingPlans = [
     validity: "1 month validity",
     dailyAllowance: "500 tokens / day",
     dailyTokensNotice: "500 daily tokens refreshed every midnight",
-    modelAccess: "All Models + Max Reasoning",
+    modelAccess: "All models + deepest reasoning",
     modelBadge: "Full Power",
-    idealFor: "Intensive exam sprinters doing heavy daily mock tests",
+    idealFor: "Heavy daily mocks in the final months",
     summary:
-      "Maximum daily horsepower for intensive JEE/NEET pre-exam sprint cycles.",
+      "The most credits a day, for the JEE and NEET sprint.",
     features: [
-      "All AI models at maximum reasoning depth",
+      "All models, including the deepest reasoning ones",
       "500 tokens/credits refreshed daily at midnight",
       "High-frequency retesting and rapid plan adaptation",
-      "Comprehensive multi-chapter root-cause deep dives",
-      "Complex multi-step numerical & derivation breakdowns",
-      "Highest priority generation queue",
+      "Multi-chapter root-cause diagnostics",
+      "Multi-step numerical and derivation breakdowns",
+      "Top of the generation queue at peak hours",
       "1 month validity · No automatic lock-in",
     ],
     cta: "Reserve Pro Spot",
@@ -103,7 +103,7 @@ const dailyBreakdown = [
     starter: "~20 per day",
     plus: "~35 per day",
     pro: "~50 per day",
-    description: "In-depth breakdown of concepts you missed in coaching or books.",
+    description: "A breakdown of concepts you missed in coaching or in the book.",
   },
   {
     metric: "Targeted Practice Sets",
@@ -117,14 +117,14 @@ const dailyBreakdown = [
     starter: "2 full diagnostics / day",
     plus: "3-4 full diagnostics / day",
     pro: "5+ full diagnostics / day",
-    description: "Systematic multi-concept tests with knowledge state analysis.",
+    description: "Multi-concept tests that map what you know and what you don't.",
   },
   {
     metric: "Scheduled Retests",
     starter: "Included",
     plus: "Included (Higher Frequency)",
     pro: "Highest daily retest volume",
-    description: "Parallel tests to confirm your concept gap is officially closed.",
+    description: "Parallel tests that confirm the gap actually closed.",
   },
 ];
 
@@ -144,7 +144,7 @@ const comparisonTable = [
 const pricingFaqs = [
   {
     q: "How does the daily credit allowance work?",
-    a: "Every day at 00:00 midnight IST, your study balance resets to your plan's full quota (200, 350, or 500 credits). This creates a steady, disciplined daily study habit without you having to ration credits towards the end of the month.",
+    a: "Every day at 00:00 midnight IST, your study balance resets to your plan's full quota (200, 350, or 500 credits). So a heavy revision day never leaves you rationing credits at the end of the month.",
   },
   {
     q: "What does '1 Model (Your Choice)' mean on the ₹199 plan?",
@@ -156,7 +156,7 @@ const pricingFaqs = [
   },
   {
     q: "Can I try Learnometry before buying a subscription?",
-    a: "Yes! Every student who joins our early-access waitlist receives a free diagnostic assessment on launch day. You do not need to add a credit card or pay anything to see where your knowledge gaps are.",
+    a: "Yes. Everyone on the early-access waitlist gets a full diagnostic free on launch day. No card, no payment, just your report.",
   },
   {
     q: "Can I cancel my subscription or request a refund?",
@@ -186,21 +186,21 @@ export function PricingView() {
           <div className="mt-6 text-center">
             <div className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-primary/20 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-ink shadow-brutal-sm">
               <Sparkles className="size-3.5 text-primary-deep" />
-              Transparent Pricing · No Guesswork
+              Pricing · No surprise bills
             </div>
             <h1 className="mt-4 font-display text-3xl sm:text-5xl text-ink">
-              Predictable daily study allowances.
-              <br className="hidden sm:inline" /> Zero surprise bills.
+              ₹199 to ₹349 a month.
+              <br className="hidden sm:inline" /> Cancel any month.
             </h1>
             <p className="mt-3 max-w-2xl mx-auto text-base sm:text-lg text-slate-600">
-              Pick the daily study volume that matches your target exam. Every plan includes daily credit refreshes, 1-month validity, and transparent access.
+              Pick the daily credit volume that matches your prep. Credits refill at midnight, every plan runs a month at a time, and nothing renews without you.
             </p>
 
             {/* Trial callout */}
             <div className="mx-auto mt-6 max-w-xl rounded-card border-2 border-ink bg-surface p-3 shadow-brutal-sm text-sm font-semibold text-ink flex items-center justify-center gap-2">
               <ShieldCheck className="size-5 text-success shrink-0" />
               <span>
-                <strong>No card needed to start:</strong> take a free diagnostic first on the early access waitlist, and upgrade only if it earns your trust.
+                <strong>No card needed to start.</strong> Join the waitlist, take a full diagnostic free on launch day, and pay only if it was worth it.
               </span>
             </div>
           </div>

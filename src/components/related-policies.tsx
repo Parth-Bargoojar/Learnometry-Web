@@ -30,7 +30,7 @@ const POLICIES = [
   {
     path: "/cookies",
     label: "Cookie Policy",
-    blurb: "What this site stores on your device — currently nothing.",
+    blurb: "What this site stores on your device: currently nothing.",
   },
   {
     path: "/pricing",

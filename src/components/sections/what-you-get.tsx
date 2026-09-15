@@ -2,7 +2,6 @@ import {
   Brain,
   CalendarRange,
   CircleQuestionMark,
-  Crosshair,
 } from "lucide-react";
 import { StatusBadge } from "@/components/ui/badge";
 import { Section, SectionHeading } from "@/components/ui/section";
@@ -12,25 +11,24 @@ export function WhatYouGet() {
     <Section id="what-you-get" className="border-b-2 border-ink bg-surface">
       <SectionHeading
         eyebrow="What you get"
-        title="Diagnosis is where other tools stop."
-        description="Knowing a chapter is weak changes nothing on its own. These four pieces turn a result into work you can start today."
+        title="Everything you need to start studying in the next ten minutes."
+        description="Three things come out of your answer sheet, and each one links back to the questions that produced it."
         align="center"
       />
 
       <p className="mt-4 text-center text-xs font-medium text-slate-600">
-        The figures inside the cards below are illustrative examples of the interface, not
-        results from real students.
+        Figures in the cards below are interface examples, not real student results.
       </p>
 
       {/*
-        One row of four rather than a 2×2 or asymmetric bento: four shorter
-        cards resolve to a single screen where two tall rows cannot.
+        One row of three rather than a bento: three short cards resolve to a
+        single screen, and three is what a visitor will actually read.
       */}
-      <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         <Card
           icon={Brain}
-          title="Diagnosis that names the cause"
-          body="The specific concept behind a wrong answer, and the error pattern driving it."
+          title="The concept that actually cost you the mark"
+          body="The specific concept behind the wrong answer, and the error pattern driving it."
         >
           <div className="flex flex-wrap gap-1.5">
             {[
@@ -51,8 +49,8 @@ export function WhatYouGet() {
 
         <Card
           icon={CalendarRange}
-          title="A plan ordered by impact"
-          body="Ranked by exam weight and prerequisite depth, fitted to the hours you have."
+          title="Tomorrow morning, already decided"
+          body="Your gaps ordered by exam weight and prerequisite depth, cut to the hours you have."
         >
           <ol className="flex flex-col gap-1.5">
             {[
@@ -79,31 +77,9 @@ export function WhatYouGet() {
         </Card>
 
         <Card
-          icon={Crosshair}
-          title="Practice aimed at one gap"
-          body="Question sets for the exact concept you're fixing, at the difficulty that moves mastery."
-        >
-          <dl className="flex flex-col gap-1.5 rounded-card-sm border border-border-subtle bg-slate-50 px-3 py-2.5">
-            {[
-              ["Target", "Quadratic Eqns"],
-              ["Goal", "Sign accuracy"],
-              ["Questions", "10"],
-              ["Difficulty", "Medium"],
-            ].map(([term, value]) => (
-              <div key={term} className="flex items-baseline justify-between gap-2">
-                <dt className="text-[11px] font-bold uppercase tracking-[0.1em] text-slate-500">
-                  {term}
-                </dt>
-                <dd className="text-xs font-medium text-ink">{value}</dd>
-              </div>
-            ))}
-          </dl>
-        </Card>
-
-        <Card
           icon={CircleQuestionMark}
-          title="Proof it worked — or not yet"
-          body="A parallel retest measures the change. Where evidence is thin, we say so."
+          title="Proof the gap actually closed"
+          body="A parallel retest measures the change. Where the evidence is thin, your report says so."
         >
           <div className="flex flex-col gap-1.5">
             <DeltaRow concept="Quadratic Eqns" from={34} to={71} />

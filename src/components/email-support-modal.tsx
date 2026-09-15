@@ -179,7 +179,7 @@ export function EmailSupportProvider({ children }: { children: ReactNode }) {
               <p className="mt-1.5 text-sm leading-relaxed text-slate-600">
                 {topicKey === "founder"
                   ? "Message Parth Bargoojar, Jaishnav, and Krishna Garg directly in their personal inboxes."
-                  : "Students, parents and educators — every email is read and answered by our own team."}
+                  : "Every email is read and answered by our own team."}
               </p>
 
               {/* Topic selector */}

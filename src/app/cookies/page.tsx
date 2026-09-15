@@ -86,7 +86,7 @@ export default function CookiePolicyPage() {
               </div>
               <ul className="mt-2 space-y-1 text-sm text-emerald-900">
                 <li>
-                  This website sets <strong>no cookies of its own</strong> — no analytics,
+                  This website sets <strong>no cookies of its own</strong>. No analytics,
                   no advertising, no tracking pixels, no session cookies.
                 </li>
                 <li>
@@ -105,8 +105,8 @@ export default function CookiePolicyPage() {
                 <h2 className="font-display text-xl text-ink">1. What a cookie is</h2>
                 <p className="mt-2">
                   A cookie is a small text file that a website asks your browser to store
-                  and send back on later visits. Related technologies — local storage,
-                  session storage and tracking pixels — do much the same job. Where this
+                  and send back on later visits. Related technologies (local storage,
+                  session storage and tracking pixels) do much the same job. Where this
                   policy says &ldquo;cookies&rdquo;, it means all of them.
                 </p>
               </section>
@@ -139,7 +139,7 @@ export default function CookiePolicyPage() {
                 <p className="mt-2">
                   We use a small number of service providers to host the site and deliver
                   your messages to us. None of them places tracking cookies through this
-                  website, but they do necessarily handle some technical data — an IP
+                  website, but they do necessarily handle some technical data, such as an IP
                   address has to be processed for a page to reach you at all.
                 </p>
                 <div
@@ -210,7 +210,7 @@ export default function CookiePolicyPage() {
                   <strong>strictly necessary</strong> cookie to keep you signed in and to
                   protect your account from cross-site request forgery. A cookie of that
                   kind is required to deliver a service you have asked for, so it does not
-                  need separate consent — but we will list it here, by name and lifetime,
+                  need separate consent, but we will list it here, by name and lifetime,
                   before it is switched on.
                 </p>
                 <p className="mt-2">

@@ -91,7 +91,7 @@ export function SiteHeader() {
               onClick={openWaitlistModal}
               className={`${buttonClasses("primary", "md")} px-3.5 sm:px-5`}
             >
-              Join Waitlist
+              Get early access
             </button>
             <button
               type="button"
@@ -148,7 +148,7 @@ export function SiteHeader() {
                 }}
                 className={`${buttonClasses("primary", "md")} w-full mt-2`}
               >
-                Join Waitlist
+                Get early access
               </button>
             </nav>
           </Container>

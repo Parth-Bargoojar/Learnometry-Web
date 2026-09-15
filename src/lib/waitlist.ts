@@ -46,7 +46,7 @@ export async function submitWaitlist({
   */
   if (!WEB3FORMS_ACCESS_KEY) {
     console.error(
-      "NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY is not set — waitlist submissions are disabled."
+      "NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY is not set. Waitlist submissions are disabled."
     );
     return {
       success: false,

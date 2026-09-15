@@ -14,7 +14,7 @@ import { OFFICIAL_EMAIL } from "@/lib/constants";
 
 const title = "Privacy Policy";
 const description =
-  "How Learnometry collects, stores and protects student data under India's DPDP Act 2023 — what we hold, who processes it, how long we keep it, and how to exercise your rights.";
+  "How Learnometry collects, stores and protects student data under India's DPDP Act 2023: what we hold, who processes it, how long we keep it, and how to exercise your rights.";
 
 export const metadata: Metadata = {
   title,
@@ -110,7 +110,7 @@ export default function PrivacyPage() {
                 </h2>
                 <p className="mt-2">
                   Learnometry is the <strong>Data Fiduciary</strong> for the personal data
-                  described in this policy — meaning we decide why and how it is processed,
+                  described in this policy, meaning we decide why and how it is processed,
                   and we are accountable for it. Our full business identity, registered
                   address and the contact details of our Grievance Officer are published at
                   the foot of this page.
@@ -140,7 +140,7 @@ export default function PrivacyPage() {
                     </h3>
                     <p className="mt-0.5 text-slate-600">
                       Your email address, and a record of which page you submitted it from
-                      and when. Nothing else — there is no name field, no phone field and
+                      and when. Nothing else. There is no name field, no phone field and
                       no payment field on this website.
                     </p>
                   </div>
@@ -149,8 +149,8 @@ export default function PrivacyPage() {
                       Account information (after launch):
                     </h3>
                     <p className="mt-0.5 text-slate-600">
-                      Learner grade, target exam track (CBSE, JEE or NEET), and — where the
-                      learner is under 18 — the parent or legal guardian&apos;s contact
+                      Learner grade, target exam track (CBSE, JEE or NEET), and, where the
+                      learner is under 18, the parent or legal guardian&apos;s contact
                       details for the purpose of obtaining and recording consent.
                     </p>
                   </div>
@@ -282,9 +282,9 @@ export default function PrivacyPage() {
                   </table>
                 </div>
                 <p className="mt-3">
-                  We will also disclose personal data where we are legally required to — for
+                  We will also disclose personal data where we are legally required to, for
                   example in response to a valid order from a court or a competent
-                  authority — and, if the business is ever sold or merged, to the acquirer
+                  authority. If the business is ever sold or merged, we disclose it to the acquirer
                   under equivalent confidentiality obligations.
                 </p>
               </section>
@@ -309,7 +309,7 @@ export default function PrivacyPage() {
                 </h2>
                 <ul className="mt-2 list-disc space-y-1.5 pl-5 text-slate-600">
                   <li>
-                    We minimise the information sent to AI models — a prompt carries the
+                    We minimise the information sent to AI models. A prompt carries the
                     academic content needed to answer it and nothing more.
                   </li>
                   <li>
@@ -335,7 +335,7 @@ export default function PrivacyPage() {
                   Under the DPDP Act, processing the data of anyone under 18 requires
                   verifiable consent from a parent or lawful guardian. The Act also
                   prohibits tracking or behavioural monitoring of children and advertising
-                  directed at them — we do neither, for any user, of any age. How consent
+                  directed at them. We do neither, for any user, of any age. How consent
                   is obtained and recorded is set out in our{" "}
                   <Link href="/guardian-consent" className="text-primary-text underline">
                     Guardian Consent Policy
@@ -381,7 +381,7 @@ export default function PrivacyPage() {
                     on your behalf in the event of death or incapacity.
                   </li>
                   <li>
-                    <strong>Grievance redressal</strong> — a first response from us before
+                    <strong>Grievance redressal</strong>, meaning a first response from us before
                     escalating to the Data Protection Board of India.
                   </li>
                 </ul>
@@ -408,7 +408,7 @@ export default function PrivacyPage() {
                 <ul className="mt-2 list-disc space-y-1.5 pl-5 text-slate-600">
                   <li>
                     <strong>Waitlist email addresses:</strong> until early access opens and
-                    you either create an account or tell us to remove you — and in any
+                    you either create an account or tell us to remove you, and in any
                     case, we delete waitlist addresses that have not become accounts within
                     24 months.
                   </li>

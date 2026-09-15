@@ -188,7 +188,7 @@ export function ContactView() {
                     </div>
                     <div className="mt-2.5 flex items-center gap-2">
                       <a
-                        href={`mailto:${f.email}?subject=${encodeURIComponent("Message for " + f.name + " — Learnometry")}`}
+                        href={`mailto:${f.email}?subject=${encodeURIComponent("Message for " + f.name + " | Learnometry")}`}
                         className="flex-1 rounded border border-ink/20 bg-slate-100 py-1 text-center font-bold text-ink hover:bg-slate-200 transition-colors touch:flex touch:min-h-11 touch:items-center touch:justify-center"
                       >
                         Email

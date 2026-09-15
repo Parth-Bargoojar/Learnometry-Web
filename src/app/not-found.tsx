@@ -34,7 +34,7 @@ const destinations = [
     href: "/contact",
     icon: Mail,
     title: "Contact",
-    description: "Reach a founder directly — we answer.",
+    description: "Reach a founder directly. We answer.",
   },
 ];
 
@@ -63,7 +63,7 @@ export default function NotFound() {
             </h1>
             <p className="mt-3 max-w-xl text-lg leading-relaxed text-slate-600">
               The link is broken, the page moved, or the address has a typo in
-              it. Nothing is wrong with your account — we don&apos;t have
+              it. Nothing is wrong with your account. We don&apos;t have
               accounts yet.
             </p>
 

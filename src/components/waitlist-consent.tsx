@@ -37,12 +37,12 @@ export function WaitlistConsent({
       . We never sell your address or pass it to advertisers, and you can withdraw consent
       at any time by replying to any email from us.{" "}
       <strong className="text-ink">Under 18?</strong> Please ask a parent or guardian to
-      join on your behalf —{" "}
+      join on your behalf.{" "}
       <Link
         href="/guardian-consent"
         className="font-semibold text-primary-text underline"
       >
-        here is why
+        Here is why
       </Link>
       .
     </p>
