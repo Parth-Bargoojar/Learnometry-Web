@@ -131,9 +131,9 @@ export function ContactView() {
                     <Mail className="size-5" />
                   </span>
                   <div className="min-w-0">
-                    <h2 className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                    <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
                       Official Learnometry Email
-                    </h2>
+                    </p>
                     <div className="break-all font-mono text-sm sm:text-lg font-bold text-ink">
                       {OFFICIAL_EMAIL}
                     </div>
@@ -169,9 +169,9 @@ export function ContactView() {
             <div className="mt-6 rounded-card border-2 border-ink bg-primary/10 p-4 shadow-brutal-sm">
               <div className="flex items-center gap-2 mb-3">
                 <UserCheck className="size-4 text-primary-deep" />
-                <h2 className="text-xs font-bold uppercase tracking-wider text-ink">
+                <p className="text-xs font-bold uppercase tracking-wider text-ink">
                   Direct Founder Contact Inboxes
-                </h2>
+                </p>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {INDIVIDUAL_FOUNDER_EMAILS.map((f) => (
@@ -242,12 +242,12 @@ export function ContactView() {
               {/* A <label> with no form control labels nothing. These are toggle
                   buttons, so the group gets a heading and each button reports its
                   own pressed state. */}
-              <h2
+              <p
                 id="contact-topic-label"
                 className="block text-xs font-bold uppercase tracking-wider text-slate-700"
               >
                 1. Choose your reason for contacting:
-              </h2>
+              </p>
               <div
                 role="group"
                 aria-labelledby="contact-topic-label"
@@ -282,9 +282,9 @@ export function ContactView() {
 
             {/* 1-Click Launch Actions */}
             <div className="mt-8">
-              <h2 className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+              <p className="block text-xs font-bold uppercase tracking-wider text-slate-700">
                 2. Send email via your preferred method:
-              </h2>
+              </p>
               <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {/* Gmail Web Option */}
                 <a
@@ -351,7 +351,19 @@ export function ContactView() {
             </div>
 
             {/* Response Commitments */}
-            <div className="mt-8 grid grid-cols-1 gap-4 border-t-2 border-ink/10 pt-6 sm:grid-cols-3">
+            {/*
+              Given a named parent heading so the three h3s below are not orphans
+              hanging directly off the <h1>. Visually hidden because the icons and
+              labels already read as a group on screen; a parser has no such cue.
+            */}
+            <section
+              aria-labelledby="support-commitments-heading"
+              className="mt-8 border-t-2 border-ink/10 pt-6"
+            >
+            <h2 id="support-commitments-heading" className="sr-only">
+              What to expect when you email us
+            </h2>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
               <div className="flex items-start gap-2.5">
                 <Clock className="size-5 text-primary-deep shrink-0 mt-0.5" />
                 <div>
@@ -388,6 +400,7 @@ export function ContactView() {
                 </div>
               </div>
             </div>
+            </section>
           </div>
 
           {/* FAQ Section */}

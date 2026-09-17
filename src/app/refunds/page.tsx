@@ -9,12 +9,12 @@ import { OG_IMAGE } from "@/lib/site";
 import { RelatedPolicies } from "@/components/related-policies";
 import { BusinessDetails } from "@/components/business-details";
 import { breadcrumbSchema, graph, webPageSchema } from "@/lib/schema";
-import { POLICY_LAST_UPDATED } from "@/lib/legal";
+import { POLICY_LAST_UPDATED, POLICY_LAST_UPDATED_ISO } from "@/lib/legal";
 import { OFFICIAL_EMAIL } from "@/lib/constants";
 
 const title = "Refund & Cancellation Policy";
 const description =
-  "Learnometry's refund and cancellation terms: the 7-day refund window, how daily credits and rollover work, and how to cancel a monthly plan with no lock-in.";
+  "Learnometry's refund and cancellation terms: the 7-day refund window, how daily credits work, and how to cancel a monthly plan with no lock-in.";
 
 export const metadata: Metadata = {
   title,
@@ -42,6 +42,7 @@ export default function RefundPolicyPage() {
         data={graph([
           webPageSchema({
             path: "/refunds",
+            dateModified: POLICY_LAST_UPDATED_ISO,
             name: `${title} | Learnometry`,
             description,
           }),

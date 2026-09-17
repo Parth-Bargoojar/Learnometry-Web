@@ -9,12 +9,12 @@ import { OG_IMAGE } from "@/lib/site";
 import { RelatedPolicies } from "@/components/related-policies";
 import { BusinessDetails } from "@/components/business-details";
 import { breadcrumbSchema, graph, webPageSchema } from "@/lib/schema";
-import { POLICY_LAST_UPDATED } from "@/lib/legal";
+import { POLICY_LAST_UPDATED, POLICY_LAST_UPDATED_ISO } from "@/lib/legal";
 import { OFFICIAL_EMAIL } from "@/lib/constants";
 
 const title = "Guardian Consent Policy";
 const description =
-  "How Learnometry obtains verifiable parent or guardian consent for students under 18, in line with India's DPDP Act 2023, and what guardians can access and control.";
+  "How Learnometry obtains verifiable parent or guardian consent for students under 18 under India's DPDP Act 2023, and what guardians can access and control.";
 
 export const metadata: Metadata = {
   title,
@@ -42,6 +42,7 @@ export default function GuardianConsentPage() {
         data={graph([
           webPageSchema({
             path: "/guardian-consent",
+            dateModified: POLICY_LAST_UPDATED_ISO,
             name: `${title} | Learnometry`,
             description,
           }),

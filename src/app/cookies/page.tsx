@@ -9,12 +9,12 @@ import { OG_IMAGE } from "@/lib/site";
 import { RelatedPolicies } from "@/components/related-policies";
 import { BusinessDetails } from "@/components/business-details";
 import { breadcrumbSchema, graph, webPageSchema } from "@/lib/schema";
-import { DATA_PROCESSORS, POLICY_LAST_UPDATED } from "@/lib/legal";
+import { DATA_PROCESSORS, POLICY_LAST_UPDATED, POLICY_LAST_UPDATED_ISO } from "@/lib/legal";
 import { OFFICIAL_EMAIL } from "@/lib/constants";
 
 const title = "Cookie Policy";
 const description =
-  "Learnometry sets no advertising, analytics or tracking cookies on this website. This policy explains exactly what is and is not stored on your device, and what changes when accounts launch.";
+  "Learnometry sets no advertising, analytics or tracking cookies. This policy explains what is and is not stored on your device, and what changes at launch.";
 
 export const metadata: Metadata = {
   title,
@@ -42,6 +42,7 @@ export default function CookiePolicyPage() {
         data={graph([
           webPageSchema({
             path: "/cookies",
+            dateModified: POLICY_LAST_UPDATED_ISO,
             name: `${title} | Learnometry`,
             description,
           }),

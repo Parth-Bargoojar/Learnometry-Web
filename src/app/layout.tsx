@@ -34,12 +34,12 @@ export const metadata: Metadata = {
   /* Lets every child segment express canonical/OG URLs as relative paths. */
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Learnometry: Diagnostic Test & Study Plan for JEE, NEET & CBSE",
+    default: "Learnometry: JEE, NEET & CBSE Diagnostic Test and Study Plan",
     /* Child pages set only their own name; the brand suffix is appended here. */
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Free diagnostic test for CBSE, JEE & NEET students. Find the exact concepts pulling your marks down, get a day-by-day study plan, and retest to confirm the fix.",
+    "Free diagnostic test for CBSE, JEE and NEET students. Find the exact concepts pulling your marks down and get a day-by-day plan that fixes them in order.",
   applicationName: SITE_NAME,
   keywords: [
     "diagnostic test",
@@ -92,7 +92,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Learnometry: Diagnostic Test & Study Plan for JEE, NEET & CBSE",
+    title: "Learnometry: JEE, NEET & CBSE Diagnostic Test and Study Plan",
     description:
       "Find the exact concepts pulling your marks down, get a day-by-day study plan, and retest to confirm the fix.",
     images: { url: "/twitter-image.png", alt: OG_IMAGE_ALT },

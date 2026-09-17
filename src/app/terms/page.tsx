@@ -9,7 +9,7 @@ import { OG_IMAGE } from "@/lib/site";
 import { RelatedPolicies } from "@/components/related-policies";
 import { BusinessDetails } from "@/components/business-details";
 import { breadcrumbSchema, graph, webPageSchema } from "@/lib/schema";
-import { JURISDICTION_CITY, POLICY_LAST_UPDATED } from "@/lib/legal";
+import { JURISDICTION_CITY, POLICY_LAST_UPDATED, POLICY_LAST_UPDATED_ISO } from "@/lib/legal";
 import { OFFICIAL_EMAIL } from "@/lib/constants";
 
 const title = "Terms of Service";
@@ -42,6 +42,7 @@ export default function TermsPage() {
         data={graph([
           webPageSchema({
             path: "/terms",
+            dateModified: POLICY_LAST_UPDATED_ISO,
             name: `${title} | Learnometry`,
             description,
           }),

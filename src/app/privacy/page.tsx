@@ -9,12 +9,12 @@ import { OG_IMAGE } from "@/lib/site";
 import { RelatedPolicies } from "@/components/related-policies";
 import { BusinessDetails } from "@/components/business-details";
 import { breadcrumbSchema, graph, webPageSchema } from "@/lib/schema";
-import { DATA_PROCESSORS, POLICY_LAST_UPDATED } from "@/lib/legal";
+import { DATA_PROCESSORS, POLICY_LAST_UPDATED, POLICY_LAST_UPDATED_ISO } from "@/lib/legal";
 import { OFFICIAL_EMAIL } from "@/lib/constants";
 
 const title = "Privacy Policy";
 const description =
-  "How Learnometry collects, stores and protects student data under India's DPDP Act 2023: what we hold, who processes it, how long we keep it, and how to exercise your rights.";
+  "How Learnometry collects, stores and protects student data under India's DPDP Act 2023: what we hold, who processes it, and how to exercise your rights.";
 
 export const metadata: Metadata = {
   title,
@@ -42,6 +42,7 @@ export default function PrivacyPage() {
         data={graph([
           webPageSchema({
             path: "/privacy",
+            dateModified: POLICY_LAST_UPDATED_ISO,
             name: `${title} | Learnometry`,
             description,
           }),

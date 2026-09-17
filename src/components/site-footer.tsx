@@ -110,9 +110,13 @@ export function SiteFooter() {
           <div className="grid gap-8 grid-cols-2 sm:grid-cols-3 lg:grid-cols-3">
             {columns.map((column) => (
               <nav key={column.heading} aria-label={column.heading}>
-                <h2 className="text-xs font-bold uppercase tracking-[0.16em] text-white">
+                {/* Not a heading: this is the label of a <nav> that already carries
+                    aria-label={column.heading}. As an <h2> it injected three extra
+                    entries into the heading outline of every single page, which is
+                    what both screen readers and AI extractors use to segment content. */}
+                <p className="text-xs font-bold uppercase tracking-[0.16em] text-white">
                   {column.heading}
-                </h2>
+                </p>
                 <ul className="mt-3 flex flex-col gap-1">
                   {column.links.map((link) => (
                     <li key={link.label}>

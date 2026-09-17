@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ContactView } from "./contact-view";
 import { JsonLd } from "@/components/json-ld";
-import { OG_IMAGE } from "@/lib/site";
+import { CONTENT_LAST_MODIFIED, OG_IMAGE } from "@/lib/site";
 import { breadcrumbSchema, graph, webPageSchema } from "@/lib/schema";
 
 const title = "Contact & Student Support";
@@ -34,6 +34,7 @@ export default function ContactPage() {
         data={graph([
           webPageSchema({
             path: "/contact",
+            dateModified: CONTENT_LAST_MODIFIED["/contact"],
             name: `${title} | Learnometry`,
             description,
             type: "ContactPage",

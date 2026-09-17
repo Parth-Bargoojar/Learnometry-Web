@@ -50,6 +50,55 @@ export const OG_IMAGE = {
 } as const;
 
 /**
+ * ISO-8601 dates fed to <lastmod> in sitemap.xml.
+ *
+ * These are hand-maintained on purpose. Deriving lastmod from the build (`new Date()`)
+ * republishes every URL as "changed today" on every deploy, including deploys that only
+ * touched CSS. Google treats a lastmod that always equals build time as noise and stops
+ * using the field for crawl scheduling, which forfeits the only real benefit a sitemap
+ * has on a site this small. Bump the date for a page only when its *content* changes.
+ */
+export const CONTENT_LAST_MODIFIED: Record<string, string> = {
+  "/": "2026-09-17",
+  "/pricing": "2026-09-17",
+  "/contact": "2026-09-17",
+  "/terms": "2026-09-13",
+  "/privacy": "2026-09-13",
+  "/guardian-consent": "2026-09-13",
+  "/refunds": "2026-09-13",
+  "/cookies": "2026-09-13",
+};
+
+/** When the marketing pages were first published. Used as datePublished in JSON-LD. */
+export const SITE_PUBLISHED = "2026-09-12";
+
+/** Company formation date, surfaced as Organization.foundingDate. */
+export const FOUNDING_DATE = "2026";
+
+/** Short positioning line, surfaced as Organization.slogan. */
+export const SITE_SLOGAN = "Know which concept to fix first tomorrow morning.";
+
+/**
+ * Topical scope of the brand, surfaced as Organization.knowsAbout.
+ *
+ * These are the entities an AI search engine uses to decide what Learnometry is *about*
+ * when it has no backlink graph to lean on. Each one must be a subject the site actually
+ * covers in visible copy — padding this list with unearned topics is a quality signal in
+ * the wrong direction.
+ */
+export const KNOWS_ABOUT = [
+  "Diagnostic assessment",
+  "JEE Main preparation",
+  "JEE Advanced preparation",
+  "NEET preparation",
+  "CBSE Class 11 and 12 board exams",
+  "Concept prerequisite mapping",
+  "Adaptive study planning",
+  "Exam weightage analysis",
+  "Spaced retesting",
+] as const;
+
+/**
  * Every indexable route, in one list. Consumed by sitemap.ts so a new page cannot be
  * added to the sitemap and forgotten in navigation (or vice versa).
  */

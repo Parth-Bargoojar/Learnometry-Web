@@ -77,6 +77,14 @@ export const BUSINESS_DETAILS_COMPLETE =
 export const POLICY_LAST_UPDATED = "13 September 2026";
 
 /**
+ * The same date in ISO-8601, for `dateModified` in JSON-LD and `<lastmod>` consumers.
+ * Machine-readable freshness is a ranking and AI-citation signal; a human-formatted
+ * string is not parseable, so both forms are kept side by side and must be changed
+ * together.
+ */
+export const POLICY_LAST_UPDATED_ISO = "2026-09-13";
+
+/**
  * The city whose courts have exclusive jurisdiction under the Terms. This should normally
  * be the city of the registered office. ⚠️ TO BE COMPLETED — while blank, the Terms say
  * "the courts of India" and name no city, rather than naming a city you never agreed to.

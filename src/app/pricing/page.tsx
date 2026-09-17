@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { PricingView } from "./pricing-view";
 import { JsonLd } from "@/components/json-ld";
-import { OG_IMAGE } from "@/lib/site";
+import { CONTENT_LAST_MODIFIED, OG_IMAGE } from "@/lib/site";
 import {
   breadcrumbSchema,
   graph,
@@ -39,6 +39,7 @@ export default function PricingPage() {
         data={graph([
           webPageSchema({
             path: "/pricing",
+            dateModified: CONTENT_LAST_MODIFIED["/pricing"],
             name: `${title} | Learnometry`,
             description,
           }),

@@ -206,6 +206,17 @@ export function PricingView() {
           </div>
 
           {/* Plan Cards Grid */}
+          {/*
+            Wrapped in a titled section so the three plans read as one group rather than
+            three unrelated top-level topics. The heading is visually hidden because the
+            <h1> above already announces the price range on screen — but an outline of
+            h1 > h2 > h2 > h2 tells a parser these are three separate subjects, which is
+            the wrong shape for a comparison set.
+          */}
+          <section aria-labelledby="plans-heading">
+          <h2 id="plans-heading" className="sr-only">
+            Learnometry monthly plans
+          </h2>
           <div className="mt-12 grid items-stretch gap-6 lg:grid-cols-3">
             {pricingPlans.map((plan) => (
               <article
@@ -224,7 +235,7 @@ export function PricingView() {
                   ) : null}
 
                   <div className="flex items-center justify-between gap-3">
-                    <h2 className="font-display text-2xl text-ink">{plan.name}</h2>
+                    <h3 className="font-display text-2xl text-ink">{plan.name}</h3>
                     <span className="rounded-full border border-ink bg-slate-100 px-3 py-0.5 text-xs font-semibold text-ink">
                       {plan.validity}
                     </span>
@@ -301,6 +312,7 @@ export function PricingView() {
               </article>
             ))}
           </div>
+          </section>
 
           {/* Real-world Token Translation Section */}
           <section className="mt-16 rounded-card-lg border-2 border-ink bg-surface p-6 sm:p-10 shadow-brutal">
@@ -476,9 +488,9 @@ export function PricingView() {
             <div className="flex items-center gap-3">
               <RotateCcw className="size-6 text-primary-deep shrink-0" />
               <div>
-                <h3 className="font-bold text-sm text-ink">
+                <h2 className="font-bold text-sm text-ink">
                   Backed by our 7-day refund window
-                </h3>
+                </h2>
                 <p className="text-xs text-slate-600 mt-0.5">
                   Request a full refund within 7 days of your first payment, provided you have used under 20% of the allowance for the cycle.
                 </p>
