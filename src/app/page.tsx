@@ -31,6 +31,7 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: "/" },
   openGraph: {
+    siteName: "Learnometry AI",
     title,
     description,
     url: "/",

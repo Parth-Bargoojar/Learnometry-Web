@@ -11,7 +11,7 @@ const RAW_SITE_URL =
 /** Normalised origin, guaranteed to have no trailing slash. */
 export const SITE_URL = RAW_SITE_URL.replace(/\/+$/, "");
 
-export const SITE_NAME = "Learnometry";
+export const SITE_NAME = "Learnometry AI";
 export const SITE_LOCALE = "en_IN";
 
 /** Used as the org/brand description in JSON-LD and as the fallback meta description. */

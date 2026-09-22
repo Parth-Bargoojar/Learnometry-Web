@@ -56,7 +56,7 @@ export function organizationSchema() {
     "@id": ORG_ID,
     name: SITE_NAME,
     /* Helps resolve brand queries that split or extend the compound name. */
-    alternateName: "Learnometry AI",
+    alternateName: "Learnometry",
     url: SITE_URL,
     email: OFFICIAL_EMAIL,
     description: SITE_DESCRIPTION,
@@ -96,7 +96,8 @@ export function webSiteSchema() {
     "@type": "WebSite",
     "@id": WEBSITE_ID,
     url: SITE_URL,
-    name: SITE_NAME,
+    name: "Learnometry AI",
+    alternateName: ["Learnometry"],
     description: SITE_DESCRIPTION,
     inLanguage: "en-IN",
     /*
