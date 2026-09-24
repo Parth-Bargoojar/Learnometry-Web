@@ -34,13 +34,6 @@ const founders: Founder[] = [
     avatarBg: "bg-amber-100 text-amber-900",
     email: "jaishnav.official@gmail.com",
   },
-  {
-    name: "Krishna Garg",
-    role: "Co-Founder",
-    avatarInitials: "KG",
-    avatarBg: "bg-emerald-100 text-emerald-900",
-    email: "krishnagarg8998@gmail.com",
-  },
 ];
 
 export function FoundersNote() {
@@ -69,7 +62,7 @@ export function FoundersNote() {
       <SectionHeading
         eyebrow="From the founders"
         title="We built this because we kept opening the wrong chapter."
-        description="Three of us sat the same exams, read the same score reports, and still guessed at what to revise on Monday. That guess is what Learnometry replaces."
+        description="Both of us sat the same exams, read the same score reports, and still guessed at what to revise on Monday. That guess is what Learnometry replaces."
       />
 
       {/* Main manifesto letter card */}
@@ -81,7 +74,7 @@ export function FoundersNote() {
             What we promise you
           </span>
           <span className="text-xs font-semibold text-slate-500">
-            Signed by all three of us
+            Signed by both of us
           </span>
         </div>
 
@@ -127,13 +120,13 @@ export function FoundersNote() {
           </ul>
         </div>
 
-        {/* The 3 Founders Grid */}
+        {/* Founders Grid */}
         <div className="mt-9 border-t-2 border-ink/10 pt-7">
           <h3 className="mb-4 font-display text-base font-bold uppercase tracking-wider text-ink">
             Reply to any of us directly
           </h3>
 
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2">
             {founders.map((founder) => (
               <article
                 key={founder.name}
@@ -191,7 +184,7 @@ export function FoundersNote() {
             <p className="text-xs sm:text-sm font-medium text-slate-700">
               Ask us anything before you sign up.
               <br className="hidden sm:inline" />
-              {" "}All three of us read and answer these ourselves.
+              {" "}Both of us read and answer these ourselves.
             </p>
           </div>
           <button

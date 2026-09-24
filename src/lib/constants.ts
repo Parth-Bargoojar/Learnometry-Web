@@ -3,7 +3,6 @@ export const OFFICIAL_EMAIL = "learnometry.official@gmail.com";
 export const FOUNDER_EMAILS = [
   "parthbargoojar.official@gmail.com",
   "jaishnav.official@gmail.com",
-  "krishnagarg8998@gmail.com",
 ] as const;
 
 export const INDIVIDUAL_FOUNDER_EMAILS = [
@@ -16,11 +15,6 @@ export const INDIVIDUAL_FOUNDER_EMAILS = [
     name: "Jaishnav",
     role: "Co-Founder",
     email: "jaishnav.official@gmail.com",
-  },
-  {
-    name: "Krishna Garg",
-    role: "Co-Founder",
-    email: "krishnagarg8998@gmail.com",
   },
 ] as const;
 

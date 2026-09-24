@@ -173,7 +173,7 @@ export function ContactView() {
                   Direct Founder Contact Inboxes
                 </p>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {INDIVIDUAL_FOUNDER_EMAILS.map((f) => (
                   <div
                     key={f.email}

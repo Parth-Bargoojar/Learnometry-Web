@@ -178,7 +178,7 @@ export function EmailSupportProvider({ children }: { children: ReactNode }) {
               </h2>
               <p className="mt-1.5 text-sm leading-relaxed text-slate-600">
                 {topicKey === "founder"
-                  ? "Message Parth Bargoojar, Jaishnav, and Krishna Garg directly in their personal inboxes."
+                  ? "Message Parth Bargoojar and Jaishnav directly in their personal inboxes."
                   : "Every email is read and answered by our own team."}
               </p>
 
