@@ -7,7 +7,7 @@ import { useEmailSupportModal } from "@/components/email-support-modal";
 
 /*
   Founders' Note Section
-  Sits between "Who It's For" and "Trust", so the accountability claim (real names,
+  Opens /about, directly above "Trust", so the accountability claim (real names,
   real inboxes) lands just before the page explains how the numbers are produced.
 */
 

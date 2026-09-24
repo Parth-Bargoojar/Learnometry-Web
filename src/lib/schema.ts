@@ -45,7 +45,7 @@ export function founderSchemas() {
     jobTitle: founder.role,
     email: founder.email,
     worksFor: { "@id": ORG_ID },
-    url: absoluteUrl("/#founders-note"),
+    url: absoluteUrl("/about"),
   }));
 }
 
@@ -62,7 +62,7 @@ export function organizationSchema() {
     description: SITE_DESCRIPTION,
     slogan: SITE_SLOGAN,
     foundingDate: FOUNDING_DATE,
-    /* Reference-only: the full Person nodes are emitted on the home page, where the
+    /* Reference-only: the full Person nodes are emitted on /about, where the
        founders' note that substantiates them is actually rendered. */
     founder: INDIVIDUAL_FOUNDER_EMAILS.map((f) => ({ "@id": founderId(f.name) })),
     /* The topic set an AI engine uses to decide what this brand is an authority on.

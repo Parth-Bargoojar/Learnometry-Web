@@ -4,22 +4,14 @@ import { SiteFooter } from "@/components/site-footer";
 import { Hero } from "@/components/sections/hero";
 import { Problem } from "@/components/sections/problem";
 import { HowItWorks } from "@/components/sections/how-it-works";
-import { WhatYouGet } from "@/components/sections/what-you-get";
 import { WhoItsFor } from "@/components/sections/who-its-for";
 import { KeyAnswers } from "@/components/sections/key-answers";
-import { FoundersNote } from "@/components/sections/founders-note";
-import { Trust } from "@/components/sections/trust";
 import { Pricing } from "@/components/sections/pricing";
-import { Faq } from "@/components/sections/faq";
 import { FinalCta } from "@/components/sections/final-cta";
 import { JsonLd } from "@/components/json-ld";
+import { LegacyHashRedirect } from "@/components/legacy-hash-redirect";
 import { CONTENT_LAST_MODIFIED, OG_IMAGE } from "@/lib/site";
-import {
-  founderSchemas,
-  graph,
-  softwareApplicationSchema,
-  webPageSchema,
-} from "@/lib/schema";
+import { graph, softwareApplicationSchema, webPageSchema } from "@/lib/schema";
 
 const title = "Learnometry: JEE, NEET & CBSE Diagnostic Test and Study Plan";
 const description =
@@ -58,23 +50,19 @@ export default function Home() {
             dateModified: CONTENT_LAST_MODIFIED["/"],
           }),
           softwareApplicationSchema(),
-          /* Person nodes live here because this is the page that renders the
-             founders' note backing them; Organization.founder only references them. */
-          ...founderSchemas(),
         ])}
       />
+      <LegacyHashRedirect />
       <SiteHeader />
       <main id="main" className="flex-1">
         <Hero />
         <Problem />
         <KeyAnswers />
-        <HowItWorks />
-        <WhatYouGet />
+        {/* The home page is the short pitch. The deep dives (what you get, the
+            founders' note, trust, FAQ) live on /how-it-works, /about and /faq. */}
+        <HowItWorks compact />
         <WhoItsFor />
-        <FoundersNote />
-        <Trust />
         <Pricing />
-        <Faq />
         <FinalCta />
       </main>
       <SiteFooter />

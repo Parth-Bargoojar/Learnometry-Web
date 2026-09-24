@@ -1,5 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
+  ArrowRight,
   ChevronRight,
   ListOrdered,
   RefreshCw,
@@ -28,7 +30,8 @@ const steps: { icon: LucideIcon; title: string; body: string }[] = [
   },
 ];
 
-export function HowItWorks() {
+/* `compact` is the home-page cut: same three steps, plus a link to the full page. */
+export function HowItWorks({ compact = false }: { compact?: boolean }) {
   return (
     <Section id="how-it-works" className="border-b-2 border-ink bg-background">
       <SectionHeading
@@ -107,6 +110,18 @@ export function HowItWorks() {
           </div>
         </div>
       </div>
+
+      {compact ? (
+        <div className="mt-8 flex justify-center">
+          <Link
+            href="/how-it-works"
+            className="inline-flex items-center gap-1 text-sm font-semibold text-primary-text underline transition-colors hover:text-ink touch:min-h-11"
+          >
+            See what you get after the diagnostic
+            <ArrowRight aria-hidden="true" className="size-4" />
+          </Link>
+        </div>
+      ) : null}
     </Section>
   );
 }

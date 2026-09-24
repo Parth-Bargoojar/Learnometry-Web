@@ -13,7 +13,7 @@ import { Container } from "@/components/ui/section";
 
 const destinations = [
   {
-    href: "/#how-it-works",
+    href: "/how-it-works",
     icon: Compass,
     title: "How it works",
     description: "The diagnose → plan → retest loop, in three steps.",
@@ -25,7 +25,7 @@ const destinations = [
     description: "What the monthly credit plans include.",
   },
   {
-    href: "/#faq",
+    href: "/faq",
     icon: HelpCircle,
     title: "FAQ",
     description: "The questions students actually ask us.",

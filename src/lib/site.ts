@@ -59,8 +59,11 @@ export const OG_IMAGE = {
  * has on a site this small. Bump the date for a page only when its *content* changes.
  */
 export const CONTENT_LAST_MODIFIED: Record<string, string> = {
-  "/": "2026-09-17",
+  "/": "2026-09-24",
+  "/how-it-works": "2026-09-24",
   "/pricing": "2026-09-17",
+  "/about": "2026-09-24",
+  "/faq": "2026-09-24",
   "/contact": "2026-09-17",
   "/terms": "2026-09-13",
   "/privacy": "2026-09-13",
@@ -104,7 +107,10 @@ export const KNOWS_ABOUT = [
  */
 export const ROUTES = [
   { path: "/", changeFrequency: "weekly", priority: 1.0 },
+  { path: "/how-it-works", changeFrequency: "monthly", priority: 0.9 },
   { path: "/pricing", changeFrequency: "weekly", priority: 0.9 },
+  { path: "/about", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/faq", changeFrequency: "monthly", priority: 0.7 },
   { path: "/contact", changeFrequency: "monthly", priority: 0.7 },
   { path: "/terms", changeFrequency: "yearly", priority: 0.3 },
   { path: "/privacy", changeFrequency: "yearly", priority: 0.3 },

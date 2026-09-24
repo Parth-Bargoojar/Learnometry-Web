@@ -3,16 +3,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { buttonClasses } from "@/components/ui/button";
 import { Container } from "@/components/ui/section";
 import { useWaitlistModal } from "@/components/waitlist-modal";
 
 const navLinks = [
-  { label: "How it works", href: "/#how-it-works" },
-  { label: "What you get", href: "/#what-you-get" },
-  { label: "Founders' note", href: "/#founders-note" },
-  { label: "Pricing", href: "/#pricing" },
+  { label: "Home", href: "/" },
+  { label: "How it works", href: "/how-it-works" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "About", href: "/about" },
+  { label: "FAQ", href: "/faq" },
 ];
 
 export function SiteHeader() {
@@ -30,21 +32,7 @@ export function SiteHeader() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [open]);
 
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
-  ) => {
-    if (href.startsWith("#") || href.startsWith("/#")) {
-      const id = href.replace(/^\/?#/, "");
-      const elem = document.getElementById(id);
-      if (elem) {
-        e.preventDefault();
-        elem.scrollIntoView({ behavior: "smooth" });
-        window.history.pushState(null, "", `#${id}`);
-        setOpen(false);
-      }
-    }
-  };
+  const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-50 border-b border-border-subtle bg-surface/95 backdrop-blur-md">
@@ -75,8 +63,8 @@ export function SiteHeader() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    className="inline-flex items-center rounded-full border border-transparent px-3.5 py-1.5 text-[14px] font-semibold text-slate-600 transition-all duration-150 hover:border-ink hover:bg-surface hover:text-ink hover:shadow-brutal-sm active:translate-y-0.5"
+                    aria-current={pathname === link.href ? "page" : undefined}
+                    className="inline-flex items-center rounded-full border border-transparent px-3.5 py-1.5 text-[14px] font-semibold text-slate-600 transition-all duration-150 hover:border-ink hover:bg-surface hover:text-ink hover:shadow-brutal-sm active:translate-y-0.5 aria-[current=page]:border-ink aria-[current=page]:bg-surface aria-[current=page]:text-ink aria-[current=page]:shadow-brutal-sm"
                   >
                     {link.label}
                   </Link>
@@ -134,8 +122,9 @@ export function SiteHeader() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
-                  className="flex min-h-11 items-center rounded-btn px-3 text-base font-medium text-ink transition-colors duration-150 hover:bg-slate-100"
+                  aria-current={pathname === link.href ? "page" : undefined}
+                  onClick={() => setOpen(false)}
+                  className="flex min-h-11 items-center rounded-btn px-3 text-base font-medium text-ink transition-colors duration-150 hover:bg-slate-100 aria-[current=page]:bg-primary/15 aria-[current=page]:font-semibold"
                 >
                   {link.label}
                 </Link>

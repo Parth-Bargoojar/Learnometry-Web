@@ -24,11 +24,11 @@ const columns = [
   {
     heading: "Product",
     links: [
-      { label: "How it works", href: "/#how-it-works" },
-      { label: "What you get", href: "/#what-you-get" },
-      { label: "Founders' note", href: "/#founders-note" },
+      { label: "How it works", href: "/how-it-works" },
+      { label: "What you get", href: "/how-it-works#what-you-get" },
+      { label: "About & founders", href: "/about" },
       { label: "Pricing & plans", href: "/pricing" },
-      { label: "Questions & FAQ", href: "/#faq" },
+      { label: "Questions & FAQ", href: "/faq" },
     ],
   },
   {
