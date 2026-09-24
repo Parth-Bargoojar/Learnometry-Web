@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import {
-  ArrowLeft,
   Check,
   HelpCircle,
   RotateCcw,
@@ -172,18 +171,8 @@ export function PricingView() {
       <SiteHeader />
       <main id="main" className="flex-1 bg-background py-10 sm:py-16">
         <Container className="max-w-6xl">
-          {/* Back link */}
-          <Link
-            href="/"
-            scroll={false}
-            className="inline-flex items-center gap-2 py-1.5 text-sm font-semibold text-primary-text transition-colors hover:text-ink touch:min-h-11"
-          >
-            <ArrowLeft className="size-4" />
-            Back to Home
-          </Link>
-
           {/* Hero Header */}
-          <div className="mt-6 text-center">
+          <div className="text-center">
             <div className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-primary/20 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-ink shadow-brutal-sm">
               <Sparkles className="size-3.5 text-primary-deep" />
               Pricing · No surprise bills
