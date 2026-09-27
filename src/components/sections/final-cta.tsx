@@ -54,7 +54,7 @@ export function FinalCta() {
           </h2>
           <p className="max-w-xl text-lg leading-relaxed text-slate-600">
             Leave your email and your first diagnostic is waiting the day we open,
-            along with 30 credits to build the plan that follows it.
+            along with the credits to build the plan that follows it.
           </p>
 
           {/* The last objections, answered where the decision is actually made. */}

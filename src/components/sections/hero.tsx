@@ -64,7 +64,7 @@ export function Hero() {
               <span aria-hidden="true" className="text-border-subtle">&middot;</span>
               <span>No card required.</span>
               <span aria-hidden="true" className="text-border-subtle">&middot;</span>
-              <span>30 credits waiting on launch day.</span>
+              <span>Free diagnostic and study plan on launch day.</span>
             </p>
 
             <ul className="flex flex-wrap items-center gap-2 sm:gap-2.5">

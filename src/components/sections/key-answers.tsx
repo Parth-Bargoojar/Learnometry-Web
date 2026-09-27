@@ -31,7 +31,7 @@ const answers: { question: string; body: string[] }[] = [
   {
     question: "What is Learnometry?",
     body: [
-      "Learnometry is a diagnostic assessment platform for Indian students preparing for CBSE Class 11 and 12 board exams, JEE Main, JEE Advanced and NEET. Instead of reporting a score, it identifies the specific concepts behind each wrong answer. A student takes one 30-minute diagnostic; the platform scores it server-side using fixed marking rules, negative marking included, then traces every error back through a prerequisite map to the underlying concept that failed.",
+      "Learnometry is a diagnostic assessment platform for Indian students preparing for JEE Main, NEET and CBSE Class 11, starting with Physics (Class 11 Mechanics); JEE Advanced, Class 12 and other subjects follow. Instead of reporting a score, it identifies the specific concepts behind each wrong answer. A student takes one 30-minute diagnostic; the platform scores it server-side using fixed marking rules, negative marking included, then traces every error back through a prerequisite map to the underlying concept that failed.",
       "The output is a ranked study plan: concepts ordered by how much exam weight they carry, sized to the number of study hours the student actually reports having. Each weak concept is confirmed closed only by a parallel retest on fresh questions covering the same idea, never by marking a video as watched. Learnometry does not replace coaching classes or textbooks. It decides which chapter of the material a student already owns should be opened first.",
     ],
   },

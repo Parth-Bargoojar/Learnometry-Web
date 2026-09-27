@@ -14,7 +14,7 @@ export const HOME_FAQS: FaqItem[] = [
   {
     question: "Is the first diagnostic really free?",
     answer:
-      "Yes. Every student gets 30 free credits a month at launch. That covers a full diagnostic, your root-cause report and your first study plan, with no card added.",
+      "Yes. Every new student gets 100 welcome credits, which cover a full diagnostic, your root-cause report and your first study plan, plus 30 free credits every month after that. No card needed.",
   },
   {
     question: "Does this replace my coaching classes or books?",
@@ -39,7 +39,7 @@ export const HOME_FAQS: FaqItem[] = [
   {
     question: "Which exams, subjects and boards are covered?",
     answer:
-      "CBSE Class 11 and 12 boards, JEE Main and Advanced, and NEET. Questions and concept trees are mapped to the CBSE, NTA and NMC syllabi, with high-weightage chapters first.",
+      "At launch: Physics, Class 11 Mechanics (six NCERT chapters), for JEE Main, NEET and CBSE Class 11. JEE Advanced, Class 12 Physics, Chemistry, Maths and Biology follow in that order. Questions and concept trees are mapped to the NTA, NMC and CBSE syllabi.",
   },
   {
     question: "Can a parent or guardian see the reports?",

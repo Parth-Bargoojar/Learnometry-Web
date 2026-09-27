@@ -334,3 +334,25 @@ accounts exist.
 
 The single highest-value thing you can do next is fill in `src/lib/legal.ts` and send
 these four policy pages to a consumer/tech lawyer.
+
+---
+
+## 6. Update — 27 September 2026 (product decisions v1.1)
+
+The app specification (`../Learnometry_WEB_APP_STRUCTURE_v1.md` §1, `../CONTEXT.md` §0.1) now answers several items above. Still engineering notes, not legal advice.
+
+| Item above | Status now |
+|---|---|
+| §3.1 s.9(1) verifiable guardian consent "described but not built" | **Specified** for the app: date of birth first, minimum age 13; under 18 → guardian OTP (email or SMS) + declaration of guardianship and adulthood; nothing academic processed before consent; pending accounts deleted after 7 days; withdrawal stops processing and deletes data within 7 business days. DigiLocker verification is the upgrade path. Lawyer sign-off is launch gate G1. |
+| §3.1 s.9(3) no tracking of children | **Specified:** PostHog only for users 18+, cookieless, no autocapture or session replay; minors' metrics stay first-party. |
+| §3.4 the paying party must be the adult | **Specified:** every purchase for a minor needs guardian approval and is paid by the guardian. |
+| §3.5 RBI e-mandates | **Specified:** paid plans are 30-day passes; auto-renew is opt-in at checkout, with the RBI pre-debit notice plus a 3-day reminder email. |
+| §4.3 the 20% refund condition | **Defined operationally:** plan credits used < 20% of plan credits issued so far in the current cycle, within 7 days of the first payment for a paid plan; self-serve request in Billing. Whether it survives a consumer forum is still a question for the lawyer. |
+| §4.4 cancel "with a single click" | **Specified:** one click in Billing with Undo, no confirmation dialog. |
+| §4.4 erasure/export in 7 business days | **Specified:** deletion deactivates immediately and erases within 7 business days; export delivered within 7 business days. |
+| §4.4 unsubscribe in every email | **Specified:** Resend with one-click unsubscribe on all non-essential email. |
+| New processors | Privacy Policy `DATA_PROCESSORS` must add Supabase, Razorpay, Inngest, Resend, MSG91, Sentry, PostHog and the AI providers before accounts open (launch gate G7). |
+| Site copy | Pricing, FAQ, refunds and hero copy changes are listed in `../CONTEXT.md` §14 (W1–W13). |
+
+Unchanged and still open: §1.1 (`legal.ts` fields — launch gate G2), §1.2 (lawyer review — G1), §4.2 (image copyright — G4).
+

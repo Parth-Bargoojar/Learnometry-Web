@@ -96,10 +96,10 @@ export default function RefundPolicyPage() {
                   When our paid tiers go live:
                 </p>
                 <ul className="mt-2 list-disc space-y-1.5 pl-5 text-slate-600">
-                  <li><strong>Free Diagnostic:</strong> Free assessment and starter study plan upon joining our waitlist, with no credit card required.</li>
-                  <li><strong>Starter Plan:</strong> ₹199 per month with 1 AI model of your choice, 200 daily credits/tokens, and 1-month validity.</li>
-                  <li><strong>Plus Plan:</strong> ₹299 per month with all AI models unlocked, 350 daily tokens, and 1-month validity.</li>
-                  <li><strong>Pro Plan:</strong> ₹349 per month with all AI models + maximum reasoning depth, 500 daily tokens, and 1-month validity.</li>
+                  <li><strong>Free Plan:</strong> 100 welcome credits (a full diagnostic, root-cause report and study plan) plus 30 credits every month, with no credit card required.</li>
+                  <li><strong>Starter Plan:</strong> ₹199 for a 30-day pass, 200 credits a day, and your choice of the Fast or Standard explanation engine.</li>
+                  <li><strong>Plus Plan:</strong> ₹299 for a 30-day pass, 350 credits a day, with the engine chosen automatically (including Deep reasoning).</li>
+                  <li><strong>Pro Plan:</strong> ₹349 for a 30-day pass, 500 credits a day, extra reasoning depth and the Deep diagnostic.</li>
                 </ul>
                 <p className="mt-2 text-sm text-slate-500">
                   All paid plans are billed on a 1-month cycle in Indian Rupees (INR) with daily quota resets at midnight IST and no long-term lock-ins.
@@ -114,6 +114,7 @@ export default function RefundPolicyPage() {
                 <ul className="mt-2 list-disc space-y-1.5 pl-5 text-slate-600">
                   <li>You may request a full refund within <strong>7 calendar days</strong> of your initial billing date.</li>
                   <li>To prevent abuse, refund requests are honored if you have consumed <strong>less than 20%</strong> of the daily allowance issued for your current cycle.</li>
+                  <li>You request a refund from the Billing page in your account. When it is approved, your pass ends and your account moves to the Free plan.</li>
                   <li>Once approved, your payment will be refunded to your original source (UPI, Card, or Net Banking) within 5 to 7 business days.</li>
                 </ul>
               </section>
@@ -124,7 +125,7 @@ export default function RefundPolicyPage() {
                   You can cancel your subscription at any time with a single click from your Account Settings:
                 </p>
                 <ul className="mt-2 list-disc space-y-1.5 pl-5 text-slate-600">
-                  <li>Your cancellation takes effect at the conclusion of your active 1-month validity period.</li>
+                  <li>Passes do not renew unless you turn on auto-renew at checkout. Cancelling renewal takes effect at the end of your current 30-day pass.</li>
                   <li>You will retain access to your paid features and daily allowances until that cycle ends.</li>
                   <li>We do not charge cancellation fees or penalty deductions.</li>
                 </ul>
@@ -138,7 +139,7 @@ export default function RefundPolicyPage() {
                 <ul className="mt-2 list-disc space-y-1.5 pl-5 text-slate-600">
                   <li>Daily credit quotas refresh every night at <strong>00:00 midnight IST</strong> to maintain a predictable, disciplined daily study routine.</li>
                   <li>Unused daily allowances do not roll over indefinitely, preventing account hoarding and ensuring high server capacity for all active learners.</li>
-                  <li>Credits and tokens hold no cash value and cannot be redeemed for fiat currency or transferred between different user accounts.</li>
+                  <li>Credits hold no cash value and cannot be redeemed for fiat currency or transferred between different user accounts.</li>
                 </ul>
               </section>
 

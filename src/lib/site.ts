@@ -16,7 +16,7 @@ export const SITE_LOCALE = "en_IN";
 
 /** Used as the org/brand description in JSON-LD and as the fallback meta description. */
 export const SITE_DESCRIPTION =
-  "Learnometry is a diagnostic assessment platform for CBSE, JEE and NEET students. See the exact concepts costing you marks, get a study plan ordered by exam weight and built around your available hours, and retest to confirm the gap closed.";
+  "Learnometry is a diagnostic assessment platform for JEE Main, NEET and CBSE Class 11 students, starting with Physics. See the exact concepts costing you marks, get a study plan ordered by exam weight and built around your available hours, and retest to confirm the gap closed.";
 
 /** Absolute URL for a site-relative path. `absoluteUrl("/pricing")` → "https://…/pricing". */
 export function absoluteUrl(path = "/"): string {
@@ -59,16 +59,16 @@ export const OG_IMAGE = {
  * has on a site this small. Bump the date for a page only when its *content* changes.
  */
 export const CONTENT_LAST_MODIFIED: Record<string, string> = {
-  "/": "2026-09-24",
+  "/": "2026-09-27",
   "/how-it-works": "2026-09-24",
-  "/pricing": "2026-09-17",
+  "/pricing": "2026-09-27",
   "/about": "2026-09-24",
-  "/faq": "2026-09-24",
+  "/faq": "2026-09-27",
   "/contact": "2026-09-17",
-  "/terms": "2026-09-13",
+  "/terms": "2026-09-27",
   "/privacy": "2026-09-13",
   "/guardian-consent": "2026-09-13",
-  "/refunds": "2026-09-13",
+  "/refunds": "2026-09-27",
   "/cookies": "2026-09-13",
 };
 
@@ -92,9 +92,8 @@ export const SITE_SLOGAN = "Know which concept to fix first tomorrow morning.";
 export const KNOWS_ABOUT = [
   "Diagnostic assessment",
   "JEE Main preparation",
-  "JEE Advanced preparation",
   "NEET preparation",
-  "CBSE Class 11 and 12 board exams",
+  "CBSE Class 11 Physics",
   "Concept prerequisite mapping",
   "Adaptive study planning",
   "Exam weightage analysis",

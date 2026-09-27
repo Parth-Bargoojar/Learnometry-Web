@@ -240,8 +240,9 @@ export default function TermsPage() {
                   7. Credits, plans and payment
                 </h2>
                 <p className="mt-2">
-                  Joining the waitlist is free. Every registered student receives 30 free
-                  credits per month at launch. Credits are consumed when generating
+                  Joining the waitlist is free. Every registered student receives 100 welcome
+                  credits at launch (enough for a full diagnostic and study plan), then 30 free
+                  credits per month. Credits are consumed when generating
                   AI-assisted diagnostics and personalised study schedules, and you will
                   always see the credit cost before an operation runs. Credits have no cash
                   value, cannot be exchanged for money and are not transferable between

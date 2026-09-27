@@ -151,7 +151,7 @@ export function WaitlistProvider({ children }: { children: ReactNode }) {
                 Get your first diagnostic free.
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                Leave your email and we&apos;ll open your diagnostic on launch day, with 30 credits to build the study plan that follows.
+                Leave your email and we&apos;ll open your diagnostic on launch day, with enough free credits to build the study plan that follows.
               </p>
 
               {isJoined ? (

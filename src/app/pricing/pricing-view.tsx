@@ -24,22 +24,22 @@ const pricingPlans = [
     name: "Starter",
     price: "₹199",
     cadence: "per month",
-    validity: "1 month validity",
+    validity: "30-day pass",
     dailyAllowance: "200 credits / day",
-    dailyTokensNotice: "200 daily tokens refreshed every midnight",
-    modelAccess: "1 Model (Your Choice)",
-    modelBadge: "Single Engine",
+    dailyTokensNotice: "Refills to 200 every night at 00:00 IST",
+    modelAccess: "Fast or Standard (you choose)",
+    modelBadge: "Your choice",
     idealFor: "One diagnostic and a daily concept session",
     summary:
       "Daily practice and diagnostics on one model you pick.",
     features: [
-      "1 AI model of your choice (switch anytime in settings)",
-      "200 credits/tokens refreshed daily at midnight",
-      "Full diagnostic assessment & gap identification",
+      "Choose Fast or Standard for explanations (switch any time)",
+      "200 credits refilled every night at 00:00 IST",
+      "Full diagnostic with root-cause report",
       "Targeted daily practice & adaptive study plan",
       "Evidence-backed explanation of every mistake",
       "Standard generation queue",
-      "1 month validity · No automatic lock-in",
+      "30-day pass · auto-renews only if you turn it on",
     ],
     cta: "Reserve Starter Spot",
     recommended: false,
@@ -49,22 +49,22 @@ const pricingPlans = [
     name: "Plus",
     price: "₹299",
     cadence: "per month",
-    validity: "1 month validity",
-    dailyAllowance: "350 tokens / day",
-    dailyTokensNotice: "350 daily tokens refreshed every midnight",
-    modelAccess: "All Models Unlocked",
-    modelBadge: "Multi-Engine",
+    validity: "30-day pass",
+    dailyAllowance: "350 credits / day",
+    dailyTokensNotice: "Refills to 350 every night at 00:00 IST",
+    modelAccess: "Chosen automatically, incl. Deep reasoning",
+    modelBadge: "Automatic",
     idealFor: "Revision running across several chapters at once",
     summary:
       "75% more credits a day than Starter, on every model.",
     features: [
-      "All models, fast and reasoning",
-      "350 tokens/credits refreshed daily at midnight",
+      "Engine chosen automatically for every question",
+      "350 credits refilled every night at 00:00 IST",
       "Root-cause diagnosis and error classification",
-      "Personalized multi-week plan & scheduled retests",
+      "Plan adapts after every practice session",
       "Step-by-step reasoning for difficult problems",
       "Priority generation queue",
-      "1 month validity · No automatic lock-in",
+      "30-day pass · auto-renews only if you turn it on",
     ],
     cta: "Reserve Plus Spot",
     recommended: true,
@@ -74,22 +74,22 @@ const pricingPlans = [
     name: "Pro",
     price: "₹349",
     cadence: "per month",
-    validity: "1 month validity",
-    dailyAllowance: "500 tokens / day",
-    dailyTokensNotice: "500 daily tokens refreshed every midnight",
-    modelAccess: "All models + deepest reasoning",
+    validity: "30-day pass",
+    dailyAllowance: "500 credits / day",
+    dailyTokensNotice: "Refills to 500 every night at 00:00 IST",
+    modelAccess: "Automatic, with extra-deep reasoning",
     modelBadge: "Full Power",
     idealFor: "Heavy daily mocks in the final months",
     summary:
       "The most credits a day, for the JEE and NEET sprint.",
     features: [
-      "All models, including the deepest reasoning ones",
-      "500 tokens/credits refreshed daily at midnight",
-      "High-frequency retesting and rapid plan adaptation",
-      "Multi-chapter root-cause diagnostics",
+      "Deep reasoning with extra depth on hard problems",
+      "500 credits refilled every night at 00:00 IST",
+      "Plan re-optimized every morning",
+      "60-minute Deep diagnostic across chapters",
       "Multi-step numerical and derivation breakdowns",
       "Top of the generation queue at peak hours",
-      "1 month validity · No automatic lock-in",
+      "30-day pass · auto-renews only if you turn it on",
     ],
     cta: "Reserve Pro Spot",
     recommended: false,
@@ -129,14 +129,14 @@ const dailyBreakdown = [
 
 const comparisonTable = [
   { feature: "Monthly Price", starter: "₹199", plus: "₹299", pro: "₹349" },
-  { feature: "Validity Period", starter: "1 Month", plus: "1 Month", pro: "1 Month" },
-  { feature: "Daily Allowance", starter: "200 credits / day", plus: "350 tokens / day", pro: "500 tokens / day" },
+  { feature: "Validity Period", starter: "30-day pass", plus: "30-day pass", pro: "30-day pass" },
+  { feature: "Daily Allowance", starter: "200 credits / day", plus: "350 credits / day", pro: "500 credits / day" },
   { feature: "Quota Reset Schedule", starter: "Daily at 00:00 midnight", plus: "Daily at 00:00 midnight", pro: "Daily at 00:00 midnight" },
-  { feature: "AI Model Access", starter: "1 Model of your choice", plus: "All models unlocked", pro: "All models + Max reasoning" },
-  { feature: "Diagnostic Assessment", starter: "Full diagnostic", plus: "Full + Root cause", pro: "Full + Deep multi-layer" },
-  { feature: "Study Plan Prescriptions", starter: "Yes (Weekly)", plus: "Yes (Adaptive)", pro: "Yes (Dynamic daily updates)" },
+  { feature: "Explanation Engine", starter: "Fast or Standard (your choice)", plus: "Automatic, incl. Deep reasoning", pro: "Automatic, extra-deep reasoning" },
+  { feature: "Diagnostic Assessment", starter: "Full + root-cause report", plus: "Full + root-cause report", pro: "Full + root-cause + 60-min Deep diagnostic" },
+  { feature: "Study Plan Updates", starter: "After each retest", plus: "After every practice session", pro: "Every morning" },
   { feature: "Targeted Practice & Retests", starter: "Yes", plus: "Yes", pro: "Yes (Priority)" },
-  { feature: "Cancellation Policy", starter: "Cancel anytime", plus: "Cancel anytime", pro: "Cancel anytime" },
+  { feature: "Renewal", starter: "Only if you turn on auto-renew", plus: "Only if you turn on auto-renew", pro: "Only if you turn on auto-renew" },
   { feature: "7-Day Refund Window", starter: "Yes", plus: "Yes", pro: "Yes" },
 ];
 
@@ -146,16 +146,16 @@ const pricingFaqs = [
     a: "Every day at 00:00 midnight IST, your study balance resets to your plan's full quota (200, 350, or 500 credits). So a heavy revision day never leaves you rationing credits at the end of the month.",
   },
   {
-    q: "What does '1 Model (Your Choice)' mean on the ₹199 plan?",
-    a: "On the Starter plan, you pick which AI engine you want to power your tutor (e.g., our fast diagnostic engine or our structured tutor). You can change your chosen model in your profile settings whenever you like.",
+    q: "What does 'Fast or Standard (you choose)' mean on the ₹199 plan?",
+    a: "On Starter you pick the engine used for explanations and hints: Fast for quick answers, or Standard for more detailed ones. You can switch any time in settings. Your diagnosis and study plan always use our most accurate setup, on every plan.",
   },
   {
-    q: "What extra capabilities do I get with 'All Models' on the ₹299 & ₹349 plans?",
-    a: "On the Plus and Pro plans, Learnometry uses dynamic smart routing. Simple questions and classifications run on fast, efficient models, while challenging multi-step math and science derivations automatically route to deeper reasoning models.",
+    q: "What do Plus and Pro add?",
+    a: "On Plus and Pro the engine is chosen for you per question: quick checks run on Fast, and hard multi-step physics problems go to Deep reasoning. Plus also adapts your plan after every practice session. Pro adds extra reasoning depth, a plan re-optimized every morning, and a 60-minute Deep diagnostic.",
   },
   {
     q: "Can I try Learnometry before buying a subscription?",
-    a: "Yes. Everyone on the early-access waitlist gets a full diagnostic free on launch day. No card, no payment, just your report.",
+    a: "Yes. Every new student gets 100 welcome credits, enough for a full diagnostic, your root-cause report and your first study plan, plus 30 free credits every month after that. No card needed.",
   },
   {
     q: "Can I cancel my subscription or request a refund?",
@@ -303,19 +303,19 @@ export function PricingView() {
           </div>
           </section>
 
-          {/* Real-world Token Translation Section */}
+          {/* What a daily allowance covers */}
           <section className="mt-16 rounded-card-lg border-2 border-ink bg-surface p-6 sm:p-10 shadow-brutal">
             <div className="flex items-center gap-2">
               <span className="inline-flex items-center gap-1 rounded-full border border-ink bg-primary/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-ink">
                 <Layers className="size-3.5 text-primary-deep" />
-                No Token Math
+                No Math Needed
               </span>
             </div>
             <h2 className="mt-3 font-display text-2xl sm:text-3xl text-ink">
               What does your daily allowance mean in practice?
             </h2>
             <p className="mt-2 text-sm sm:text-base text-slate-600">
-              We never expect students or parents to calculate raw AI tokens. Here is roughly
+              We never expect students or parents to do credit math. Here is roughly
               what a daily allowance covers. These are estimates: a long multi-step
               derivation consumes more than a short concept check, so your own usage will
               vary.
@@ -380,14 +380,14 @@ export function PricingView() {
                 Starter Plan
               </div>
               <h3 className="mt-3 font-display text-xl text-ink">
-                1 Model (Your Choice)
+                Fast or Standard (you choose)
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                You select your preferred AI engine in settings. If you prefer rapid, straightforward flashcards and concise step explanations, you pick our Fast Diagnostic Engine. You can swap your model choice anytime in your account.
+                You pick the engine for explanations and hints: Fast for quick, concise answers or Standard for more detailed ones. Switch any time in settings. Your diagnosis and plan always use our most accurate setup.
               </p>
               <div className="mt-4 flex items-center gap-2 text-xs font-semibold text-slate-700">
                 <Check className="size-4 text-success" />
-                Dedicated single engine · Highly predictable responses
+                Your choice · Same diagnosis quality as every plan
               </div>
             </div>
 
@@ -397,14 +397,14 @@ export function PricingView() {
                 Plus &amp; Pro Plans
               </div>
               <h3 className="mt-3 font-display text-xl text-ink">
-                All Models (Smart Orchestration)
+                Chosen Automatically
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                You never have to guess which model to use. Learnometry automatically pairs quick checks with fast models and routes tricky multi-step JEE/NEET questions to deep reasoning models for thorough root-cause derivations.
+                You never pick an engine. Quick checks run on Fast and tricky multi-step JEE/NEET problems go to Deep reasoning. Pro gets extra reasoning depth on the hardest ones.
               </p>
               <div className="mt-4 flex items-center gap-2 text-xs font-semibold text-slate-700">
                 <Check className="size-4 text-success" />
-                Full multi-model routing · Deep reasoning included
+                Automatic routing · Deep reasoning included
               </div>
             </div>
           </section>

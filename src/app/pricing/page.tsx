@@ -11,7 +11,7 @@ import {
 
 const title = "Plans from ₹199 a Month";
 const description =
-  "Learnometry plans for CBSE, JEE and NEET students. From ₹199 a month, credits refill daily, cancel any month, and 30 free credits every month.";
+  "Learnometry plans for CBSE, JEE and NEET students. From ₹199 for a 30-day pass, credits refill daily, a free diagnostic and study plan, then 30 free credits every month.";
 
 export const metadata: Metadata = {
   title,
