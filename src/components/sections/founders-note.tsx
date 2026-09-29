@@ -69,7 +69,7 @@ export function FoundersNote() {
       <div className="mt-10 rounded-card-lg border-2 border-ink bg-background p-6 sm:p-9 shadow-brutal-lg relative overflow-hidden">
         {/* Subtle decorative stamp */}
         <div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-ink/10 pb-4">
-          <span className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-primary/20 px-3 py-1 text-xs font-bold uppercase tracking-wide text-ink shadow-brutal-sm">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-border-subtle bg-slate-100 px-3 py-1 text-xs font-bold uppercase tracking-wide text-ink">
             <HeartHandshake className="size-3.5 text-primary-deep" />
             What we promise you
           </span>
@@ -95,7 +95,7 @@ export function FoundersNote() {
                 1
               </span>
               <span>
-                <strong>No guessed marks.</strong> Scoring runs on fixed server-side rules.
+                <strong>No guessed marks.</strong> Scoring runs on fixed marking rules.
                 A generative model never touches your result.
               </span>
             </li>
@@ -130,7 +130,7 @@ export function FoundersNote() {
             {founders.map((founder) => (
               <article
                 key={founder.name}
-                className="flex min-w-0 flex-col justify-between rounded-card-sm border-2 border-ink bg-surface p-5 shadow-brutal-sm transition-transform duration-150 hover:-translate-y-1"
+                className="flex min-w-0 flex-col justify-between rounded-card-sm border border-border-subtle bg-surface p-5"
               >
                 <div className="flex items-center gap-3">
                   <div
@@ -152,7 +152,7 @@ export function FoundersNote() {
                 <div className="mt-4 pt-3 border-t border-ink/10 flex items-center justify-between gap-2 touch:min-h-11">
                   <a
                     href={`mailto:${founder.email}?subject=${encodeURIComponent("Message for " + founder.name + " | Learnometry")}`}
-                    className="min-w-0 truncate font-mono text-[11px] font-bold text-primary-text hover:underline touch:py-3.5"
+                    className="min-w-0 truncate font-mono text-xs font-bold text-primary-text hover:underline touch:py-3.5"
                     title={`Email ${founder.name}`}
                   >
                     {founder.email}

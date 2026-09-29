@@ -255,13 +255,6 @@
   [role="button"]:active {
     transform: translateY(1px);
   }
-
-  /* Cards are lift-on-hover on desktop. On touch that hover never resolves, so
-     the card can stick in its lifted state after a tap. Anchor them flat. */
-  article:hover,
-  li:hover > div {
-    transform: none;
-  }
 }
 
 /* §26 — motion is an enhancement, never a requirement. */

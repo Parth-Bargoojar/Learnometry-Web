@@ -39,7 +39,7 @@ export function Kicker({
   children: React.ReactNode;
 }) {
   return (
-    <span className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-surface px-4 py-1.5 text-[13px] font-semibold text-ink shadow-brutal-sm">
+    <span className="inline-flex items-center gap-2 rounded-full border border-border-subtle bg-surface px-4 py-1.5 text-[13px] font-semibold text-ink">
       {Icon ? (
         <Icon aria-hidden="true" className="size-4 text-primary-text" />
       ) : null}

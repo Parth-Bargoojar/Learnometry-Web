@@ -28,15 +28,12 @@ export function WhoItsFor() {
         description="Learnometry picks what you open first, out of the material you already own."
       />
 
-      <div className="mt-12 grid gap-5 md:grid-cols-3">
+      {/* A single divided band, not another grid of cards: the reader has just
+          scrolled past three card grids. */}
+      <div className="mt-12 grid overflow-hidden rounded-card-lg border-2 border-ink bg-surface max-md:divide-y-2 max-md:divide-ink md:grid-cols-3 md:divide-x-2 md:divide-ink">
         {audiences.map((audience) => (
-          <article
-            key={audience.title}
-            className="flex flex-col gap-4 rounded-card-lg border-2 border-ink bg-surface p-5 sm:p-7 shadow-brutal transition-transform duration-200 hover:-translate-y-1"
-          >
-            <span className="flex size-11 items-center justify-center rounded-card-sm border-2 border-ink bg-primary/15">
-              <audience.icon aria-hidden="true" className="size-5 text-ink" />
-            </span>
+          <article key={audience.title} className="flex flex-col gap-3 p-5 sm:p-7">
+            <audience.icon aria-hidden="true" className="size-6 text-ink" />
             <h3 className="font-display text-xl leading-snug text-ink">
               {audience.title}
             </h3>

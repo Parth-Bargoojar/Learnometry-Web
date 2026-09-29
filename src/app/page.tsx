@@ -57,10 +57,10 @@ export default function Home() {
       <main id="main" className="flex-1">
         <Hero />
         <Problem />
-        <KeyAnswers />
         {/* The home page is the short pitch. The deep dives (what you get, the
             founders' note, trust, FAQ) live on /how-it-works, /about and /faq. */}
         <HowItWorks compact />
+        <KeyAnswers />
         <WhoItsFor />
         <Pricing />
         <FinalCta />

@@ -13,7 +13,6 @@ import {
   GraduationCap,
   ScanSearch,
   ShieldCheck,
-  Sparkles,
   type LucideIcon,
 } from "lucide-react";
 import { Kicker } from "@/components/ui/badge";
@@ -22,7 +21,7 @@ import { HeroWaitlist } from "@/components/sections/hero-waitlist";
 
 const trustBadges: { icon: LucideIcon; label: string }[] = [
   { icon: ShieldCheck, label: "Modelled on CBSE, NTA & NMC exam patterns" },
-  { icon: Calculator, label: "Server-side scoring, negative marking included" },
+  { icon: Calculator, label: "Fixed marking rules, negative marking included" },
   { icon: ScanSearch, label: "Every weakness links to the questions behind it" },
 ];
 
@@ -40,9 +39,9 @@ export function Hero() {
           <div className="flex flex-col items-start gap-4 sm:gap-5">
             <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
               <Kicker icon={GraduationCap}>For Class 11 &amp; 12 JEE, NEET and CBSE students</Kicker>
-              <span className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-primary/20 px-3 py-1 text-xs font-bold uppercase tracking-wide text-ink shadow-brutal-sm">
-                <span className="size-2 rounded-full bg-primary-deep animate-pulse" />
-                Early Access Beta
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-border-subtle bg-slate-100 px-3 py-1 text-xs font-bold uppercase tracking-wide text-ink">
+                <span className="size-2 rounded-full bg-primary-deep" />
+                Early access beta
               </span>
             </div>
 
@@ -59,7 +58,6 @@ export function Hero() {
             <HeroWaitlist />
 
             <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs sm:text-sm font-medium text-slate-600">
-              <Sparkles aria-hidden="true" className="size-3.5 text-primary-text" />
               <span>Free to join.</span>
               <span aria-hidden="true" className="text-border-subtle">&middot;</span>
               <span>No card required.</span>
@@ -67,11 +65,11 @@ export function Hero() {
               <span>Free diagnostic and study plan on launch day.</span>
             </p>
 
-            <ul className="flex flex-wrap items-center gap-2 sm:gap-2.5">
+            <ul className="flex flex-wrap items-center gap-2 sm:gap-x-4 sm:gap-y-2">
               {trustBadges.map((badge) => (
                 <li
                   key={badge.label}
-                  className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-surface px-3 py-1 text-xs font-semibold text-ink shadow-brutal-sm"
+                  className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-700 sm:text-sm"
                 >
                   <badge.icon
                     aria-hidden="true"
@@ -82,7 +80,7 @@ export function Hero() {
               ))}
             </ul>
 
-            <p className="max-w-xl text-[11px] leading-normal text-slate-500 mt-0.5">
+            <p className="max-w-xl text-xs leading-normal text-slate-500 mt-0.5">
               Learnometry is an independent product, not affiliated with or endorsed by
               CBSE, the NTA, the NMC or any coaching institute.
             </p>
@@ -128,23 +126,20 @@ function HeroVisual() {
               <div className="h-full w-[34%] rounded-full bg-danger" />
             </div>
             <div className="mt-0.5 flex items-center gap-1.5 text-xs font-bold text-danger">
-              <span className="relative flex size-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-danger opacity-75" />
-                <span className="relative inline-flex size-2 rounded-full bg-danger" />
-              </span>
+              <span aria-hidden="true" className="size-2 rounded-full bg-danger" />
               Critical Gap
             </div>
-            <p className="text-[11px] text-slate-500">
+            <p className="text-xs text-slate-500">
               Prerequisite sign slip
             </p>
           </div>
 
           {/* Transformation Bridge */}
           <div className="flex flex-col items-center justify-center gap-1 py-1 sm:py-0">
-            <span className="rounded-full border-2 border-ink bg-primary px-3 py-1 text-[11px] font-extrabold uppercase tracking-wide text-ink shadow-brutal-sm whitespace-nowrap">
+            <span className="rounded-full border-2 border-ink bg-surface px-3 py-1 text-xs font-extrabold uppercase tracking-wide text-ink whitespace-nowrap">
               35 min fix
             </span>
-            <ArrowRight aria-hidden="true" className="size-5 text-ink hidden sm:block mt-1 animate-pulse" />
+            <ArrowRight aria-hidden="true" className="size-5 text-ink hidden sm:block mt-1" />
             <span aria-hidden="true" className="sm:hidden text-ink font-bold text-base">↓</span>
           </div>
 
@@ -168,8 +163,8 @@ function HeroVisual() {
               <CheckCircle2 className="size-3.5 text-success" />
               Gap Closed
             </div>
-            <p className="text-[11px] text-slate-600 font-medium">
-              Zero mistakes on retest
+            <p className="text-xs text-slate-600 font-medium">
+              Sign slip resolved on retest
             </p>
           </div>
         </div>
@@ -181,8 +176,7 @@ function HeroVisual() {
             <span>Sample report, not a real student&apos;s result</span>
           </span>
           <span className="font-bold text-primary-text flex items-center gap-1">
-            <Sparkles aria-hidden="true" className="size-3.5 text-primary-deep" />
-            Scored server-side
+            Marked by fixed rules
           </span>
         </div>
       </article>

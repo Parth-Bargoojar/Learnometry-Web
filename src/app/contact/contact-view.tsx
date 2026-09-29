@@ -13,7 +13,6 @@ import {
   MessageCircle,
   RotateCcw,
   ShieldCheck,
-  Sparkles,
   UserCheck,
 } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
@@ -110,7 +109,6 @@ export function ContactView() {
           {/* Hero Header */}
           <div className="mt-6 text-center">
             <div className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-primary/20 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-ink shadow-brutal-sm">
-              <Sparkles className="size-3.5 text-primary-deep" />
               Direct Support &amp; Help Desk
             </div>
             <h1 className="mt-4 font-display text-3xl sm:text-5xl text-ink">
@@ -181,8 +179,8 @@ export function ContactView() {
                   >
                     <div>
                       <div className="font-bold text-ink">{f.name}</div>
-                      <div className="text-[11px] text-slate-500 font-medium">{f.role}</div>
-                      <div className="mt-1 break-all font-mono text-[11px] text-primary-text font-bold">
+                      <div className="text-xs text-slate-500 font-medium">{f.role}</div>
+                      <div className="mt-1 break-all font-mono text-xs text-primary-text font-bold">
                         {f.email}
                       </div>
                     </div>
@@ -338,7 +336,7 @@ export function ContactView() {
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
                   Pre-configured Subject &amp; Starter Template
                 </span>
-                <span className="text-[11px] font-semibold text-primary-text">
+                <span className="text-xs font-semibold text-primary-text">
                   {topic.label}
                 </span>
               </div>

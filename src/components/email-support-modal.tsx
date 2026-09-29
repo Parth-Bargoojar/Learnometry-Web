@@ -16,7 +16,6 @@ import {
   Mail,
   MessageSquare,
   ShieldCheck,
-  Sparkles,
   X,
 } from "lucide-react";
 import {
@@ -160,7 +159,6 @@ export function EmailSupportProvider({ children }: { children: ReactNode }) {
               {/* Badge */}
               <div className="flex items-center gap-2">
                 <span className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-primary/20 px-3 py-1 text-xs font-bold uppercase tracking-wide text-ink shadow-brutal-sm">
-                  <Sparkles className="size-3.5 text-primary-deep" />
                   {topicKey === "founder" ? "Direct Founder Desk" : "Direct Email Support"}
                 </span>
                 <span className="inline-flex items-center gap-1 text-xs font-semibold text-slate-500">
@@ -223,7 +221,7 @@ export function EmailSupportProvider({ children }: { children: ReactNode }) {
               {/* Founder Breakdown Box if topic is founder */}
               {topicKey === "founder" ? (
                 <div className="mt-5 space-y-2 rounded-card border-2 border-ink bg-slate-50 p-3.5 shadow-brutal-sm">
-                  <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1">
+                  <div className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">
                     Direct Founder Inboxes:
                   </div>
                   {INDIVIDUAL_FOUNDER_EMAILS.map((f) => (
@@ -234,14 +232,14 @@ export function EmailSupportProvider({ children }: { children: ReactNode }) {
                       <div className="min-w-0">
                         <span className="font-bold text-ink">{f.name}</span>{" "}
                         <span className="text-slate-400 font-normal">({f.role})</span>
-                        <div className="truncate font-mono text-[11px] text-primary-text font-medium">
+                        <div className="truncate font-mono text-xs text-primary-text font-medium">
                           {f.email}
                         </div>
                       </div>
                       <button
                         type="button"
                         onClick={() => handleCopy(f.email)}
-                        className="shrink-0 inline-flex items-center gap-1 rounded border border-ink/20 bg-slate-100 px-2 py-1 text-[11px] font-bold text-ink hover:bg-slate-200"
+                        className="shrink-0 inline-flex items-center gap-1 rounded border border-ink/20 bg-slate-100 px-2 py-1 text-xs font-bold text-ink hover:bg-slate-200"
                       >
                         {copiedText === f.email ? (
                           <>
@@ -267,7 +265,7 @@ export function EmailSupportProvider({ children }: { children: ReactNode }) {
                         <Mail className="size-4" />
                       </span>
                       <div className="min-w-0">
-                        <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
+                        <div className="text-xs font-bold uppercase tracking-wider text-slate-500">
                           Official Email Address
                         </div>
                         <div className="truncate font-mono text-sm font-bold text-ink sm:text-[15px]">
@@ -316,7 +314,7 @@ export function EmailSupportProvider({ children }: { children: ReactNode }) {
                       <span>Open in Gmail</span>
                       <ExternalLink className="size-3.5 opacity-60" />
                     </div>
-                    <div className="text-[11px] text-slate-500 mt-0.5">
+                    <div className="text-xs text-slate-500 mt-0.5">
                       Opens compose window in new tab
                     </div>
                   </div>
@@ -335,7 +333,7 @@ export function EmailSupportProvider({ children }: { children: ReactNode }) {
                       <span>Default Mail App</span>
                       <Mail className="size-3.5 opacity-60" />
                     </div>
-                    <div className="text-[11px] text-slate-500 mt-0.5">
+                    <div className="text-xs text-slate-500 mt-0.5">
                       Apple Mail, Outlook, phone app
                     </div>
                   </div>

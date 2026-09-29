@@ -64,15 +64,26 @@ export function KeyAnswers() {
         {answers.map((answer) => (
           <article
             key={answer.question}
-            className="flex flex-col rounded-card-lg border-2 border-ink bg-surface p-6 shadow-brutal sm:p-7"
+            className="flex flex-col rounded-card-lg border border-border-subtle bg-surface p-6 sm:p-7"
           >
             <h3 className="font-display text-xl leading-snug text-ink text-balance">
               {answer.question}
             </h3>
             <div className="mt-4 flex flex-col gap-3 text-[15px] leading-relaxed text-slate-600">
-              {answer.body.map((paragraph) => (
-                <p key={paragraph.slice(0, 40)}>{paragraph}</p>
-              ))}
+              <p>{answer.body[0]}</p>
+              {/* Native disclosure: the full answer stays in the page source for
+                  search and AI engines, but readers see the short version first. */}
+              <details className="group">
+                <summary className="inline-flex cursor-pointer items-center gap-1 text-sm font-semibold text-primary-text underline touch:min-h-11">
+                  <span className="group-open:hidden">Read more</span>
+                  <span className="hidden group-open:inline">Show less</span>
+                </summary>
+                <div className="mt-3 flex flex-col gap-3">
+                  {answer.body.slice(1).map((paragraph) => (
+                    <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+                  ))}
+                </div>
+              </details>
             </div>
           </article>
         ))}

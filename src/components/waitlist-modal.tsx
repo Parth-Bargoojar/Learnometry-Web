@@ -8,7 +8,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { ArrowRight, CheckCircle2, Loader2, Mail, Sparkles, X } from "lucide-react";
+import { ArrowRight, CheckCircle2, Loader2, Mail, X } from "lucide-react";
 import { buttonClasses } from "@/components/ui/button";
 import { submitWaitlist } from "@/lib/waitlist";
 import { WaitlistConsent } from "@/components/waitlist-consent";
@@ -143,7 +143,6 @@ export function WaitlistProvider({ children }: { children: ReactNode }) {
               </button>
 
               <span className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-primary/20 px-3 py-1 text-xs font-bold uppercase tracking-wide text-ink shadow-brutal-sm">
-                <Sparkles className="size-3.5 text-primary-deep" />
                 Early Access Waitlist
               </span>
 
@@ -242,7 +241,7 @@ export function WaitlistProvider({ children }: { children: ReactNode }) {
                         </>
                       ) : (
                         <>
-                          <span>Join Waitlist</span>
+                          <span>Get my free diagnostic</span>
                           <ArrowRight aria-hidden="true" className="size-4.5" />
                         </>
                       )}

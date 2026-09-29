@@ -39,7 +39,7 @@ export function Faq() {
                   {item.question}
                   <ChevronDown
                     aria-hidden="true"
-                    className={`size-5 shrink-0 text-primary-text transition-transform duration-200 ${
+                    className={`size-5 shrink-0 text-slate-600 transition-transform duration-200 ${
                       isOpen ? "rotate-180" : ""
                     }`}
                   />

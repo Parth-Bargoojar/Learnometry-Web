@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, CheckCircle2, Loader2, Mail, Sparkles } from "lucide-react";
+import { ArrowRight, CheckCircle2, Loader2, Mail } from "lucide-react";
 import { Container } from "@/components/ui/section";
 import { submitWaitlist } from "@/lib/waitlist";
 import { WaitlistConsent } from "@/components/waitlist-consent";
@@ -44,9 +44,8 @@ export function FinalCta() {
     <section className="final-screen snap-section flex flex-col justify-center bg-primary-deep py-10">
       <Container>
         <div className="cta-card mx-auto flex max-w-3xl flex-col items-center gap-5 rounded-card-lg border-2 border-ink bg-surface p-6 text-center shadow-brutal-lg sm:p-9">
-          <span className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-primary/20 px-3 py-1 text-xs font-bold uppercase tracking-wide text-ink shadow-brutal-sm">
-            <Sparkles aria-hidden="true" className="size-3.5 text-primary-deep" />
-            Early Access
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-border-subtle bg-slate-100 px-3 py-1 text-xs font-bold uppercase tracking-wide text-ink">
+            Early access
           </span>
 
           <h2 className="font-display text-display-lg text-balance text-ink">
@@ -66,7 +65,7 @@ export function FinalCta() {
             ].map((item) => (
               <li
                 key={item}
-                className="inline-flex items-center gap-1.5 rounded-full border-2 border-ink bg-surface px-3 py-1 text-xs font-semibold text-ink shadow-brutal-sm"
+                className="inline-flex items-center gap-1.5 rounded-full border border-border-subtle bg-surface px-3 py-1 text-xs font-semibold text-ink"
               >
                 <CheckCircle2 aria-hidden="true" className="size-3.5 shrink-0 text-success" />
                 {item}
@@ -155,7 +154,7 @@ export function FinalCta() {
                       </>
                     ) : (
                       <>
-                        <span>Reserve my free diagnostic</span>
+                        <span>Get my free diagnostic</span>
                         <ArrowRight aria-hidden="true" className="size-4.5" />
                       </>
                     )}

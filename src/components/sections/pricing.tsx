@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Check, Sparkles, Zap } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import Link from "next/link";
 import { buttonClasses } from "@/components/ui/button";
 import { Section, SectionHeading } from "@/components/ui/section";
@@ -16,14 +16,13 @@ const plans = [
     validity: "30-day pass",
     dailyAllowance: "200 credits / day",
     dailyResetNotice: "Refills at midnight, every day",
-    modelAccess: "Fast or Standard (you choose)",
     summary: "Enough for one diagnostic and a daily concept session.",
     features: [
       "200 credits a day, refilled at 00:00 IST",
       "Full diagnostic, root-cause report, ranked plan and retests",
       "Auto-renews only if you turn it on",
     ],
-    cta: "Reserve Starter at ₹199",
+    cta: "Get early access",
     recommended: false,
   },
   {
@@ -34,14 +33,13 @@ const plans = [
     validity: "30-day pass",
     dailyAllowance: "350 credits / day",
     dailyResetNotice: "Refills at midnight, every day",
-    modelAccess: "Chosen automatically",
-    summary: "75% more credits a day than Starter, engine chosen for you.",
+    summary: "75% more credits a day than Starter.",
     features: [
       "350 credits a day, incl. Deep reasoning",
       "Plan adapts after every practice session",
       "Step-by-step breakdowns of hard problems",
     ],
-    cta: "Reserve Plus at ₹299",
+    cta: "Get early access",
     recommended: true,
   },
   {
@@ -52,14 +50,13 @@ const plans = [
     validity: "30-day pass",
     dailyAllowance: "500 credits / day",
     dailyResetNotice: "Refills at midnight, every day",
-    modelAccess: "Automatic, extra-deep reasoning",
     summary: "For the final-months sprint, retesting several concepts a day.",
     features: [
       "500 credits a day, with extra reasoning depth",
       "60-minute Deep diagnostic, plan re-optimized daily",
       "Priority queue at peak hours",
     ],
-    cta: "Reserve Pro at ₹349",
+    cta: "Get early access",
     recommended: false,
   },
 ];
@@ -77,9 +74,8 @@ export function Pricing() {
       />
 
       {/* Zero-assumption free trial banner */}
-      <div className="mx-auto mt-6 max-w-2xl rounded-btn border-2 border-ink bg-primary/15 px-4 py-2.5 text-center text-sm font-semibold text-ink shadow-brutal-sm">
+      <div className="mx-auto mt-6 max-w-2xl rounded-btn border border-border-subtle bg-slate-100 px-4 py-2.5 text-center text-sm font-semibold text-ink">
         <span className="inline-flex items-center gap-1.5">
-          <Sparkles className="size-4 text-primary-deep" />
           <span><strong>Not ready to pay?</strong> Everyone on the waitlist gets a full diagnostic free on launch day, no card required.</span>
         </span>
       </div>
@@ -88,10 +84,10 @@ export function Pricing() {
         {plans.map((plan) => (
           <article
             key={plan.code}
-            className={`flex flex-col justify-between rounded-card-lg border-2 border-ink bg-surface p-5 transition-transform ${
+            className={`flex flex-col justify-between rounded-card-lg border-2 bg-surface p-5 ${
               plan.recommended
-                ? "shadow-brutal-lg lg:-translate-y-2 ring-2 ring-primary"
-                : "shadow-brutal"
+                ? "border-ink shadow-brutal-lg lg:-translate-y-2 ring-2 ring-primary"
+                : "border-border-subtle"
             }`}
           >
             <div>
@@ -115,26 +111,15 @@ export function Pricing() {
                 </span>
               </p>
 
-              {/* Model access badge */}
-              <div className="mt-3 rounded-btn border border-ink/20 bg-slate-50 px-3 py-2">
-                <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                  Model access
-                </p>
-                <p className="text-sm font-bold text-ink flex items-center gap-1.5 mt-0.5">
-                  <Zap className="size-4 text-primary-deep" />
-                  {plan.modelAccess}
-                </p>
-              </div>
-
               {/* Daily allowance callout */}
-              <div className="mt-2.5 rounded-btn border-2 border-ink bg-primary/10 px-3 py-2">
+              <div className="mt-2.5 rounded-btn border border-border-subtle bg-slate-50 px-3 py-2">
                 <p className="text-xs font-bold uppercase tracking-wider text-primary-text">
                   Daily allowance
                 </p>
                 <p className="text-sm font-extrabold text-ink">
                   {plan.dailyAllowance}
                 </p>
-                <p className="text-[11px] font-medium text-slate-600">
+                <p className="text-xs font-medium text-slate-600">
                   {plan.dailyResetNotice}
                 </p>
               </div>
@@ -160,6 +145,7 @@ export function Pricing() {
               <button
                 type="button"
                 onClick={openWaitlistModal}
+                aria-label={`${plan.cta}, ${plan.name} plan at ${plan.price}`}
                 className={`${buttonClasses(plan.recommended ? "primary" : "secondary", "md")} w-full cursor-pointer`}
               >
                 {plan.cta}
@@ -172,6 +158,11 @@ export function Pricing() {
       <div className="mt-8 flex flex-col items-center justify-center gap-2 text-center">
         <p className="text-sm font-medium text-slate-600">
           Prices in INR, valid 30 days, credits reset at 00:00. No hidden charges.
+        </p>
+        <p className="max-w-2xl text-sm text-slate-600">
+          Credits pay for diagnostics, plan updates and practice sessions. New
+          students get 100 welcome credits, enough for a full diagnostic, the
+          report and a first study plan.
         </p>
         <Link
           href="/pricing"

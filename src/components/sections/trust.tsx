@@ -10,7 +10,7 @@ import { Section, SectionHeading } from "@/components/ui/section";
 const principles: { icon: LucideIcon; title: string; body: string }[] = [
   {
     icon: Calculator,
-    title: "Fixed marking rules, run server-side",
+    title: "The same marking rules for every student",
     body: "Negative marking included, identical for every student. No model decides whether your answer was right.",
   },
   {
@@ -39,9 +39,9 @@ export function Trust() {
         {principles.map((principle) => (
           <article
             key={principle.title}
-            className="flex flex-col gap-3 rounded-card-lg border-2 border-ink bg-surface p-5 sm:p-6 shadow-brutal transition-transform duration-200 hover:-translate-y-1"
+            className="flex flex-col gap-3 rounded-card-lg border border-border-subtle bg-surface p-5 sm:p-6"
           >
-            <span className="flex size-11 items-center justify-center rounded-card-sm border-2 border-ink bg-primary/15">
+            <span className="flex size-11 items-center justify-center rounded-card-sm border border-border-subtle bg-slate-100">
               <principle.icon aria-hidden="true" className="size-5 text-ink" />
             </span>
             <h3 className="font-display text-lg leading-snug text-ink">

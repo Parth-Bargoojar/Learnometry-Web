@@ -108,10 +108,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f1f5f9" },
-    { media: "(prefers-color-scheme: dark)", color: "#0f172a" },
-  ],
+  /* The site is light-only (colorScheme below), so the browser bar stays light too. */
+  themeColor: "#f1f5f9",
   colorScheme: "light",
 };
 

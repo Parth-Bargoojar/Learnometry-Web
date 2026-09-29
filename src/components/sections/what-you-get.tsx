@@ -39,7 +39,7 @@ export function WhatYouGet() {
             ].map((label) => (
               <span
                 key={label}
-                className="rounded-full border border-border-subtle bg-slate-50 px-2 py-0.5 text-[11px] font-medium text-slate-600"
+                className="rounded-full border border-border-subtle bg-slate-50 px-2 py-0.5 text-xs font-medium text-slate-600"
               >
                 {label}
               </span>
@@ -62,13 +62,13 @@ export function WhatYouGet() {
                 key={row.p}
                 className="flex items-center gap-2 rounded-card-sm border border-border-subtle bg-slate-50 px-2.5 py-1.5"
               >
-                <span className="rounded-full border border-ink bg-surface px-1.5 text-[11px] font-bold text-ink">
+                <span className="rounded-full border border-ink bg-surface px-1.5 text-xs font-bold text-ink">
                   {row.p}
                 </span>
                 <span className="flex-1 truncate text-xs font-medium text-ink">
                   {row.task}
                 </span>
-                <span className="text-[11px] font-semibold text-slate-500">
+                <span className="text-xs font-semibold text-slate-500">
                   {row.time}
                 </span>
               </li>
@@ -82,7 +82,7 @@ export function WhatYouGet() {
           body="A parallel retest measures the change. Where the evidence is thin, your report says so."
         >
           <div className="flex flex-col gap-1.5">
-            <DeltaRow concept="Quadratic Eqns" from={34} to={71} />
+            <DeltaRow concept="Quadratic Eqns" from={34} to={78} />
             <DeltaRow concept="Sequences" from={58} to={64} />
             <div className="flex flex-col gap-1.5 rounded-card-sm border border-border-subtle bg-slate-50 px-3 py-2">
               <span className="text-xs font-medium text-ink">Complex Numbers</span>
@@ -107,8 +107,8 @@ function Card({
   children: React.ReactNode;
 }) {
   return (
-    <article className="flex flex-col rounded-card-lg border-2 border-ink bg-surface p-5 shadow-brutal transition-all duration-200 hover:-translate-y-1.5 hover:shadow-brutal-lg">
-      <span className="flex size-10 items-center justify-center rounded-card-sm border-2 border-ink bg-primary/15">
+    <article className="flex flex-col rounded-card-lg border border-border-subtle bg-surface p-5">
+      <span className="flex size-10 items-center justify-center rounded-card-sm border border-border-subtle bg-slate-100">
         <Icon aria-hidden className="size-5 text-ink" />
       </span>
       <h3 className="mt-4 font-display text-[17px] leading-snug text-ink">

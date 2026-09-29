@@ -5,7 +5,6 @@ import {
   Check,
   HelpCircle,
   RotateCcw,
-  Sparkles,
   Zap,
   ShieldCheck,
   Cpu,
@@ -41,7 +40,7 @@ const pricingPlans = [
       "Standard generation queue",
       "30-day pass · auto-renews only if you turn it on",
     ],
-    cta: "Reserve Starter Spot",
+    cta: "Get early access",
     recommended: false,
   },
   {
@@ -66,7 +65,7 @@ const pricingPlans = [
       "Priority generation queue",
       "30-day pass · auto-renews only if you turn it on",
     ],
-    cta: "Reserve Plus Spot",
+    cta: "Get early access",
     recommended: true,
   },
   {
@@ -91,7 +90,7 @@ const pricingPlans = [
       "Top of the generation queue at peak hours",
       "30-day pass · auto-renews only if you turn it on",
     ],
-    cta: "Reserve Pro Spot",
+    cta: "Get early access",
     recommended: false,
   },
 ];
@@ -174,7 +173,6 @@ export function PricingView() {
           {/* Hero Header */}
           <div className="text-center">
             <div className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-primary/20 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-ink shadow-brutal-sm">
-              <Sparkles className="size-3.5 text-primary-deep" />
               Pricing · No surprise bills
             </div>
             <h1 className="mt-4 font-display text-3xl sm:text-5xl text-ink">
@@ -245,7 +243,7 @@ export function PricingView() {
                       <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
                         AI Model Access
                       </span>
-                      <span className="text-[11px] font-bold rounded bg-slate-200 px-1.5 py-0.5 text-slate-700">
+                      <span className="text-xs font-bold rounded bg-slate-200 px-1.5 py-0.5 text-slate-700">
                         {plan.modelBadge}
                       </span>
                     </div>

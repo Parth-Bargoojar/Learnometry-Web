@@ -125,7 +125,7 @@ export default function CookiePolicyPage() {
                 <p className="mt-2">
                   The one thing that leaves your browser is the email address you choose to
                   type into the waitlist form, and only at the moment you press{" "}
-                  <em>Join Waitlist</em>. That is described in our{" "}
+                  <em>Get my free diagnostic</em>. That is described in our{" "}
                   <Link href="/privacy" className="text-primary-text underline">
                     Privacy Policy
                   </Link>
